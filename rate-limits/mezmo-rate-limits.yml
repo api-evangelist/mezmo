@@ -1,0 +1,78 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Mezmo
+providerId: mezmo
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+description: |
+  Best-effort capture of Mezmo's rate-limit posture. Mezmo enforces ingestion-rate and
+  request-rate limits but does not publish a single canonical limits table. Verify with
+  support for contract-specific numbers.
+sources:
+  - https://docs.mezmo.com/log-analysis-api
+  - https://docs.mezmo.com/pipeline-api
+limits:
+  - api: mezmo-log-ingestion-api
+    scope: per-account
+    policy: token-bucket
+    description: |
+      Log ingestion accepts batched JSON. Practical limits: keep individual batch payloads
+      under 10 MB. Sustained ingestion is bounded by the contracted ingest volume; bursts
+      above the contracted rate may be queued, throttled with 429, or dropped depending on
+      plan.
+    entries:
+      - label: Batch payload size
+        limit: 10485760
+        unit: bytes
+        timeFrame: request
+      - label: Lines per batch (recommended)
+        limit: 10000
+        unit: lines
+        timeFrame: request
+      - label: Sustained ingest rate
+        limit: 'contract'
+        unit: bytes/sec
+        timeFrame: second
+        description: Bounded by contracted volume; check usage/v2 for actual consumption.
+  - api: mezmo-log-export-api
+    scope: per-account
+    policy: pagination
+    description: |
+      V1 export is plan-bounded for total result size. V2 export is paginated and rate-limited
+      to protect storage; clients should respect 429s and continuation cursors.
+    entries:
+      - label: V2 export page size
+        limit: 10000
+        unit: lines
+        timeFrame: request
+  - api: mezmo-pipeline-api
+    scope: per-account
+    policy: token-bucket
+    description: |
+      Control-plane rate limit. CRUD against pipelines, sources, processors, destinations.
+      Default control-plane RPS is generous; bulk operations should batch where possible.
+    entries:
+      - label: Control plane requests per minute
+        limit: 600
+        unit: requests
+        timeFrame: minute
+        description: Indicative — verify with support.
+  - api: mezmo-pipeline-classification-api
+    scope: per-account
+    policy: token-bucket
+    description: |
+      AI-assisted classification calls are more expensive; expect lower per-minute caps and
+      possible 429s under burst load.
+    entries:
+      - label: Classification requests per minute
+        limit: 60
+        unit: requests
+        timeFrame: minute
+        description: Indicative — verify with support.
+notes:
+  - Mezmo returns standard HTTP 429 when limits are exceeded; clients should retry with
+    exponential backoff and respect Retry-After when present.
+  - Suspension state (ingestion suspended) returns 403 on the ingestion endpoint until
+    /v1/config/ingestion/resume is called.

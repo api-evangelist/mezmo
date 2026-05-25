@@ -1,0 +1,173 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mezmo Edge API — Clients
+  description: Register edge clients, send heartbeats, fetch tasks, and submit results for self-hosted Mezmo pipeline instances.
+  tags:
+  - Mezmo
+  - Edge
+  - Pipelines
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    MEZMO_PIPELINE_KEY: MEZMO_PIPELINE_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: edge-clients
+    baseUri: https://api.mezmo.com/v3/edge
+    resources:
+    - name: clients
+      path: /clients
+      operations:
+      - name: listedgeclients
+        method: GET
+        description: Mezmo List Edge Clients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: registeredgeclient
+        method: POST
+        description: Mezmo Register Edge Client
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: clients-clientid
+      path: /clients/{clientId}
+      operations:
+      - name: getedgeclient
+        method: GET
+        description: Mezmo Get Edge Client
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deregisteredgeclient
+        method: DELETE
+        description: Mezmo Deregister Edge Client
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: clients-heartbeat
+      path: /clients/{clientId}/heartbeat
+      operations:
+      - name: sendheartbeat
+        method: POST
+        description: Mezmo Send Heartbeat
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: false
+    - name: clients-tasks
+      path: /clients/{clientId}/tasks
+      operations:
+      - name: listedgetasks
+        method: GET
+        description: Mezmo List Pending Tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: clients-task-result
+      path: /clients/{clientId}/tasks/{taskId}/result
+      operations:
+      - name: submittaskresult
+        method: POST
+        description: Mezmo Submit Task Result
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Token {{env.MEZMO_PIPELINE_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: edge-clients-mcp
+    port: 9090
+    transport: http
+    tools:
+    - name: mezmo-list-edge-clients
+      description: Mezmo List Edge Clients
+      hints:
+        readOnly: true
+      call: edge-clients.listedgeclients
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-register-edge-client
+      description: Mezmo Register Edge Client
+      call: edge-clients.registeredgeclient
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-get-edge-client
+      description: Mezmo Get Edge Client
+      hints:
+        readOnly: true
+      call: edge-clients.getedgeclient
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-deregister-edge-client
+      description: Mezmo Deregister Edge Client
+      hints:
+        destructive: true
+      call: edge-clients.deregisteredgeclient
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-send-heartbeat
+      description: Mezmo Send Heartbeat
+      call: edge-clients.sendheartbeat
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-list-edge-tasks
+      description: Mezmo List Pending Tasks
+      hints:
+        readOnly: true
+      call: edge-clients.listedgetasks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-submit-task-result
+      description: Mezmo Submit Task Result
+      call: edge-clients.submittaskresult
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mezmo Pipeline API — Sources
+  description: CRUD over pipeline source nodes (OpenTelemetry, HTTP, S3, Kafka, etc.).
+  tags:
+  - Mezmo
+  - Pipelines
+  - Sources
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    MEZMO_PIPELINE_KEY: MEZMO_PIPELINE_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pipeline-sources
+    baseUri: https://api.mezmo.com/v3
+    resources:
+    - name: sources
+      path: /pipelines/{pipelineId}/sources
+      operations:
+      - name: listsources
+        method: GET
+        description: Mezmo List Sources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsource
+        method: POST
+        description: Mezmo Create Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: sources-nodeid
+      path: /pipelines/{pipelineId}/sources/{nodeId}
+      operations:
+      - name: getsource
+        method: GET
+        description: Mezmo Get Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatesource
+        method: PUT
+        description: Mezmo Update Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+      - name: deletesource
+        method: DELETE
+        description: Mezmo Delete Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Token {{env.MEZMO_PIPELINE_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: pipeline-sources-mcp
+    port: 9090
+    transport: http
+    tools:
+    - name: mezmo-list-sources
+      description: Mezmo List Sources
+      hints:
+        readOnly: true
+      call: pipeline-sources.listsources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-create-source
+      description: Mezmo Create Source
+      call: pipeline-sources.createsource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-get-source
+      description: Mezmo Get Source
+      hints:
+        readOnly: true
+      call: pipeline-sources.getsource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-update-source
+      description: Mezmo Update Source
+      call: pipeline-sources.updatesource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-delete-source
+      description: Mezmo Delete Source
+      hints:
+        destructive: true
+      call: pipeline-sources.deletesource
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,199 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mezmo Pipeline API — Pipelines
+  description: CRUD over Mezmo Telemetry Pipelines including publish, revert, audit, and health.
+  tags:
+  - Mezmo
+  - Pipelines
+  - Telemetry
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    MEZMO_PIPELINE_KEY: MEZMO_PIPELINE_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pipeline-pipelines
+    baseUri: https://api.mezmo.com/v3
+    resources:
+    - name: pipelines
+      path: /pipelines
+      operations:
+      - name: listpipelines
+        method: GET
+        description: Mezmo List Pipelines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createpipeline
+        method: POST
+        description: Mezmo Create Pipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: pipelines-pipelineid
+      path: /pipelines/{pipelineId}
+      operations:
+      - name: getpipeline
+        method: GET
+        description: Mezmo Get Pipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepipeline
+        method: PUT
+        description: Mezmo Update Pipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+      - name: deletepipeline
+        method: DELETE
+        description: Mezmo Delete Pipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pipelines-publish
+      path: /pipelines/{pipelineId}/publish
+      operations:
+      - name: publishpipeline
+        method: POST
+        description: Mezmo Publish Pipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pipelines-revert
+      path: /pipelines/{pipelineId}/revert
+      operations:
+      - name: revertpipeline
+        method: POST
+        description: Mezmo Revert Pipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pipelines-audit
+      path: /pipelines/{pipelineId}/audit
+      operations:
+      - name: listauditevents
+        method: GET
+        description: Mezmo List Audit Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pipelines-health
+      path: /pipelines/{pipelineId}/health
+      operations:
+      - name: getpipelinehealth
+        method: GET
+        description: Mezmo Get Pipeline Health
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Token {{env.MEZMO_PIPELINE_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: pipeline-pipelines-mcp
+    port: 9090
+    transport: http
+    tools:
+    - name: mezmo-list-pipelines
+      description: Mezmo List Pipelines
+      hints:
+        readOnly: true
+      call: pipeline-pipelines.listpipelines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-create-pipeline
+      description: Mezmo Create Pipeline
+      call: pipeline-pipelines.createpipeline
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-get-pipeline
+      description: Mezmo Get Pipeline
+      hints:
+        readOnly: true
+      call: pipeline-pipelines.getpipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-update-pipeline
+      description: Mezmo Update Pipeline
+      call: pipeline-pipelines.updatepipeline
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-delete-pipeline
+      description: Mezmo Delete Pipeline
+      hints:
+        destructive: true
+      call: pipeline-pipelines.deletepipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-publish-pipeline
+      description: Mezmo Publish Pipeline
+      call: pipeline-pipelines.publishpipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-revert-pipeline
+      description: Mezmo Revert Pipeline
+      call: pipeline-pipelines.revertpipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-list-audit-events
+      description: Mezmo List Audit Events
+      hints:
+        readOnly: true
+      call: pipeline-pipelines.listauditevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-get-pipeline-health
+      description: Mezmo Get Pipeline Health
+      hints:
+        readOnly: true
+      call: pipeline-pipelines.getpipelinehealth
+      outputParameters:
+      - type: object
+        mapping: $.

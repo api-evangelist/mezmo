@@ -1,0 +1,105 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Usage API
+  description: |
+    Query log usage by app, host, or tag for the account. V2 reports detailed
+    byte-based consumption suitable for chargeback and FinOps.
+  version: '2.0'
+servers:
+- url: https://api.mezmo.com
+tags:
+- name: Usage
+security:
+- AccessToken: []
+paths:
+  /v1/usage/{type}:
+    get:
+      tags:
+      - Usage
+      summary: Get Usage By Type
+      operationId: getUsageByType
+      parameters:
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - apps
+          - hosts
+          - tags
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Usage rollup by resource.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsageEntry'
+  /v2/usage:
+    get:
+      tags:
+      - Usage
+      summary: Get Detailed Usage
+      operationId: getUsageDetailed
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: groupby
+        in: query
+        schema:
+          type: string
+          enum:
+          - app
+          - host
+          - tag
+          - level
+      responses:
+        '200':
+          description: Detailed usage rollup with byte and line counts.
+components:
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer
+  schemas:
+    UsageEntry:
+      type: object
+      properties:
+        name:
+          type: string
+        bytes:
+          type: integer
+          format: int64
+        lines:
+          type: integer
+          format: int64
+        from:
+          type: integer
+          format: int64
+        to:
+          type: integer
+          format: int64

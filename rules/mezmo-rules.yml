@@ -1,0 +1,58 @@
+extends:
+  - spectral:oas
+rules:
+  mezmo-title-case-summary:
+    description: Operation summaries should use Title Case.
+    given: $.paths[*][*].summary
+    severity: warn
+    message: 'Operation summaries should use Title Case (e.g. "List Pipelines", not "list pipelines").'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-z0-9]*)(\s+(A|An|The|And|Or|Of|In|On|For|To|By|With|From|As|At|Vs)|\s+[A-Z][a-zA-Z0-9]*)*$'
+  mezmo-https-only:
+    description: All servers must use HTTPS.
+    given: $.servers[*].url
+    severity: error
+    message: 'Mezmo APIs are only served over HTTPS.'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  mezmo-bearer-token-auth:
+    description: Mezmo APIs require bearer token authentication.
+    given: $.components.securitySchemes
+    severity: warn
+    message: 'Mezmo APIs use bearer token auth (Authorization: Token ...).'
+    then:
+      function: truthy
+  mezmo-mezmo-host:
+    description: Servers should be under mezmo.com.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '\.mezmo\.com'
+  mezmo-operation-id-camelcase:
+    description: operationId should be camelCase.
+    given: $.paths[*][*].operationId
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+  mezmo-tag-required:
+    description: Every operation must be tagged.
+    given: $.paths[*][*]
+    severity: error
+    then:
+      field: tags
+      function: truthy
+  mezmo-description-required:
+    description: Top-level info.description is required.
+    given: $.info
+    severity: error
+    then:
+      field: description
+      function: truthy

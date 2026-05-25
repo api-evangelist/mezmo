@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mezmo": "https://www.mezmo.com/ns#",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "logo": "schema:logo",
+    "LogLine": "mezmo:LogLine",
+    "Pipeline": "mezmo:Pipeline",
+    "Source": "mezmo:Source",
+    "Processor": "mezmo:Processor",
+    "Destination": "mezmo:Destination",
+    "View": "mezmo:View",
+    "PresetAlert": "mezmo:PresetAlert",
+    "ArchiveConfig": "mezmo:ArchiveConfig",
+    "ExclusionRule": "mezmo:ExclusionRule",
+    "EdgeClient": "mezmo:EdgeClient",
+    "Account": "mezmo:Account",
+    "timestamp": "mezmo:timestamp",
+    "line": "mezmo:line",
+    "app": "mezmo:app",
+    "host": "mezmo:host",
+    "level": "mezmo:level",
+    "env": "mezmo:env",
+    "tags": "schema:keywords",
+    "meta": "mezmo:meta",
+    "integration": "mezmo:integration",
+    "bucket": "mezmo:bucket",
+    "region": "mezmo:region",
+    "ingestionEndpoint": {
+      "@id": "mezmo:ingestionEndpoint",
+      "@type": "@id"
+    },
+    "apiEndpoint": {
+      "@id": "mezmo:apiEndpoint",
+      "@type": "@id"
+    },
+    "pipelineId": "mezmo:pipelineId",
+    "viewId": "mezmo:viewId",
+    "presetId": "mezmo:presetId",
+    "clientId": "mezmo:clientId"
+  }
+}

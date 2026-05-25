@@ -1,0 +1,111 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mezmo Ingestion Control — Exclusions
+  description: Manage exclusion rules that drop log lines before storage.
+  tags:
+  - Mezmo
+  - Ingestion
+  - Exclusions
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    MEZMO_ACCESS_TOKEN: MEZMO_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: ingestion-control-exclusions
+    baseUri: https://api.mezmo.com/v1/config/ingestion
+    resources:
+    - name: exclusions
+      path: /exclusions
+      operations:
+      - name: listexclusions
+        method: GET
+        description: Mezmo List Exclusion Rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createexclusion
+        method: POST
+        description: Mezmo Create Exclusion Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: exclusions-ruleid
+      path: /exclusions/{ruleid}
+      operations:
+      - name: updateexclusion
+        method: PATCH
+        description: Mezmo Update Exclusion Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+      - name: deleteexclusion
+        method: DELETE
+        description: Mezmo Delete Exclusion Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Token {{env.MEZMO_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: ingestion-control-exclusions-mcp
+    port: 9090
+    transport: http
+    tools:
+    - name: mezmo-list-exclusions
+      description: Mezmo List Exclusion Rules
+      hints:
+        readOnly: true
+      call: ingestion-control-exclusions.listexclusions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-create-exclusion
+      description: Mezmo Create Exclusion Rule
+      call: ingestion-control-exclusions.createexclusion
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-update-exclusion
+      description: Mezmo Update Exclusion Rule
+      call: ingestion-control-exclusions.updateexclusion
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-delete-exclusion
+      description: Mezmo Delete Exclusion Rule
+      hints:
+        destructive: true
+      call: ingestion-control-exclusions.deleteexclusion
+      outputParameters:
+      - type: object
+        mapping: $.

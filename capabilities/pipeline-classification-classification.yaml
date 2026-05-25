@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mezmo Pipeline Classification API — Classification
+  description: AI-assisted profiling, parser inference, and regex generation for pipeline samples.
+  tags:
+  - Mezmo
+  - Pipelines
+  - Classification
+  - AI
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    MEZMO_PIPELINE_KEY: MEZMO_PIPELINE_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pipeline-classification-classification
+    baseUri: https://api.mezmo.com/v3/classification
+    resources:
+    - name: profile
+      path: /profile
+      operations:
+      - name: profilesample
+        method: POST
+        description: Mezmo Profile Sample Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: parse
+      path: /parse
+      operations:
+      - name: suggestparser
+        method: POST
+        description: Mezmo Suggest Parser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: regex
+      path: /regex
+      operations:
+      - name: generateregex
+        method: POST
+        description: Mezmo Generate Regex
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Token {{env.MEZMO_PIPELINE_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: pipeline-classification-classification-mcp
+    port: 9090
+    transport: http
+    tools:
+    - name: mezmo-profile-sample
+      description: Mezmo Profile Sample Data
+      call: pipeline-classification-classification.profilesample
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-suggest-parser
+      description: Mezmo Suggest Parser
+      call: pipeline-classification-classification.suggestparser
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-generate-regex
+      description: Mezmo Generate Regex
+      call: pipeline-classification-classification.generateregex
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

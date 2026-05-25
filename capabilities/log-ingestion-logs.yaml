@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mezmo Log Ingestion API — Logs
+  description: Self-contained Naftiko capability for ingesting log lines into Mezmo at logs.mezmo.com.
+  tags:
+  - Mezmo
+  - Logs
+  - Ingestion
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    MEZMO_INGESTION_KEY: MEZMO_INGESTION_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: log-ingestion-logs
+    baseUri: https://logs.mezmo.com
+    description: Mezmo log ingestion endpoint.
+    resources:
+    - name: logs-ingest
+      path: /logs/ingest
+      operations:
+      - name: ingestlogs
+        method: POST
+        description: Mezmo Ingest Logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hostname
+          in: query
+          type: string
+          required: true
+          description: Originating hostname.
+        - name: tags
+          in: query
+          type: string
+          required: false
+          description: Comma-separated tags.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Batch of lines (JSON).
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Token {{env.MEZMO_INGESTION_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: log-ingestion-logs-rest
+    port: 8080
+    description: REST adapter for Mezmo log ingestion.
+    resources:
+    - path: /v1/logs/ingest
+      name: logs-ingest
+      description: REST surface for log ingestion.
+      operations:
+      - method: POST
+        name: ingestlogs
+        description: Mezmo Ingest Logs
+        call: log-ingestion-logs.ingestlogs
+        with:
+          hostname: rest.query.hostname
+          tags: rest.query.tags
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: log-ingestion-logs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Mezmo log ingestion.
+    tools:
+    - name: mezmo-ingest-logs
+      description: Send a batch of log lines to Mezmo.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: log-ingestion-logs.ingestlogs
+      with:
+        hostname: tools.hostname
+        tags: tools.tags
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

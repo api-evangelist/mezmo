@@ -1,0 +1,69 @@
+vocabulary: Mezmo
+version: '0.1'
+provider: Mezmo
+providerId: mezmo
+created: '2026-05-25'
+modified: '2026-05-25'
+description: |
+  Operational and capability vocabulary for the Mezmo platform — log analysis and telemetry
+  pipelines, formerly LogDNA. Terms reflect Mezmo's product and API surface.
+domains:
+  - Observability
+  - Log Management
+  - Telemetry Pipelines
+  - AI SRE
+concepts:
+  - term: Log Line
+    description: A single log record carrying timestamp, line body, app, host, level, env, and free-form metadata.
+    aliases:
+      - log event
+      - log record
+  - term: Ingestion
+    description: The act of pushing logs into Mezmo at logs.mezmo.com/logs/ingest.
+  - term: View
+    description: A saved query definition over hosts, apps, levels, tags, and free-text filters. Alerts attach to views.
+  - term: Preset Alert
+    description: A reusable alert definition encapsulating triggers, frequency, and notification channels.
+  - term: Archive
+    description: Cold-storage destination (S3, GCS, Azure Blob, IBM COS, DigitalOcean Spaces) for log retention beyond plan limits.
+  - term: Exclusion Rule
+    description: A filter that drops matching lines before storage to control costs.
+  - term: Ingestion Suspension
+    description: Two-step account-wide ingestion stop with confirmation step to prevent accidental cutoff.
+  - term: Telemetry Pipeline
+    description: A directed graph of sources, processors, and destinations that ingests, transforms, and routes telemetry.
+    aliases:
+      - data pipeline
+      - observability pipeline
+  - term: Source
+    description: A pipeline input — OpenTelemetry, HTTP, S3, Kafka, Vector, agent, etc.
+  - term: Processor
+    description: A pipeline transformation — VRL, parse, filter, redact, sample, route.
+  - term: Destination
+    description: A pipeline output — Datadog, Splunk, Elastic, Loki, S3, Kafka, Honeycomb, Sumo Logic, New Relic, OpenTelemetry.
+  - term: Edge Client
+    description: A self-hosted pipeline instance polling the control plane for configuration and tasks.
+  - term: Classification
+    description: AI-assisted profiling, parser inference, and regex generation against pipeline samples.
+  - term: AURA
+    description: Mezmo's open-source Rust agent framework — declarative TOML, MCP tools, RAG, OpenAI-compatible API.
+  - term: AI SRE
+    description: Mezmo's agentic root-cause-analysis surface; bundled into the platform license.
+  - term: Service Key
+    description: Deprecated legacy auth credential; superseded by access tokens.
+  - term: Access Token
+    description: Bearer credential used in `Authorization: Token {ACCESS_TOKEN}` for the Mezmo APIs.
+  - term: Pipeline Service Key
+    description: Bearer credential for the Pipeline API.
+mappings:
+  - mezmo: Log Line
+    schemaOrg: schema:Event
+    otel: log_record
+  - mezmo: Telemetry Pipeline
+    otel: pipeline
+  - mezmo: Source
+    otel: receiver
+  - mezmo: Processor
+    otel: processor
+  - mezmo: Destination
+    otel: exporter

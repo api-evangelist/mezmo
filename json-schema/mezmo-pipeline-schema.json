@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mezmo/main/json-schema/mezmo-pipeline-schema.json",
+  "title": "Mezmo Pipeline",
+  "description": "A Mezmo Telemetry Pipeline composed of sources, processors, and destinations.",
+  "type": "object",
+  "required": ["title"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Pipeline ID."
+    },
+    "accountId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "published", "errored"]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Node" }
+    },
+    "processors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Node" }
+    },
+    "destinations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Node" }
+    }
+  },
+  "$defs": {
+    "Node": {
+      "type": "object",
+      "required": ["title", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "type": {
+          "type": "string",
+          "description": "Component type, e.g. http_source, otel_source, s3_destination, datadog_logs_destination, vrl_processor."
+        },
+        "config": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "inputs": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

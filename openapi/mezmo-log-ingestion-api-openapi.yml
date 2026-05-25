@@ -1,0 +1,138 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Log Ingestion API
+  description: |
+    Ingest log lines into the Mezmo log analysis platform (formerly LogDNA).
+    Lines are sent in batched JSON to logs.mezmo.com/logs/ingest with metadata
+    including hostname, app, env, mac, ip, level, and arbitrary structured meta.
+  version: '1.0'
+  contact:
+    name: Mezmo
+    url: https://www.mezmo.com/
+  license:
+    name: Proprietary
+    url: https://www.mezmo.com/legal/master-services-agreement
+servers:
+- url: https://logs.mezmo.com
+  description: Production ingestion endpoint
+tags:
+- name: Logs
+  description: Log line ingestion
+security:
+- AccessToken: []
+- ServiceKey: []
+paths:
+  /logs/ingest:
+    post:
+      tags:
+      - Logs
+      summary: Ingest Logs
+      description: |
+        Send a batch of log lines to Mezmo. Each line carries a timestamp, line
+        body, app, level, env, and free-form meta. Recommended batch size is
+        under 10 MB per request.
+      operationId: ingestLogs
+      parameters:
+      - name: hostname
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Originating host name for the batch.
+      - name: mac
+        in: query
+        required: false
+        schema:
+          type: string
+        description: MAC address of the originating host.
+      - name: ip
+        in: query
+        required: false
+        schema:
+          type: string
+        description: IP address of the originating host.
+      - name: now
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+        description: Current unix epoch milliseconds on the sending host.
+      - name: tags
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Comma-separated tags to attach to every line in the batch.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestBatch'
+      responses:
+        '200':
+          description: Batch accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestAck'
+        '401':
+          description: Authentication failed.
+        '403':
+          description: Account suspended or over plan limit.
+        '413':
+          description: Batch payload too large.
+components:
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer
+      description: 'Authorization: Token {ACCESS_TOKEN}'
+    ServiceKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Deprecated service key in Authorization header.
+  schemas:
+    IngestBatch:
+      type: object
+      required:
+      - lines
+      properties:
+        lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogLine'
+    LogLine:
+      type: object
+      required:
+      - line
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+          description: Unix epoch milliseconds.
+        line:
+          type: string
+          description: Log line body.
+        app:
+          type: string
+          description: Originating application name.
+        level:
+          type: string
+          description: Log level (DEBUG, INFO, WARN, ERROR, FATAL).
+        env:
+          type: string
+          description: Environment (prod, staging, dev).
+        meta:
+          type: object
+          description: Free-form structured metadata.
+          additionalProperties: true
+    IngestAck:
+      type: object
+      properties:
+        status:
+          type: string
+        batchID:
+          type: string

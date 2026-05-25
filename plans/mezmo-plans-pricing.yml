@@ -1,0 +1,84 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Mezmo
+providerId: mezmo
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Observability
+  - Logs
+  - Telemetry Pipeline
+description: 'Best-effort reconciliation of Mezmo''s commercial plans. Mezmo publishes a high-level
+  pricing posture (data-volume + retention based, AI features included) but does not list per-tier
+  prices publicly. Quote-based for higher tiers; verify with sales for current numbers.'
+sources:
+  - https://www.mezmo.com/pricing
+  - https://www.mezmo.com/trial
+  - https://docs.mezmo.com/
+plans:
+  - id: mezmo-free-trial
+    name: Free Trial
+    type: trial
+    description: Free trial of the Mezmo platform — telemetry pipelines, log analysis, AI root-cause analysis.
+    entries:
+      - label: Trial period
+        name: trial
+        type: included
+        metric: days
+        limit: 14
+        timeFrame: trial
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    features:
+      - Telemetry pipelines (logs, metrics, traces)
+      - AI-ready context through automatic clustering
+      - Agentic root cause analysis
+      - Full data control and routing
+      - Role-based access controls (RBAC)
+  - id: mezmo-platform
+    name: Mezmo Platform
+    type: subscription
+    description: |
+      Mezmo's commercial platform tier. Pricing scales with ingest volume and retention.
+      AI root-cause analysis is bundled in the platform license; no separate AI surcharge.
+    entries:
+      - label: Platform license
+        name: platform
+        type: contract
+        metric: account
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'Contact Sales'
+        userMultiplied: false
+      - label: Ingest
+        name: ingest
+        type: metered
+        metric: bytes
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'Contact Sales'
+        userMultiplied: false
+        description: Charged on ingest volume; retention windows configurable per contract.
+    features:
+      - Telemetry pipelines
+      - Log analysis and search
+      - Agentic root cause analysis (no separate AI surcharge)
+      - Cold-storage archiving (S3, GCS, Azure Blob, IBM COS, DigitalOcean Spaces)
+      - Exclusion rules and ingestion suspension
+      - 100+ source and destination integrations
+      - OpenTelemetry, Vector, Kafka, Datadog, Splunk, Elastic, Loki, Sumo Logic, New Relic, Honeycomb
+      - SSO and RBAC
+      - Audit log
+notes:
+  - Mezmo does not publish per-tier per-GB prices on the public pricing page; reconciled here as
+    contract / contact-sales entries with the platform-license + ingest pattern observed in
+    competitive observability vendors.
+  - Legacy LogDNA plans (Birch, Hickory, Oak, Enterprise) have been folded into the Mezmo Platform.

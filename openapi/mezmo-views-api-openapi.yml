@@ -1,0 +1,135 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Views API
+  description: |
+    Manage Mezmo log Views — saved query definitions over hosts, apps, levels,
+    tags, and free-text filters. Views are the resource alerts attach to.
+  version: '1.0'
+  contact:
+    name: Mezmo
+    url: https://www.mezmo.com/
+servers:
+- url: https://api.mezmo.com
+tags:
+- name: Views
+  description: Saved view management
+security:
+- AccessToken: []
+paths:
+  /v1/config/view:
+    get:
+      tags:
+      - Views
+      summary: List Views
+      operationId: listViews
+      responses:
+        '200':
+          description: List of views.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/View'
+    post:
+      tags:
+      - Views
+      summary: Create View
+      operationId: createView
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ViewInput'
+      responses:
+        '201':
+          description: View created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/View'
+  /v1/config/view/{viewid}:
+    parameters:
+    - $ref: '#/components/parameters/ViewId'
+    get:
+      tags:
+      - Views
+      summary: Get View
+      operationId: getView
+      responses:
+        '200':
+          description: View details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/View'
+    put:
+      tags:
+      - Views
+      summary: Update View
+      operationId: updateView
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ViewInput'
+      responses:
+        '200':
+          description: View updated.
+    delete:
+      tags:
+      - Views
+      summary: Delete View
+      operationId: deleteView
+      responses:
+        '204':
+          description: View deleted.
+components:
+  parameters:
+    ViewId:
+      name: viewid
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer
+  schemas:
+    ViewInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        category:
+          type: string
+        query:
+          type: string
+        hosts:
+          type: array
+          items:
+            type: string
+        apps:
+          type: array
+          items:
+            type: string
+        levels:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+    View:
+      allOf:
+      - $ref: '#/components/schemas/ViewInput'
+      - type: object
+        properties:
+          viewid:
+            type: string

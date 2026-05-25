@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Archiving API
+  description: |
+    Configure cold-storage archiving for log data beyond plan-bound retention.
+    Supports AWS S3, Google Cloud Storage, Azure Blob, IBM Cloud Object Storage,
+    and DigitalOcean Spaces destinations.
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+tags:
+- name: Archiving
+  description: Cold storage configuration
+security:
+- AccessToken: []
+paths:
+  /v1/config/archiving:
+    get:
+      tags:
+      - Archiving
+      summary: Get Archive Configuration
+      operationId: getArchiveConfig
+      responses:
+        '200':
+          description: Current archiving configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArchiveConfig'
+    post:
+      tags:
+      - Archiving
+      summary: Create Archive Configuration
+      operationId: createArchiveConfig
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveConfig'
+      responses:
+        '201':
+          description: Configuration created.
+    put:
+      tags:
+      - Archiving
+      summary: Update Archive Configuration
+      operationId: updateArchiveConfig
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveConfig'
+      responses:
+        '200':
+          description: Configuration updated.
+    delete:
+      tags:
+      - Archiving
+      summary: Delete Archive Configuration
+      operationId: deleteArchiveConfig
+      responses:
+        '204':
+          description: Configuration deleted.
+components:
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer
+  schemas:
+    ArchiveConfig:
+      type: object
+      required:
+      - integration
+      properties:
+        integration:
+          type: string
+          enum:
+          - s3
+          - gcs
+          - azblob
+          - ibm
+          - dospaces
+        bucket:
+          type: string
+        endpoint:
+          type: string
+        region:
+          type: string
+        accesskey:
+          type: string
+        secretkey:
+          type: string
+        container:
+          type: string
+        apikey:
+          type: string
+        resourceinstanceid:
+          type: string

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mezmo/main/json-schema/mezmo-log-line-schema.json",
+  "title": "Mezmo Log Line",
+  "description": "A single log line as accepted by the Mezmo Log Ingestion API and emitted by the Log Export API.",
+  "type": "object",
+  "required": ["line"],
+  "properties": {
+    "timestamp": {
+      "type": "integer",
+      "description": "Unix epoch milliseconds. If absent, the server applies an arrival timestamp."
+    },
+    "line": {
+      "type": "string",
+      "description": "Log line body."
+    },
+    "app": {
+      "type": "string",
+      "description": "Originating application name."
+    },
+    "level": {
+      "type": "string",
+      "enum": ["DEBUG", "INFO", "WARN", "WARNING", "ERROR", "FATAL", "TRACE"],
+      "description": "Severity level."
+    },
+    "env": {
+      "type": "string",
+      "description": "Environment (prod, staging, dev)."
+    },
+    "meta": {
+      "type": "object",
+      "description": "Free-form structured metadata.",
+      "additionalProperties": true
+    },
+    "_host": {
+      "type": "string",
+      "description": "Originating host (export-side)."
+    },
+    "_id": {
+      "type": "string",
+      "description": "Server-assigned line id (export-side)."
+    }
+  },
+  "additionalProperties": true
+}

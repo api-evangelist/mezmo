@@ -1,0 +1,68 @@
+specification: API Commons FinOps
+specificationVersion: '0.1'
+provider: Mezmo
+providerId: mezmo
+created: '2026-05-25'
+modified: '2026-05-25'
+focusVersion: '1.1'
+description: |
+  Aligns Mezmo's billing surface to the FinOps Framework / FOCUS data spec. Mezmo bills on
+  ingest volume and retention, with the AI / agentic capabilities included in the platform
+  license. Consumption data is exposed via the Usage API.
+sources:
+  - https://www.mezmo.com/pricing
+  - https://docs.mezmo.com/log-analysis-api/reference/usage
+  - https://focus.finops.org/
+billingDimensions:
+  - name: Ingest Volume
+    metric: bytes
+    serviceCategory: Observability
+    chargeCategory: Usage
+    chargeClass: Standard
+    pricingUnit: GB
+    description: Total log bytes ingested into the Mezmo platform during the billing period.
+    apiSource: /v2/usage
+  - name: Retention
+    metric: days
+    serviceCategory: Observability
+    chargeCategory: Commitment
+    chargeClass: Standard
+    pricingUnit: day
+    description: Hot retention window for queryable logs. Beyond this window, data lives in cold archive.
+  - name: Archive Storage
+    metric: bytes
+    serviceCategory: Storage
+    chargeCategory: Usage
+    chargeClass: Standard
+    pricingUnit: GB
+    description: Cold-storage archive volume (S3, GCS, Azure Blob, IBM COS, DigitalOcean Spaces).
+  - name: Platform License
+    metric: account
+    serviceCategory: Observability
+    chargeCategory: Commitment
+    chargeClass: Standard
+    pricingUnit: month
+    description: Flat platform fee bundling AI features, RBAC, audit log, support.
+chargebackDimensions:
+  - app
+  - host
+  - tag
+  - level
+  - environment
+allocation:
+  description: |
+    Usage can be sliced by app, host, tag, and level via /v1/usage/{type} and /v2/usage,
+    enabling cost allocation to teams or services.
+  endpoints:
+    - /v1/usage/apps
+    - /v1/usage/hosts
+    - /v1/usage/tags
+    - /v2/usage
+controls:
+  - Exclusion rules (/v1/config/ingestion/exclusions) drop matching lines before storage and ingest billing.
+  - Ingestion suspension (/v1/config/ingestion/suspend) hard-stops ingest billing with two-factor confirmation.
+  - Telemetry pipelines (Pipeline API) reduce data volumes upstream via filters, sampling, parsing, and routing,
+    targeting up to 99.98% data reduction before downstream agents.
+notes:
+  - The unique FinOps angle for Mezmo is the upstream Pipeline product — billing impact is often dominated
+    by pipeline configuration (sample / dedup / route) rather than retention knobs.

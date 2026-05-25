@@ -1,0 +1,140 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mezmo Views API — Views
+  description: CRUD over Mezmo saved Views.
+  tags:
+  - Mezmo
+  - Views
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    MEZMO_ACCESS_TOKEN: MEZMO_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: views-views
+    baseUri: https://api.mezmo.com/v1/config
+    resources:
+    - name: view
+      path: /view
+      operations:
+      - name: listviews
+        method: GET
+        description: Mezmo List Views
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createview
+        method: POST
+        description: Mezmo Create View
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: view-viewid
+      path: /view/{viewid}
+      operations:
+      - name: getview
+        method: GET
+        description: Mezmo Get View
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateview
+        method: PUT
+        description: Mezmo Update View
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+      - name: deleteview
+        method: DELETE
+        description: Mezmo Delete View
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Token {{env.MEZMO_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: views-views-mcp
+    port: 9090
+    transport: http
+    tools:
+    - name: mezmo-list-views
+      description: Mezmo List Views
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: views-views.listviews
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-create-view
+      description: Mezmo Create View
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: views-views.createview
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-get-view
+      description: Mezmo Get View
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: views-views.getview
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-update-view
+      description: Mezmo Update View
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: views-views.updateview
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mezmo-delete-view
+      description: Mezmo Delete View
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: views-views.deleteview
+      outputParameters:
+      - type: object
+        mapping: $.
