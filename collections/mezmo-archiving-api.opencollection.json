@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Archiving API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Archiving",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Archive Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/archiving"
+          },
+          "docs": "Get Archive Configuration"
+        },
+        {
+          "info": {
+            "name": "Create Archive Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/archiving",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Archive Configuration"
+        },
+        {
+          "info": {
+            "name": "Update Archive Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mezmo.com/v1/config/archiving",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Archive Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete Archive Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mezmo.com/v1/config/archiving"
+          },
+          "docs": "Delete Archive Configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

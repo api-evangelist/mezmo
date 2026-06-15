@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Views API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Views",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Views",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/view"
+          },
+          "docs": "List Views"
+        },
+        {
+          "info": {
+            "name": "Create View",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/view",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create View"
+        },
+        {
+          "info": {
+            "name": "Get View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "params": [
+              {
+                "name": "viewid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get View"
+        },
+        {
+          "info": {
+            "name": "Update View",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "params": [
+              {
+                "name": "viewid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update View"
+        },
+        {
+          "info": {
+            "name": "Delete View",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "params": [
+              {
+                "name": "viewid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete View"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

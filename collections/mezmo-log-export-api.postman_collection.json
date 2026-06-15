@@ -1,0 +1,355 @@
+{
+  "item": [
+    {
+      "id": "4095b5ab-a1e6-4078-b3e2-b4052733ded0",
+      "name": "Export",
+      "description": {
+        "content": "Historical log export",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f4a2f91-7f76-4f11-845f-8c47b9185c2c",
+          "name": "Export Logs V1",
+          "request": {
+            "name": "Export Logs V1",
+            "description": {
+              "content": "Legacy export endpoint with plan-bounded result size.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<long>",
+                  "description": "(Required) Start of the export window (unix epoch milliseconds)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<long>",
+                  "description": "(Required) End of the export window (unix epoch milliseconds)."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Free-text search expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "hosts",
+                  "value": "<string>",
+                  "description": "Comma-separated hostnames."
+                },
+                {
+                  "disabled": false,
+                  "key": "apps",
+                  "value": "<string>",
+                  "description": "Comma-separated app names."
+                },
+                {
+                  "disabled": false,
+                  "key": "levels",
+                  "value": "<string>",
+                  "description": "Comma-separated log levels."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Comma-separated tags."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8662d089-bb91-46ba-8b43-c6cf46afd558",
+              "name": "Newline-delimited JSON of matching log lines.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hosts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apps",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "levels",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5ee4353-666e-4857-8dec-70cec37fbee0",
+          "name": "Export Logs V2",
+          "request": {
+            "name": "Export Logs V2",
+            "description": {
+              "content": "Paginated export of historical log data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<long>",
+                  "description": "(Required) Start of the export window (unix epoch milliseconds)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<long>",
+                  "description": "(Required) End of the export window (unix epoch milliseconds)."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Free-text search expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "hosts",
+                  "value": "<string>",
+                  "description": "Comma-separated hostnames."
+                },
+                {
+                  "disabled": false,
+                  "key": "apps",
+                  "value": "<string>",
+                  "description": "Comma-separated app names."
+                },
+                {
+                  "disabled": false,
+                  "key": "levels",
+                  "value": "<string>",
+                  "description": "Comma-separated log levels."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Comma-separated tags."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination_id",
+                  "value": "<string>",
+                  "description": "Opaque continuation cursor returned in the previous page."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Page size."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44c4b011-5f37-4deb-8c40-b3c3fdf904ca",
+              "name": "Page of log lines plus next-page cursor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hosts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apps",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "levels",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lines\": [\n    {\n      \"_id\": \"string\",\n      \"_ts\": 8932,\n      \"_line\": \"string\",\n      \"_host\": \"string\",\n      \"_app\": \"string\",\n      \"level\": \"string\",\n      \"meta\": {\n        \"key_0\": \"string\",\n        \"key_1\": 9006\n      }\n    },\n    {\n      \"_id\": \"string\",\n      \"_ts\": 1825,\n      \"_line\": \"string\",\n      \"_host\": \"string\",\n      \"_app\": \"string\",\n      \"level\": \"string\",\n      \"meta\": {\n        \"key_0\": false,\n        \"key_1\": true\n      }\n    }\n  ],\n  \"pagination_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mezmo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f9604023-f9ad-426e-95b3-281931dfa24c",
+    "name": "Mezmo Log Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Query and export logs from the Mezmo log analysis platform. V2 supports\npagination and is recommended for unbounded exports. V1 is preserved for\nbackward compatibility and is plan-limited.\n\n\nContact Support:\n Name: Mezmo",
+      "type": "text/plain"
+    }
+  }
+}

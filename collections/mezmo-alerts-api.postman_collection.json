@@ -1,0 +1,496 @@
+{
+  "item": [
+    {
+      "id": "e148f747-2d53-4563-9847-e8c0dcd8e89e",
+      "name": "PresetAlerts",
+      "description": {
+        "content": "Preset alert configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f9433020-cfb5-479e-b4ad-3905b7430a24",
+          "name": "List Preset Alerts",
+          "request": {
+            "name": "List Preset Alerts",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "config",
+                "presetalert"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef20d7cc-b60b-428f-a3a4-9a4726c14117",
+              "name": "List of preset alerts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "config",
+                    "presetalert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"channels\": [\n      {\n        \"integration\": \"email\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": true,\n        \"operator\": \"string\",\n        \"terminal\": true\n      },\n      {\n        \"integration\": \"opsgenie\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": false,\n        \"operator\": \"string\",\n        \"terminal\": true\n      }\n    ],\n    \"triggerinterval\": \"string\",\n    \"triggerlimit\": 5760,\n    \"triggermatchingall\": true,\n    \"operator\": \"absence\",\n    \"presetid\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"channels\": [\n      {\n        \"integration\": \"slack\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": true,\n        \"operator\": \"string\",\n        \"terminal\": true\n      },\n      {\n        \"integration\": \"email\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": true,\n        \"operator\": \"string\",\n        \"terminal\": false\n      }\n    ],\n    \"triggerinterval\": \"string\",\n    \"triggerlimit\": 888,\n    \"triggermatchingall\": true,\n    \"operator\": \"absence\",\n    \"presetid\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b60b17b2-dea9-4c2e-ad7b-54595296b8d5",
+          "name": "Create Preset Alert",
+          "request": {
+            "name": "Create Preset Alert",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "config",
+                "presetalert"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1f74d58-4c02-4ac1-978a-1c11bd195bf1",
+              "name": "Alert created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "config",
+                    "presetalert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3460ea3-b974-41a3-8e67-084ba2e07fc2",
+          "name": "Get Preset Alert",
+          "request": {
+            "name": "Get Preset Alert",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "config",
+                "presetalert",
+                ":presetid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "presetid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe550f30-7fbc-4a77-a323-3140fbe496bb",
+              "name": "Alert details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "config",
+                    "presetalert",
+                    ":presetid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "presetid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a087f22-69f6-48ca-9e8c-40d010d0b2a1",
+          "name": "Update Preset Alert",
+          "request": {
+            "name": "Update Preset Alert",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "config",
+                "presetalert",
+                ":presetid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "presetid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6291d812-e590-4b89-9c3e-28b820c35890",
+              "name": "Alert updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "config",
+                    "presetalert",
+                    ":presetid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "presetid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14cbb1cd-fee4-4ab5-a93d-cfb9507ef600",
+          "name": "Delete Preset Alert",
+          "request": {
+            "name": "Delete Preset Alert",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "config",
+                "presetalert",
+                ":presetid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "presetid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "243738a9-31e5-4aec-aa6f-c3769e8c0d54",
+              "name": "Alert deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "config",
+                    "presetalert",
+                    ":presetid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "presetid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mezmo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c7655b12-b74b-4b29-8d5f-26d3173e89b1",
+    "name": "Mezmo Alerts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+      "type": "text/plain"
+    }
+  }
+}

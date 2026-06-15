@@ -1,0 +1,328 @@
+{
+  "item": [
+    {
+      "id": "3f65f55f-6d54-4271-ad45-988321fc8759",
+      "name": "Classification",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b8ec602-fed6-4adc-803f-340cabdca518",
+          "name": "Profile Sample Data",
+          "request": {
+            "name": "Profile Sample Data",
+            "description": {
+              "content": "Analyze a sample of pipeline data and return inferred field types, cardinality, and clusters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification",
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "72c8ba09-bd1d-4004-b93a-0ac9f75206e5",
+              "name": "Field profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"cardinality\": 3562,\n      \"examples\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"cardinality\": 6445,\n      \"examples\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00cdbbf9-020c-41a8-823d-169f4c24d765",
+          "name": "Suggest Parser",
+          "request": {
+            "name": "Suggest Parser",
+            "description": {
+              "content": "AI-generate a parser configuration for the sample.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification",
+                "parse"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ff3efb1-cbb9-4629-97df-7e52c101aa40",
+              "name": "Suggested parser.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification",
+                    "parse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2eb40b4f-2383-4c46-9b24-d5eeab36e489",
+          "name": "Generate Regex",
+          "request": {
+            "name": "Generate Regex",
+            "description": {
+              "content": "Generate a regex for the supplied sample tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification",
+                "regex"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f37b7729-5f40-4405-bc49-73945e8d1bf0",
+              "name": "Generated regex.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification",
+                    "regex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mezmo.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3ed15131-791b-4103-9a6f-6329f768b3d2",
+    "name": "Mezmo Pipeline Classification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AI-assisted data classification, field profiling, parser inference, and\nregex generation against pipeline samples. Used inside the Mezmo Pipelines\nauthoring workflow to accelerate parser and processor configuration.\n",
+      "type": "text/plain"
+    }
+  }
+}

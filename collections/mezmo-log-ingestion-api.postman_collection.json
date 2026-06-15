@@ -1,0 +1,401 @@
+{
+  "item": [
+    {
+      "id": "f05fbf6f-33af-4406-95ad-e39e202bb852",
+      "name": "Logs",
+      "description": {
+        "content": "Log line ingestion",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "703c83c7-b8cd-4058-8ed5-f4401a1a5260",
+          "name": "Ingest Logs",
+          "request": {
+            "name": "Ingest Logs",
+            "description": {
+              "content": "Send a batch of log lines to Mezmo. Each line carries a timestamp, line\nbody, app, level, env, and free-form meta. Recommended batch size is\nunder 10 MB per request.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "logs",
+                "ingest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hostname",
+                  "value": "<string>",
+                  "description": "(Required) Originating host name for the batch."
+                },
+                {
+                  "disabled": false,
+                  "key": "mac",
+                  "value": "<string>",
+                  "description": "MAC address of the originating host."
+                },
+                {
+                  "disabled": false,
+                  "key": "ip",
+                  "value": "<string>",
+                  "description": "IP address of the originating host."
+                },
+                {
+                  "disabled": false,
+                  "key": "now",
+                  "value": "<long>",
+                  "description": "Current unix epoch milliseconds on the sending host."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Comma-separated tags to attach to every line in the batch."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": 4299.348908236951,\n        \"key_1\": 1509.2981376395564\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": 191.1177439485645\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d90e9fa8-5806-4c59-a370-4d7037ff84f6",
+              "name": "Batch accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logs",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mac",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "now",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": 1266.9184763738317\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"batchID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69aba520-6f53-44f0-83ab-9e81ff7328c6",
+              "name": "Authentication failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logs",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mac",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "now",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": 1266.9184763738317\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5777ec0b-e1ae-4b47-9df9-809a6e44d882",
+              "name": "Account suspended or over plan limit.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logs",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mac",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "now",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": 1266.9184763738317\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5319f605-f87c-42dc-91b4-8c8bf46964d0",
+              "name": "Batch payload too large.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logs",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mac",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "now",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": 1266.9184763738317\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://logs.mezmo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c43083fd-8d1a-4587-923c-be6001a38633",
+    "name": "Mezmo Log Ingestion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ingest log lines into the Mezmo log analysis platform (formerly LogDNA).\nLines are sent in batched JSON to logs.mezmo.com/logs/ingest with metadata\nincluding hostname, app, env, mac, ip, level, and arbitrary structured meta.\n\n\nContact Support:\n Name: Mezmo",
+      "type": "text/plain"
+    }
+  }
+}

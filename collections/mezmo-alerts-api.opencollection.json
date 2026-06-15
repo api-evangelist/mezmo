@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Alerts API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PresetAlerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Preset Alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/presetalert"
+          },
+          "docs": "List Preset Alerts"
+        },
+        {
+          "info": {
+            "name": "Create Preset Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/presetalert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Preset Alert"
+        },
+        {
+          "info": {
+            "name": "Get Preset Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/presetalert/:presetid",
+            "params": [
+              {
+                "name": "presetid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Preset Alert"
+        },
+        {
+          "info": {
+            "name": "Update Preset Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mezmo.com/v1/config/presetalert/:presetid",
+            "params": [
+              {
+                "name": "presetid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Preset Alert"
+        },
+        {
+          "info": {
+            "name": "Delete Preset Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mezmo.com/v1/config/presetalert/:presetid",
+            "params": [
+              {
+                "name": "presetid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Preset Alert"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

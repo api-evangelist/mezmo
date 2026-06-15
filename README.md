@@ -1,21 +1,22 @@
 # Mezmo (mezmo)
 
-Mezmo (formerly LogDNA) is a log management and telemetry pipeline platform. The platform ingests
-logs at logs.mezmo.com, exposes a Log Analysis API at api.mezmo.com for views, alerts, archiving,
-exclusions, suspension, and usage, and ships a programmatic Pipelines control plane at
-api.mezmo.com/v3 for managing sources, processors, destinations, and edge clients across 100+
-integrations including OpenTelemetry, Vector, Kafka, S3, Datadog, Splunk, Elastic, Loki, Sumo Logic,
-New Relic, and Honeycomb. Mezmo also publishes AURA, an Apache 2.0 Rust framework for composing
-agentic AI workflows on top of its telemetry, plus a Terraform provider, CLI, Helm charts, and an
-MCP server.
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/mezmo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/mezmo/refs/heads/main/apis.yml)
 
-**URL:** [Visit APIs.json](https://raw.githubusercontent.com/api-evangelist/mezmo/refs/heads/main/apis.yml)
+## Scope
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+- **Access:** 3rd-Party
 
 ## Tags
 
- - Observability, Logs, Telemetry, Telemetry Pipeline, Log Management, AI, SRE, OpenTelemetry, DevOps
+- Observability
+- Logs
+- Telemetry
+- Telemetry Pipeline
+- Log Management
+- AI
+- SRE
+- OpenTelemetry
+- DevOps
 
 ## Timestamps
 
@@ -25,140 +26,313 @@ MCP server.
 ## APIs
 
 ### Mezmo Log Ingestion API
-Ingest log lines into Mezmo at logs.mezmo.com/logs/ingest. Batched JSON with timestamp, app, env,
-hostname, level, and free-form meta. Token or service-key auth.
 
-**Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api](https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api)
+Ingest log lines into Mezmo at logs.mezmo.com/logs/ingest. Accepts batched JSON payloads with timestamp, app, env, hostname, and structured metadata. Token or service-key authentication. The primary inbound surface for Mezmo's log analysis platform (formerly LogDNA).
+
+- **Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api](https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api)
+
+#### Tags
+
+- Logs
+- Ingestion
+- Observability
+- Telemetry
+
+#### Properties
 
 - [Documentation](https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api)
-- [OpenAPI](openapi/mezmo-log-ingestion-api-openapi.yml)
-- [Naftiko Capability - Logs](capabilities/log-ingestion-logs.yaml)
+- [OpenAPI](openapi/mezmo-log-ingestion-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-log-ingestion-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-log-ingestion-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Log Export API
-Query and paginate historical log exports via /v1/export (plan-bounded) and /v2/export (paginated).
 
-**Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/export](https://docs.mezmo.com/log-analysis-api/reference/export)
+Query and export logs from Mezmo via /v1/export and /v2/export. V2 supports pagination for unbounded exports, plan-aware retention windows, and filters by hosts, apps, tags, levels, and query strings.
+
+- **Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/export](https://docs.mezmo.com/log-analysis-api/reference/export)
+
+#### Tags
+
+- Logs
+- Export
+- Observability
+- Search
+
+#### Properties
 
 - [Documentation](https://docs.mezmo.com/log-analysis-api/reference/export)
-- [OpenAPI](openapi/mezmo-log-export-api-openapi.yml)
-- [Naftiko Capability - Export](capabilities/log-export-export.yaml)
+- [OpenAPI](openapi/mezmo-log-export-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-log-export-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-log-export-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Views API
-CRUD saved Views (queries over hosts, apps, levels, tags, free-text). Views are the resource
-preset alerts attach to.
 
-**Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/views](https://docs.mezmo.com/log-analysis-api/reference/views)
+Manage Mezmo log Views via /v1/config/view. Views are saved query definitions over hosts, apps, levels, tags, and free-text filters and are the unit alerts attach to.
 
-- [OpenAPI](openapi/mezmo-views-api-openapi.yml)
-- [Naftiko Capability - Views](capabilities/views-views.yaml)
+- **Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/views](https://docs.mezmo.com/log-analysis-api/reference/views)
+
+#### Tags
+
+- Logs
+- Views
+- Saved Searches
+- Observability
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/log-analysis-api/reference/views)
+- [OpenAPI](openapi/mezmo-views-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-views-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-views-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Alerts API
-Manage preset alerts and their notification channels (PagerDuty, Slack, webhook, email, OpsGenie,
-VictorOps).
 
-**Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/alerts](https://docs.mezmo.com/log-analysis-api/reference/alerts)
+Manage preset alerts via /v1/config/presetalert. Preset alerts encapsulate presence/absence triggers, frequency, and notification channels (PagerDuty, Slack, webhook, email) that views can attach to.
 
-- [OpenAPI](openapi/mezmo-alerts-api-openapi.yml)
-- [Naftiko Capability - Preset Alerts](capabilities/alerts-presetalerts.yaml)
+- **Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/alerts](https://docs.mezmo.com/log-analysis-api/reference/alerts)
+
+#### Tags
+
+- Alerts
+- Logs
+- Observability
+- Notifications
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/log-analysis-api/reference/alerts)
+- [OpenAPI](openapi/mezmo-alerts-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-alerts-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-alerts-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Archiving API
-Configure cold-storage archiving to AWS S3, GCS, Azure Blob, IBM COS, or DigitalOcean Spaces.
 
-**Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/archiving](https://docs.mezmo.com/log-analysis-api/reference/archiving)
+Configure cold-storage archiving via /v1/config/archiving. Supports S3, GCS, Azure Blob, IBM COS, and DigitalOcean Spaces destinations for long-term retention beyond plan limits.
 
-- [OpenAPI](openapi/mezmo-archiving-api-openapi.yml)
-- [Naftiko Capability - Archiving](capabilities/archiving-archiving.yaml)
+- **Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/archiving](https://docs.mezmo.com/log-analysis-api/reference/archiving)
+
+#### Tags
+
+- Archiving
+- Logs
+- Storage
+- Compliance
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/log-analysis-api/reference/archiving)
+- [OpenAPI](openapi/mezmo-archiving-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-archiving-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-archiving-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Ingestion Control API
-Manage exclusion rules and ingestion suspension. Two-factor suspend protects against accidental
-cutoff.
 
-**Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/exclusions](https://docs.mezmo.com/log-analysis-api/reference/exclusions)
+Manage exclusion rules (/v1/config/ingestion/exclusions) and ingestion suspend/resume (/v1/config/ingestion/suspend, /resume) to cap costs and stop noisy sources without losing configuration. Two-factor suspension protects against accidental cutoff.
 
-- [OpenAPI](openapi/mezmo-ingestion-control-api-openapi.yml)
-- [Naftiko Capability - Exclusions](capabilities/ingestion-control-exclusions.yaml)
-- [Naftiko Capability - Suspension](capabilities/ingestion-control-suspension.yaml)
+- **Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/exclusions](https://docs.mezmo.com/log-analysis-api/reference/exclusions)
+
+#### Tags
+
+- Ingestion
+- Exclusions
+- Suspension
+- Cost Control
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/log-analysis-api/reference/exclusions)
+- [OpenAPI](openapi/mezmo-ingestion-control-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-ingestion-control-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-ingestion-control-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Usage API
-Query usage by app, host, tag and detailed byte-based consumption for chargeback and FinOps.
 
-**Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/usage](https://docs.mezmo.com/log-analysis-api/reference/usage)
+Query log usage by app, host, or tag via /v1/usage/{type} and detailed byte-based consumption via /v2/usage. Used for chargeback, anomaly detection, and capacity planning against ingestion contract volumes.
 
-- [OpenAPI](openapi/mezmo-usage-api-openapi.yml)
-- [Naftiko Capability - Usage](capabilities/usage-usage.yaml)
+- **Human URL:** [https://docs.mezmo.com/log-analysis-api/reference/usage](https://docs.mezmo.com/log-analysis-api/reference/usage)
+
+#### Tags
+
+- Usage
+- Billing
+- Reporting
+- FinOps
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/log-analysis-api/reference/usage)
+- [OpenAPI](openapi/mezmo-usage-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-usage-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-usage-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Pipeline API
-Programmatic CRUD over Mezmo Telemetry Pipelines at api.mezmo.com/v3 — pipelines, sources,
-processors, destinations, deployments, audit events, health. Backs the Terraform provider, CLI,
-and MCP server.
 
-**Human URL:** [https://docs.mezmo.com/pipeline-api](https://docs.mezmo.com/pipeline-api)
+Programmatic CRUD over Mezmo Telemetry Pipelines at api.mezmo.com/v3. Manage pipelines, sources, processors, destinations, deployments, audit events, and health. Backs Terraform, the Mezmo CLI, and the MCP server. 100+ source and destination integrations including OpenTelemetry, Vector, Kafka, S3, Datadog, Splunk, Elastic, Loki, Sumo Logic, New Relic, and Honeycomb.
 
-- [OpenAPI](openapi/mezmo-pipeline-api-openapi.yml)
-- [Naftiko Capability - Pipelines](capabilities/pipeline-pipelines.yaml)
-- [Naftiko Capability - Sources](capabilities/pipeline-sources.yaml)
-- [Naftiko Capability - Processors](capabilities/pipeline-processors.yaml)
-- [Naftiko Capability - Destinations](capabilities/pipeline-destinations.yaml)
+- **Human URL:** [https://docs.mezmo.com/pipeline-api](https://docs.mezmo.com/pipeline-api)
+
+#### Tags
+
+- Telemetry Pipeline
+- Observability
+- Data Pipeline
+- OpenTelemetry
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/pipeline-api)
+- [OpenAPI](openapi/mezmo-pipeline-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-pipeline-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-pipeline-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Pipeline Classification API
-AI-assisted field profiling, parser inference, and regex generation against pipeline samples.
 
-**Human URL:** [https://docs.mezmo.com/pipeline-api/reference/classification](https://docs.mezmo.com/pipeline-api/reference/classification)
+AI-assisted data classification, field profiling, parser inference, and regex generation against pipeline samples. Used by Mezmo's in-product authoring workflow to accelerate parser and processor configuration.
 
-- [OpenAPI](openapi/mezmo-pipeline-classification-api-openapi.yml)
-- [Naftiko Capability - Classification](capabilities/pipeline-classification-classification.yaml)
+- **Human URL:** [https://docs.mezmo.com/pipeline-api/reference/classification](https://docs.mezmo.com/pipeline-api/reference/classification)
+
+#### Tags
+
+- Data Classification
+- Profiling
+- AI
+- Telemetry Pipeline
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/pipeline-api/reference/classification)
+- [OpenAPI](openapi/mezmo-pipeline-classification-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-pipeline-classification-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-pipeline-classification-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Edge API
-Edge / local deployment surface — client registration, heartbeats, task delivery, result
-collection for self-hosted pipeline instances.
 
-**Human URL:** [https://docs.mezmo.com/pipeline-api/reference/edge](https://docs.mezmo.com/pipeline-api/reference/edge)
+Edge / local deployment surface for Mezmo Pipelines. Manage client configuration, heartbeats, task assignments, and result collection for self-hosted pipeline instances running outside the Mezmo control plane.
 
-- [OpenAPI](openapi/mezmo-edge-api-openapi.yml)
-- [Naftiko Capability - Edge Clients](capabilities/edge-clients.yaml)
+- **Human URL:** [https://docs.mezmo.com/pipeline-api/reference/edge](https://docs.mezmo.com/pipeline-api/reference/edge)
+
+#### Tags
+
+- Edge
+- Local Deployment
+- Telemetry Pipeline
+- Agents
+
+#### Properties
+
+- [Documentation](https://docs.mezmo.com/pipeline-api/reference/edge)
+- [OpenAPI](openapi/mezmo-edge-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/mezmo-edge-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-edge-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Mezmo Agent (logdna-agent-v2)
-Open-source Rust log collection agent. Tails files, journald, and Kubernetes pod logs and ships
-to Mezmo's ingestion endpoint. MIT-licensed.
 
-**Human URL:** [https://github.com/logdna/logdna-agent-v2](https://github.com/logdna/logdna-agent-v2)
+Open-source Rust log collection agent (logdna-agent-v2). Tails files, journald, and Kubernetes pod logs and ships to Mezmo's ingestion endpoint. MIT-licensed.
+
+- **Human URL:** [https://github.com/logdna/logdna-agent-v2](https://github.com/logdna/logdna-agent-v2)
+
+#### Tags
+
+- Agent
+- SDK
+- Open Source
+- Logs
+
+#### Properties
+
+- [Source Code](https://github.com/logdna/logdna-agent-v2)
+- [Documentation](https://docs.mezmo.com/docs/mezmo-agent)
+- [Postman Collection](collections/mezmo-alerts-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-alerts-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-archiving-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-archiving-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-edge-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-edge-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-ingestion-control-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-ingestion-control-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-log-export-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-log-export-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-log-ingestion-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-log-ingestion-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-pipeline-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-pipeline-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-pipeline-classification-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-pipeline-classification-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-usage-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-usage-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-views-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-views-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### AURA Agent Framework
-Mezmo's open-source agentic orchestration framework. Apache 2.0 Rust framework for composing AI
-agents from declarative TOML config, with MCP tool integration, RAG (Qdrant, Bedrock KB), and
-an OpenAI-compatible web API. LLM-agnostic (OpenAI, Anthropic, Bedrock, Gemini, Ollama).
 
-**Human URL:** [https://github.com/mezmo/aura](https://github.com/mezmo/aura)
+Mezmo's open-source agentic orchestration framework. Apache 2.0 Rust framework for composing AI agents from declarative TOML config, with MCP tool integration, RAG pipelines (Qdrant, Bedrock KB), and an OpenAI-compatible web API. LLM-agnostic (OpenAI, Anthropic, Bedrock, Gemini, Ollama). Backs Mezmo's AI SRE and root-cause-analysis workflows.
 
-## Common
+- **Human URL:** [https://github.com/mezmo/aura](https://github.com/mezmo/aura)
 
-- [Mezmo](https://www.mezmo.com/) - Portal
-- [Mezmo Docs](https://docs.mezmo.com/) - Documentation
-- [Log Analysis API Reference](https://docs.mezmo.com/log-analysis-api) - Documentation
-- [Pipeline API Reference](https://docs.mezmo.com/pipeline-api) - Documentation
-- [Mezmo Status](https://status.mezmo.com/) - StatusPage
-- [Mezmo Changelog](https://www.mezmo.com/changelog) - ChangeLog
-- [Mezmo Blog](https://www.mezmo.com/blog) - Blog
-- [Mezmo GitHub](https://github.com/mezmo) - SourceCode
-- [LogDNA GitHub (legacy)](https://github.com/logdna) - SourceCode
-- [Mezmo CLI](https://github.com/mezmo/cli) - CLI
-- [Terraform Provider for Mezmo](https://registry.terraform.io/providers/mezmo/mezmo/latest) - SDK
-- [Mezmo Agent](https://github.com/logdna/logdna-agent-v2) - SDK
-- [LogDNA Node.js SDK](https://github.com/logdna/nodejs) - SDK
-- [LogDNA Python SDK](https://github.com/logdna/python) - SDK
-- [LogDNA Rust SDK](https://github.com/logdna/logdna-rust) - SDK
-- [Mezmo MCP Server](https://github.com/mezmo/mezmo-mcp) - MCPServer
-- [AURA](https://github.com/mezmo/aura) - SourceCode
-- [Mezmo Helm Charts](https://github.com/mezmo/helm-charts) - SDK
-- [Mezmo Pricing](https://www.mezmo.com/pricing) - Pricing
+#### Tags
 
-## Artifacts
+- AI
+- Agents
+- Open Source
+- MCP
+- SRE
 
-- [Plans (API Commons)](plans/mezmo-plans-pricing.yml)
-- [Rate Limits (API Commons)](rate-limits/mezmo-rate-limits.yml)
-- [FinOps Surface](finops/mezmo-finops.yml)
+#### Properties
+
+- [Source Code](https://github.com/mezmo/aura)
+- [Documentation](https://www.mezmo.com/)
+- [Postman Collection](collections/mezmo-alerts-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-alerts-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-archiving-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-archiving-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-edge-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-edge-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-ingestion-control-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-ingestion-control-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-log-export-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-log-export-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-log-ingestion-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-log-ingestion-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-pipeline-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-pipeline-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-pipeline-classification-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-pipeline-classification-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-usage-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-usage-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/mezmo-views-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/mezmo-views-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [LinkedIn](https://www.linkedin.com/company/mezmo)
+- [Portal](https://www.mezmo.com/)
+- [Documentation](https://docs.mezmo.com/)
+- [Documentation](https://docs.mezmo.com/log-analysis-api)
+- [Documentation](https://docs.mezmo.com/pipeline-api)
+- [Status Page](https://status.mezmo.com/)
+- [Changelog](https://www.mezmo.com/changelog)
+- [Blog](https://www.mezmo.com/blog)
+- [Source Code](https://github.com/mezmo)
+- [Source Code](https://github.com/logdna)
+- [C L I](https://github.com/mezmo/cli)
+- [SDK](https://registry.terraform.io/providers/mezmo/mezmo/latest)
+- [SDK](https://github.com/logdna/terraform-provider-logdna)
+- [SDK](https://github.com/logdna/logdna-agent-v2)
+- [SDK](https://github.com/logdna/nodejs)
+- [SDK](https://github.com/logdna/python)
+- [SDK](https://github.com/logdna/logdna-rust)
+- [M C P Server](https://github.com/mezmo/mezmo-mcp)
+- [Source Code](https://github.com/mezmo/aura)
+- [SDK](https://github.com/mezmo/helm-charts)
+- [Pricing](https://www.mezmo.com/pricing)
+- [Plans](plans/mezmo-plans-pricing.yml)
+- [Rate Limits](rate-limits/mezmo-rate-limits.yml)
+- [Fin Ops](finops/mezmo-finops.yml)
 - [Vocabulary](vocabulary/mezmo-vocabulary.yml)
 - [Spectral Ruleset](rules/mezmo-rules.yml)
-- [JSON-LD Context](json-ld/mezmo-context.jsonld)
-- [JSON Schema - Log Line](json-schema/mezmo-log-line-schema.json)
-- [JSON Schema - Pipeline](json-schema/mezmo-pipeline-schema.json)
+- [JSON-LD](json-ld/mezmo-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+
+## Maintainers
+
+**FN:** API Evangelist
+**Email:** info@apievangelist.com

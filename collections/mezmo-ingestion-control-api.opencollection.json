@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Ingestion Control API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Exclusions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Exclusion Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions"
+          },
+          "docs": "List Exclusion Rules"
+        },
+        {
+          "info": {
+            "name": "Create Exclusion Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Exclusion Rule"
+        },
+        {
+          "info": {
+            "name": "Update Exclusion Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions/:ruleid",
+            "params": [
+              {
+                "name": "ruleid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Exclusion Rule"
+        },
+        {
+          "info": {
+            "name": "Delete Exclusion Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions/:ruleid",
+            "params": [
+              {
+                "name": "ruleid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Exclusion Rule"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Suspension",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Ingestion Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/ingestion/status"
+          },
+          "docs": "Get Ingestion Status"
+        },
+        {
+          "info": {
+            "name": "Initiate Ingestion Suspension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/ingestion/suspend"
+          },
+          "docs": "Initiate Ingestion Suspension"
+        },
+        {
+          "info": {
+            "name": "Confirm Ingestion Suspension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/ingestion/suspend/confirm"
+          },
+          "docs": "Confirm Ingestion Suspension"
+        },
+        {
+          "info": {
+            "name": "Resume Ingestion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/ingestion/resume"
+          },
+          "docs": "Resume Ingestion"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
