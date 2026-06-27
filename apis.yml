@@ -249,22 +249,22 @@ common:
     type: CLI
   - url: https://registry.terraform.io/providers/mezmo/mezmo/latest
     name: Terraform Provider for Mezmo
-    type: SDK
+    type: SDKs
   - url: https://github.com/logdna/terraform-provider-logdna
     name: Terraform Provider for LogDNA (legacy)
-    type: SDK
+    type: SDKs
   - url: https://github.com/logdna/logdna-agent-v2
     name: Mezmo Agent (logdna-agent-v2)
-    type: SDK
+    type: SDKs
   - url: https://github.com/logdna/nodejs
     name: LogDNA Node.js SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/logdna/python
     name: LogDNA Python SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/logdna/logdna-rust
     name: LogDNA Rust SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/mezmo/mezmo-mcp
     name: Mezmo MCP Server
     type: MCPServer
@@ -273,7 +273,7 @@ common:
     type: SourceCode
   - url: https://github.com/mezmo/helm-charts
     name: Mezmo Helm Charts
-    type: SDK
+    type: SDKs
   - url: https://www.mezmo.com/pricing
     name: Mezmo Pricing
     type: Pricing
