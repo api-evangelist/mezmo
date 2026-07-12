@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mezmo-alerts-api-openapi.yml, openapi/mezmo-archiving-api-openapi.yml, openapi/mezmo-edge-api-openapi.yml,
+  openapi/mezmo-ingestion-control-api-openapi.yml, openapi/mezmo-log-export-api-openapi.yml,
+  openapi/mezmo-log-ingestion-api-openapi.yml, openapi/mezmo-pipeline-api-openapi.yml, openapi/mezmo-pipeline-classification-api-openapi.yml,
+  openapi/mezmo-usage-api-openapi.yml, openapi/mezmo-views-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: AccessToken
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/mezmo-alerts-api-openapi.yml
+  - openapi/mezmo-archiving-api-openapi.yml
+  - openapi/mezmo-edge-api-openapi.yml
+  - openapi/mezmo-ingestion-control-api-openapi.yml
+  - openapi/mezmo-log-export-api-openapi.yml
+  - openapi/mezmo-log-ingestion-api-openapi.yml
+  - openapi/mezmo-pipeline-api-openapi.yml
+  - openapi/mezmo-pipeline-classification-api-openapi.yml
+  - openapi/mezmo-usage-api-openapi.yml
+  - openapi/mezmo-views-api-openapi.yml
+- name: ServiceKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Deprecated service key in Authorization header.
+  sources:
+  - openapi/mezmo-log-ingestion-api-openapi.yml
