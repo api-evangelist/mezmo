@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving AuditEvents API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: AuditEvents
+paths:
+  /pipelines/{pipelineId}/audit:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - AuditEvents
+      summary: List Audit Events
+      operationId: listAuditEvents
+      responses:
+        '200':
+          description: Audit log for the pipeline.
+components:
+  parameters:
+    PipelineId:
+      name: pipelineId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

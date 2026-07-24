@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving Metrics API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: Metrics
+paths:
+  /metrics/events:
+    get:
+      tags:
+      - Metrics
+      summary: Get Event Metrics
+      operationId: getEventMetrics
+      parameters:
+      - name: pipelineId
+        in: query
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Event rate / volume metrics.
+components:
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

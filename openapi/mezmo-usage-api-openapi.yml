@@ -1,16 +1,20 @@
 openapi: 3.0.3
 info:
-  title: Mezmo Usage API
-  description: |
-    Query log usage by app, host, or tag for the account. V2 reports detailed
-    byte-based consumption suitable for chargeback and FinOps.
-  version: '2.0'
+  title: Mezmo Alerts Archiving Usage API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
 servers:
 - url: https://api.mezmo.com
-tags:
-- name: Usage
 security:
 - AccessToken: []
+tags:
+- name: Usage
 paths:
   /v1/usage/{type}:
     get:
@@ -81,10 +85,6 @@ paths:
         '200':
           description: Detailed usage rollup with byte and line counts.
 components:
-  securitySchemes:
-    AccessToken:
-      type: http
-      scheme: bearer
   schemas:
     UsageEntry:
       type: object
@@ -103,3 +103,7 @@ components:
         to:
           type: integer
           format: int64
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

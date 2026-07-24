@@ -1,0 +1,65 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving Tasks API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: Tasks
+paths:
+  /edge/clients/{clientId}/tasks:
+    parameters:
+    - name: clientId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Tasks
+      summary: List Pending Tasks
+      operationId: listEdgeTasks
+      responses:
+        '200':
+          description: Pending tasks for the edge client.
+  /edge/clients/{clientId}/tasks/{taskId}/result:
+    parameters:
+    - name: clientId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Tasks
+      summary: Submit Task Result
+      operationId: submitTaskResult
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Result accepted.
+components:
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

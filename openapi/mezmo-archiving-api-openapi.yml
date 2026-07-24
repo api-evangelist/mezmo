@@ -1,18 +1,21 @@
 openapi: 3.0.3
 info:
-  title: Mezmo Archiving API
-  description: |
-    Configure cold-storage archiving for log data beyond plan-bound retention.
-    Supports AWS S3, Google Cloud Storage, Azure Blob, IBM Cloud Object Storage,
-    and DigitalOcean Spaces destinations.
+  title: Mezmo Alerts Archiving API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
   version: '1.0'
 servers:
 - url: https://api.mezmo.com
+security:
+- AccessToken: []
 tags:
 - name: Archiving
   description: Cold storage configuration
-security:
-- AccessToken: []
 paths:
   /v1/config/archiving:
     get:
@@ -64,10 +67,6 @@ paths:
         '204':
           description: Configuration deleted.
 components:
-  securitySchemes:
-    AccessToken:
-      type: http
-      scheme: bearer
   schemas:
     ArchiveConfig:
       type: object
@@ -98,3 +97,7 @@ components:
           type: string
         resourceinstanceid:
           type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

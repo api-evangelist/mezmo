@@ -1,22 +1,21 @@
 openapi: 3.0.3
 info:
-  title: Mezmo Log Export API
-  description: |
-    Query and export logs from the Mezmo log analysis platform. V2 supports
-    pagination and is recommended for unbounded exports. V1 is preserved for
-    backward compatibility and is plan-limited.
-  version: '2.0'
-  contact:
-    name: Mezmo
-    url: https://www.mezmo.com/
+  title: Mezmo Alerts Archiving Export API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
 servers:
 - url: https://api.mezmo.com
-  description: Production API
+security:
+- AccessToken: []
 tags:
 - name: Export
   description: Historical log export
-security:
-- AccessToken: []
 paths:
   /v1/export:
     get:
@@ -71,14 +70,18 @@ paths:
                 $ref: '#/components/schemas/ExportPage'
 components:
   parameters:
-    From:
-      name: from
+    Apps:
+      name: apps
       in: query
-      required: true
       schema:
-        type: integer
-        format: int64
-      description: Start of the export window (unix epoch milliseconds).
+        type: string
+      description: Comma-separated app names.
+    Query:
+      name: query
+      in: query
+      schema:
+        type: string
+      description: Free-text search expression.
     To:
       name: to
       in: query
@@ -87,40 +90,32 @@ components:
         type: integer
         format: int64
       description: End of the export window (unix epoch milliseconds).
-    Query:
-      name: query
-      in: query
-      schema:
-        type: string
-      description: Free-text search expression.
-    Hosts:
-      name: hosts
-      in: query
-      schema:
-        type: string
-      description: Comma-separated hostnames.
-    Apps:
-      name: apps
-      in: query
-      schema:
-        type: string
-      description: Comma-separated app names.
-    Levels:
-      name: levels
-      in: query
-      schema:
-        type: string
-      description: Comma-separated log levels.
     Tags:
       name: tags
       in: query
       schema:
         type: string
       description: Comma-separated tags.
-  securitySchemes:
-    AccessToken:
-      type: http
-      scheme: bearer
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Start of the export window (unix epoch milliseconds).
+    Levels:
+      name: levels
+      in: query
+      schema:
+        type: string
+      description: Comma-separated log levels.
+    Hosts:
+      name: hosts
+      in: query
+      schema:
+        type: string
+      description: Comma-separated hostnames.
   schemas:
     ExportPage:
       type: object
@@ -149,3 +144,7 @@ components:
         pagination_id:
           type: string
           description: Cursor to fetch the next page. Empty when the export is complete.
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

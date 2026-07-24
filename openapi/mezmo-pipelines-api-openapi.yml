@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving Pipelines API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: Pipelines
+paths:
+  /pipelines:
+    get:
+      tags:
+      - Pipelines
+      summary: List Pipelines
+      operationId: listPipelines
+      responses:
+        '200':
+          description: List of pipelines.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pipeline'
+    post:
+      tags:
+      - Pipelines
+      summary: Create Pipeline
+      operationId: createPipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineInput'
+      responses:
+        '201':
+          description: Pipeline created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+  /pipelines/{pipelineId}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Pipelines
+      summary: Get Pipeline
+      operationId: getPipeline
+      responses:
+        '200':
+          description: Pipeline details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    put:
+      tags:
+      - Pipelines
+      summary: Update Pipeline
+      operationId: updatePipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineInput'
+      responses:
+        '200':
+          description: Pipeline updated.
+    delete:
+      tags:
+      - Pipelines
+      summary: Delete Pipeline
+      operationId: deletePipeline
+      responses:
+        '204':
+          description: Pipeline deleted.
+  /pipelines/{pipelineId}/health:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Pipelines
+      summary: Get Pipeline Health
+      operationId: getPipelineHealth
+      responses:
+        '200':
+          description: Health status of the pipeline.
+components:
+  schemas:
+    Pipeline:
+      allOf:
+      - $ref: '#/components/schemas/PipelineInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          accountId:
+            type: string
+          createdAt:
+            type: string
+            format: date-time
+          updatedAt:
+            type: string
+            format: date-time
+          status:
+            type: string
+            enum:
+            - draft
+            - published
+            - errored
+    PipelineInput:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        sharedSources:
+          type: array
+          items:
+            type: string
+  parameters:
+    PipelineId:
+      name: pipelineId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

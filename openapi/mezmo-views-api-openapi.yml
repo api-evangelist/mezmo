@@ -1,20 +1,21 @@
 openapi: 3.0.3
 info:
-  title: Mezmo Views API
-  description: |
-    Manage Mezmo log Views — saved query definitions over hosts, apps, levels,
-    tags, and free-text filters. Views are the resource alerts attach to.
+  title: Mezmo Alerts Archiving Views API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
   version: '1.0'
-  contact:
-    name: Mezmo
-    url: https://www.mezmo.com/
 servers:
 - url: https://api.mezmo.com
+security:
+- AccessToken: []
 tags:
 - name: Views
   description: Saved view management
-security:
-- AccessToken: []
 paths:
   /v1/config/view:
     get:
@@ -94,11 +95,14 @@ components:
       required: true
       schema:
         type: string
-  securitySchemes:
-    AccessToken:
-      type: http
-      scheme: bearer
   schemas:
+    View:
+      allOf:
+      - $ref: '#/components/schemas/ViewInput'
+      - type: object
+        properties:
+          viewid:
+            type: string
     ViewInput:
       type: object
       required:
@@ -126,10 +130,7 @@ components:
           type: array
           items:
             type: string
-    View:
-      allOf:
-      - $ref: '#/components/schemas/ViewInput'
-      - type: object
-        properties:
-          viewid:
-            type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

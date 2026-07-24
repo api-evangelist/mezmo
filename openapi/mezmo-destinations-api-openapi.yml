@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving Destinations API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: Destinations
+paths:
+  /pipelines/{pipelineId}/destinations:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Destinations
+      summary: List Destinations
+      operationId: listDestinations
+      responses:
+        '200':
+          description: Destinations for the pipeline.
+    post:
+      tags:
+      - Destinations
+      summary: Create Destination
+      operationId: createDestination
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '201':
+          description: Destination created.
+  /pipelines/{pipelineId}/destinations/{nodeId}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    - $ref: '#/components/parameters/NodeId'
+    get:
+      tags:
+      - Destinations
+      summary: Get Destination
+      operationId: getDestination
+      responses:
+        '200':
+          description: Destination details.
+    put:
+      tags:
+      - Destinations
+      summary: Update Destination
+      operationId: updateDestination
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '200':
+          description: Destination updated.
+    delete:
+      tags:
+      - Destinations
+      summary: Delete Destination
+      operationId: deleteDestination
+      responses:
+        '204':
+          description: Destination deleted.
+components:
+  parameters:
+    NodeId:
+      name: nodeId
+      in: path
+      required: true
+      schema:
+        type: string
+    PipelineId:
+      name: pipelineId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    PipelineNodeInput:
+      type: object
+      required:
+      - title
+      - type
+      properties:
+        title:
+          type: string
+        type:
+          type: string
+          description: Component type (e.g. http_source, otel_source, s3_destination, datadog_logs_destination, vrl_processor).
+        config:
+          type: object
+          additionalProperties: true
+        inputs:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

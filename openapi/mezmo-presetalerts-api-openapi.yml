@@ -1,18 +1,21 @@
 openapi: 3.0.3
 info:
-  title: Mezmo Alerts API
-  description: |
-    Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+  title: Mezmo Alerts Archiving PresetAlerts API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
     triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
     Slack, webhook, email) that views attach to.
+
+    '
   version: '1.0'
 servers:
 - url: https://api.mezmo.com
+security:
+- AccessToken: []
 tags:
 - name: PresetAlerts
   description: Preset alert configuration
-security:
-- AccessToken: []
 paths:
   /v1/config/presetalert:
     get:
@@ -81,35 +84,7 @@ paths:
         '204':
           description: Alert deleted.
 components:
-  securitySchemes:
-    AccessToken:
-      type: http
-      scheme: bearer
   schemas:
-    PresetAlertInput:
-      type: object
-      required:
-      - name
-      - channels
-      properties:
-        name:
-          type: string
-        triggerinterval:
-          type: string
-          description: Window over which to evaluate the trigger.
-        triggerlimit:
-          type: integer
-        triggermatchingall:
-          type: boolean
-        operator:
-          type: string
-          enum:
-          - presence
-          - absence
-        channels:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertChannel'
     AlertChannel:
       type: object
       required:
@@ -145,3 +120,31 @@ components:
         properties:
           presetid:
             type: string
+    PresetAlertInput:
+      type: object
+      required:
+      - name
+      - channels
+      properties:
+        name:
+          type: string
+        triggerinterval:
+          type: string
+          description: Window over which to evaluate the trigger.
+        triggerlimit:
+          type: integer
+        triggermatchingall:
+          type: boolean
+        operator:
+          type: string
+          enum:
+          - presence
+          - absence
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertChannel'
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

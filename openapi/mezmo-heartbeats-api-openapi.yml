@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving Heartbeats API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: Heartbeats
+paths:
+  /edge/clients/{clientId}/heartbeat:
+    parameters:
+    - name: clientId
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Heartbeats
+      summary: Send Heartbeat
+      operationId: sendHeartbeat
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Heartbeat'
+      responses:
+        '200':
+          description: Heartbeat acknowledged; returns any pending tasks.
+components:
+  schemas:
+    Heartbeat:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+        status:
+          type: string
+        version:
+          type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

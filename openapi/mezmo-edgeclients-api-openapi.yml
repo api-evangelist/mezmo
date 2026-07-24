@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving EdgeClients API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: EdgeClients
+paths:
+  /edge/clients:
+    get:
+      tags:
+      - EdgeClients
+      summary: List Edge Clients
+      operationId: listEdgeClients
+      responses:
+        '200':
+          description: Registered edge clients.
+    post:
+      tags:
+      - EdgeClients
+      summary: Register Edge Client
+      operationId: registerEdgeClient
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdgeClient'
+      responses:
+        '201':
+          description: Client registered.
+  /edge/clients/{clientId}:
+    parameters:
+    - name: clientId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - EdgeClients
+      summary: Get Edge Client
+      operationId: getEdgeClient
+      responses:
+        '200':
+          description: Edge client details.
+    delete:
+      tags:
+      - EdgeClients
+      summary: Deregister Edge Client
+      operationId: deregisterEdgeClient
+      responses:
+        '204':
+          description: Client deregistered.
+components:
+  schemas:
+    EdgeClient:
+      type: object
+      properties:
+        clientId:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

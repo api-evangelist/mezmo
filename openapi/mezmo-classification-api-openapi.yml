@@ -1,17 +1,20 @@
 openapi: 3.0.3
 info:
-  title: Mezmo Pipeline Classification API
-  description: |
-    AI-assisted data classification, field profiling, parser inference, and
-    regex generation against pipeline samples. Used inside the Mezmo Pipelines
-    authoring workflow to accelerate parser and processor configuration.
-  version: 'v3'
+  title: Mezmo Alerts Archiving Classification API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
 servers:
-- url: https://api.mezmo.com/v3
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
 tags:
 - name: Classification
-security:
-- PipelineServiceKey: []
 paths:
   /classification/profile:
     post:
@@ -66,22 +69,7 @@ paths:
         '200':
           description: Generated regex.
 components:
-  securitySchemes:
-    PipelineServiceKey:
-      type: http
-      scheme: bearer
   schemas:
-    SampleRequest:
-      type: object
-      required:
-      - samples
-      properties:
-        samples:
-          type: array
-          items:
-            type: string
-        hint:
-          type: string
     Profile:
       type: object
       properties:
@@ -100,3 +88,18 @@ components:
                 type: array
                 items:
                   type: string
+    SampleRequest:
+      type: object
+      required:
+      - samples
+      properties:
+        samples:
+          type: array
+          items:
+            type: string
+        hint:
+          type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

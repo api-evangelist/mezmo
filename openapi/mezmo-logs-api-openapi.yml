@@ -1,36 +1,34 @@
 openapi: 3.0.3
 info:
-  title: Mezmo Log Ingestion API
-  description: |
-    Ingest log lines into the Mezmo log analysis platform (formerly LogDNA).
-    Lines are sent in batched JSON to logs.mezmo.com/logs/ingest with metadata
-    including hostname, app, env, mac, ip, level, and arbitrary structured meta.
+  title: Mezmo Alerts Archiving Logs API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
   version: '1.0'
-  contact:
-    name: Mezmo
-    url: https://www.mezmo.com/
-  license:
-    name: Proprietary
-    url: https://www.mezmo.com/legal/master-services-agreement
 servers:
-- url: https://logs.mezmo.com
-  description: Production ingestion endpoint
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
 tags:
 - name: Logs
   description: Log line ingestion
-security:
-- AccessToken: []
-- ServiceKey: []
 paths:
   /logs/ingest:
     post:
       tags:
       - Logs
       summary: Ingest Logs
-      description: |
-        Send a batch of log lines to Mezmo. Each line carries a timestamp, line
+      description: 'Send a batch of log lines to Mezmo. Each line carries a timestamp, line
+
         body, app, level, env, and free-form meta. Recommended batch size is
+
         under 10 MB per request.
+
+        '
       operationId: ingestLogs
       parameters:
       - name: hostname
@@ -84,16 +82,6 @@ paths:
         '413':
           description: Batch payload too large.
 components:
-  securitySchemes:
-    AccessToken:
-      type: http
-      scheme: bearer
-      description: 'Authorization: Token {ACCESS_TOKEN}'
-    ServiceKey:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Deprecated service key in Authorization header.
   schemas:
     IngestBatch:
       type: object
@@ -136,3 +124,7 @@ components:
           type: string
         batchID:
           type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

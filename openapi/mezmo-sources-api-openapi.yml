@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving Sources API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: Sources
+paths:
+  /pipelines/{pipelineId}/sources:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Sources
+      summary: List Sources
+      operationId: listSources
+      responses:
+        '200':
+          description: Sources for the pipeline.
+    post:
+      tags:
+      - Sources
+      summary: Create Source
+      operationId: createSource
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '201':
+          description: Source created.
+  /pipelines/{pipelineId}/sources/{nodeId}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    - $ref: '#/components/parameters/NodeId'
+    get:
+      tags:
+      - Sources
+      summary: Get Source
+      operationId: getSource
+      responses:
+        '200':
+          description: Source details.
+    put:
+      tags:
+      - Sources
+      summary: Update Source
+      operationId: updateSource
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '200':
+          description: Source updated.
+    delete:
+      tags:
+      - Sources
+      summary: Delete Source
+      operationId: deleteSource
+      responses:
+        '204':
+          description: Source deleted.
+components:
+  parameters:
+    NodeId:
+      name: nodeId
+      in: path
+      required: true
+      schema:
+        type: string
+    PipelineId:
+      name: pipelineId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    PipelineNodeInput:
+      type: object
+      required:
+      - title
+      - type
+      properties:
+        title:
+          type: string
+        type:
+          type: string
+          description: Component type (e.g. http_source, otel_source, s3_destination, datadog_logs_destination, vrl_processor).
+        config:
+          type: object
+          additionalProperties: true
+        inputs:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer

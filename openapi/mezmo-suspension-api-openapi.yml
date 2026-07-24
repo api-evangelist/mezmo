@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Alerts Archiving Suspension API
+  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+
+    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+
+    Slack, webhook, email) that views attach to.
+
+    '
+  version: '1.0'
+servers:
+- url: https://api.mezmo.com
+security:
+- AccessToken: []
+tags:
+- name: Suspension
+paths:
+  /v1/config/ingestion/status:
+    get:
+      tags:
+      - Suspension
+      summary: Get Ingestion Status
+      operationId: getIngestionStatus
+      responses:
+        '200':
+          description: Current ingestion status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestionStatus'
+  /v1/config/ingestion/suspend:
+    post:
+      tags:
+      - Suspension
+      summary: Initiate Ingestion Suspension
+      operationId: suspendIngestion
+      responses:
+        '202':
+          description: Suspension requested; confirmation required.
+  /v1/config/ingestion/suspend/confirm:
+    post:
+      tags:
+      - Suspension
+      summary: Confirm Ingestion Suspension
+      operationId: confirmSuspendIngestion
+      responses:
+        '200':
+          description: Suspension confirmed.
+  /v1/config/ingestion/resume:
+    post:
+      tags:
+      - Suspension
+      summary: Resume Ingestion
+      operationId: resumeIngestion
+      responses:
+        '200':
+          description: Ingestion resumed.
+components:
+  schemas:
+    IngestionStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - active
+          - suspended
+          - suspending
+        modified:
+          type: integer
+          format: int64
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer
