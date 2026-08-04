@@ -1,0 +1,349 @@
+{
+  "info": {
+    "_postman_id": "87a04989-282f-40e5-8e5e-958edf309642",
+    "name": "Mezmo Alerts Archiving Classification API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:37.000Z",
+    "updatedAt": "2026-07-28T02:09:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-87a04989-282f-40e5-8e5e-958edf309642"
+  },
+  "item": [
+    {
+      "name": "classification",
+      "item": [
+        {
+          "name": "profile",
+          "item": [
+            {
+              "name": "Profile Sample Data",
+              "id": "0799e1c5-1eba-4fcf-aa55-38a4b7ea575d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/classification/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "classification",
+                    "profile"
+                  ]
+                },
+                "description": "Analyze a sample of pipeline data and return inferred field types, cardinality, and clusters."
+              },
+              "response": [
+                {
+                  "id": "430ded9a-7cca-4289-954f-620cdaa36137",
+                  "name": "Field profile.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/classification/profile",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "classification",
+                        "profile"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"fields\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"cardinality\": \"<integer>\",\n      \"examples\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"cardinality\": \"<integer>\",\n      \"examples\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:09:38.000Z",
+                  "updatedAt": "2026-07-28T02:09:38.000Z",
+                  "uid": "35240-430ded9a-7cca-4289-954f-620cdaa36137"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:38.000Z",
+              "updatedAt": "2026-07-28T02:09:38.000Z",
+              "uid": "35240-0799e1c5-1eba-4fcf-aa55-38a4b7ea575d"
+            }
+          ],
+          "id": "2e5f6375-c46f-4df4-ae07-9c14aa68c39b",
+          "createdAt": "2026-07-28T02:09:37.000Z",
+          "updatedAt": "2026-07-28T02:09:37.000Z",
+          "uid": "35240-2e5f6375-c46f-4df4-ae07-9c14aa68c39b"
+        },
+        {
+          "name": "parse",
+          "item": [
+            {
+              "name": "Suggest Parser",
+              "id": "ccfe8033-c69d-438c-8efb-e1a8ecd8a0a4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/classification/parse",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "classification",
+                    "parse"
+                  ]
+                },
+                "description": "AI-generate a parser configuration for the sample."
+              },
+              "response": [
+                {
+                  "id": "2e18a206-9d3b-4ac1-85fe-9bec5f2e83c9",
+                  "name": "Suggested parser.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/classification/parse",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "classification",
+                        "parse"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:38.000Z",
+                  "updatedAt": "2026-07-28T02:09:38.000Z",
+                  "uid": "35240-2e18a206-9d3b-4ac1-85fe-9bec5f2e83c9"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:38.000Z",
+              "updatedAt": "2026-07-28T02:09:38.000Z",
+              "uid": "35240-ccfe8033-c69d-438c-8efb-e1a8ecd8a0a4"
+            }
+          ],
+          "id": "e866d0ff-22aa-47ee-bc35-e266fd797354",
+          "createdAt": "2026-07-28T02:09:37.000Z",
+          "updatedAt": "2026-07-28T02:09:37.000Z",
+          "uid": "35240-e866d0ff-22aa-47ee-bc35-e266fd797354"
+        },
+        {
+          "name": "regex",
+          "item": [
+            {
+              "name": "Generate Regex",
+              "id": "a702949c-783d-4f0d-a918-52c063cdb711",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/classification/regex",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "classification",
+                    "regex"
+                  ]
+                },
+                "description": "Generate a regex for the supplied sample tokens."
+              },
+              "response": [
+                {
+                  "id": "9fa81a36-0df7-4b6b-b026-0ec6a415b7be",
+                  "name": "Generated regex.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"samples\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hint\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/classification/regex",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "classification",
+                        "regex"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:38.000Z",
+                  "updatedAt": "2026-07-28T02:09:38.000Z",
+                  "uid": "35240-9fa81a36-0df7-4b6b-b026-0ec6a415b7be"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:38.000Z",
+              "updatedAt": "2026-07-28T02:09:38.000Z",
+              "uid": "35240-a702949c-783d-4f0d-a918-52c063cdb711"
+            }
+          ],
+          "id": "1bab2868-42c3-4922-b52d-1eac76e93f62",
+          "createdAt": "2026-07-28T02:09:37.000Z",
+          "updatedAt": "2026-07-28T02:09:37.000Z",
+          "uid": "35240-1bab2868-42c3-4922-b52d-1eac76e93f62"
+        }
+      ],
+      "id": "65aff64d-dc2b-41bc-865c-6b8002529baf",
+      "createdAt": "2026-07-28T02:09:37.000Z",
+      "updatedAt": "2026-07-28T02:09:37.000Z",
+      "uid": "35240-65aff64d-dc2b-41bc-865c-6b8002529baf"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

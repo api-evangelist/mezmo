@@ -1,0 +1,280 @@
+{
+  "info": {
+    "_postman_id": "b417e18b-c40e-470b-99e0-65ebe4d44327",
+    "name": "Mezmo Alerts Archiving Usage API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:35.000Z",
+    "updatedAt": "2026-07-28T02:09:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b417e18b-c40e-470b-99e0-65ebe4d44327"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "usage",
+          "item": [
+            {
+              "name": "{type}",
+              "item": [
+                {
+                  "name": "Get Usage By Type",
+                  "id": "aab793d7-3346-469c-9289-d828d7011671",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/usage/:type?from=<long>&to=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "usage",
+                        ":type"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "from",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "to",
+                          "value": "<long>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "031e8bfe-a1e9-4d02-b098-b75dbd7614a9",
+                          "key": "type",
+                          "value": "tags",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c286e5bb-6868-47b0-bd82-331741f8e478",
+                      "name": "Usage rollup by resource.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/usage/:type?from=<long>&to=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "usage",
+                            ":type"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "from",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "to",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "type"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"name\": \"<string>\",\n    \"bytes\": \"<long>\",\n    \"lines\": \"<long>\",\n    \"from\": \"<long>\",\n    \"to\": \"<long>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"bytes\": \"<long>\",\n    \"lines\": \"<long>\",\n    \"from\": \"<long>\",\n    \"to\": \"<long>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:09:35.000Z",
+                      "updatedAt": "2026-07-28T02:09:35.000Z",
+                      "uid": "35240-c286e5bb-6868-47b0-bd82-331741f8e478"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:35.000Z",
+                  "updatedAt": "2026-07-28T02:09:35.000Z",
+                  "uid": "35240-aab793d7-3346-469c-9289-d828d7011671"
+                }
+              ],
+              "id": "ffbb906e-81ed-4f93-a748-05cec199ae19",
+              "createdAt": "2026-07-28T02:09:35.000Z",
+              "updatedAt": "2026-07-28T02:09:35.000Z",
+              "uid": "35240-ffbb906e-81ed-4f93-a748-05cec199ae19"
+            }
+          ],
+          "id": "f51bb684-4d0e-4766-8e82-3294ef8882b0",
+          "createdAt": "2026-07-28T02:09:35.000Z",
+          "updatedAt": "2026-07-28T02:09:35.000Z",
+          "uid": "35240-f51bb684-4d0e-4766-8e82-3294ef8882b0"
+        }
+      ],
+      "id": "36450f54-fcba-49cc-9bde-f28b5b54bc71",
+      "createdAt": "2026-07-28T02:09:35.000Z",
+      "updatedAt": "2026-07-28T02:09:35.000Z",
+      "uid": "35240-36450f54-fcba-49cc-9bde-f28b5b54bc71"
+    },
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usage",
+          "item": [
+            {
+              "name": "Get Detailed Usage",
+              "id": "5573e335-118d-4f12-a8e3-69c0a26fb154",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/usage?from=<long>&to=<long>&groupby=tag",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "usage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "groupby",
+                      "value": "tag"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9dd94c93-5223-4bfd-8500-f773d5fc4140",
+                  "name": "Detailed usage rollup with byte and line counts.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usage?from=<long>&to=<long>&groupby=tag",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usage"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "from",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "to",
+                          "value": "<long>"
+                        },
+                        {
+                          "key": "groupby",
+                          "value": "tag"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:35.000Z",
+                  "updatedAt": "2026-07-28T02:09:35.000Z",
+                  "uid": "35240-9dd94c93-5223-4bfd-8500-f773d5fc4140"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:35.000Z",
+              "updatedAt": "2026-07-28T02:09:35.000Z",
+              "uid": "35240-5573e335-118d-4f12-a8e3-69c0a26fb154"
+            }
+          ],
+          "id": "29b82271-d510-4f39-bb35-f1109a091820",
+          "createdAt": "2026-07-28T02:09:35.000Z",
+          "updatedAt": "2026-07-28T02:09:35.000Z",
+          "uid": "35240-29b82271-d510-4f39-bb35-f1109a091820"
+        }
+      ],
+      "id": "047f9821-0599-4b2a-95b8-845693e1526d",
+      "createdAt": "2026-07-28T02:09:35.000Z",
+      "updatedAt": "2026-07-28T02:09:35.000Z",
+      "uid": "35240-047f9821-0599-4b2a-95b8-845693e1526d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

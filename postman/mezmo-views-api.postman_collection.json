@@ -1,0 +1,520 @@
+{
+  "info": {
+    "_postman_id": "cb6642d6-b812-46a2-b31a-f4d8d1dbed9e",
+    "name": "Mezmo Alerts Archiving Views API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:26.000Z",
+    "updatedAt": "2026-07-28T02:09:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb6642d6-b812-46a2-b31a-f4d8d1dbed9e"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "config",
+          "item": [
+            {
+              "name": "view",
+              "item": [
+                {
+                  "name": "{viewid}",
+                  "item": [
+                    {
+                      "name": "Get View",
+                      "id": "ebe1eade-4e39-4eb8-93f0-699ebb6f0a09",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/view/:viewid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "view",
+                            ":viewid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f988a4b0-5f65-4321-b300-bdc5084d73a7",
+                              "key": "viewid",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4e901264-801d-4d91-ade4-a6bcfed855a7",
+                          "name": "View details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/view/:viewid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "view",
+                                ":viewid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "viewid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"viewid\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:09:27.000Z",
+                          "updatedAt": "2026-07-28T02:09:27.000Z",
+                          "uid": "35240-4e901264-801d-4d91-ade4-a6bcfed855a7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:27.000Z",
+                      "updatedAt": "2026-07-28T02:09:27.000Z",
+                      "uid": "35240-ebe1eade-4e39-4eb8-93f0-699ebb6f0a09"
+                    },
+                    {
+                      "name": "Update View",
+                      "id": "cd35a585-8bb0-4a3e-a499-1840ff20c5d6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/view/:viewid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "view",
+                            ":viewid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "53caacd6-5a4b-4b15-b4b0-fd7651e597fa",
+                              "key": "viewid",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "939c0709-5695-4055-9ab8-92d059d5f72b",
+                          "name": "View updated.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/view/:viewid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "view",
+                                ":viewid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "viewid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:27.000Z",
+                          "updatedAt": "2026-07-28T02:09:27.000Z",
+                          "uid": "35240-939c0709-5695-4055-9ab8-92d059d5f72b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:27.000Z",
+                      "updatedAt": "2026-07-28T02:09:27.000Z",
+                      "uid": "35240-cd35a585-8bb0-4a3e-a499-1840ff20c5d6"
+                    },
+                    {
+                      "name": "Delete View",
+                      "id": "76d2a328-97c6-4eeb-a1a7-3c0aa0a55d9c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/view/:viewid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "view",
+                            ":viewid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "99db83e0-9f85-48bb-ab15-6f9ac0224000",
+                              "key": "viewid",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f3000232-8bc3-4f3a-b1f0-5409a3d68e73",
+                          "name": "View deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/view/:viewid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "view",
+                                ":viewid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "viewid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:27.000Z",
+                          "updatedAt": "2026-07-28T02:09:27.000Z",
+                          "uid": "35240-f3000232-8bc3-4f3a-b1f0-5409a3d68e73"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:27.000Z",
+                      "updatedAt": "2026-07-28T02:09:27.000Z",
+                      "uid": "35240-76d2a328-97c6-4eeb-a1a7-3c0aa0a55d9c"
+                    }
+                  ],
+                  "id": "d0f7356f-2393-418e-b841-8b1c1cbe6583",
+                  "createdAt": "2026-07-28T02:09:27.000Z",
+                  "updatedAt": "2026-07-28T02:09:27.000Z",
+                  "uid": "35240-d0f7356f-2393-418e-b841-8b1c1cbe6583"
+                },
+                {
+                  "name": "List Views",
+                  "id": "07ca4b2f-00bb-4c55-8c0c-8b483533ef85",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/config/view",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "config",
+                        "view"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0d87d7cf-0ebd-4ea0-ba8c-e6fbe8eb960c",
+                      "name": "List of views.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/view",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "view"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"name\": \"<string>\",\n    \"category\": \"<string>\",\n    \"query\": \"<string>\",\n    \"hosts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"apps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"levels\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewid\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"category\": \"<string>\",\n    \"query\": \"<string>\",\n    \"hosts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"apps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"levels\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewid\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:09:27.000Z",
+                      "updatedAt": "2026-07-28T02:09:27.000Z",
+                      "uid": "35240-0d87d7cf-0ebd-4ea0-ba8c-e6fbe8eb960c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:27.000Z",
+                  "updatedAt": "2026-07-28T02:09:27.000Z",
+                  "uid": "35240-07ca4b2f-00bb-4c55-8c0c-8b483533ef85"
+                },
+                {
+                  "name": "Create View",
+                  "id": "a236ab2c-6579-414d-b44e-63e89e908c6d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/config/view",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "config",
+                        "view"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2092fb21-b867-46c0-bbb7-daa07700395e",
+                      "name": "View created.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/view",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "view"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"viewid\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:27.000Z",
+                      "updatedAt": "2026-07-28T02:09:27.000Z",
+                      "uid": "35240-2092fb21-b867-46c0-bbb7-daa07700395e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:27.000Z",
+                  "updatedAt": "2026-07-28T02:09:27.000Z",
+                  "uid": "35240-a236ab2c-6579-414d-b44e-63e89e908c6d"
+                }
+              ],
+              "id": "eea23bd2-0d68-453a-a651-a01c728bedbf",
+              "createdAt": "2026-07-28T02:09:27.000Z",
+              "updatedAt": "2026-07-28T02:09:27.000Z",
+              "uid": "35240-eea23bd2-0d68-453a-a651-a01c728bedbf"
+            }
+          ],
+          "id": "f29fc278-eaa3-486f-a21b-214ced15fd1e",
+          "createdAt": "2026-07-28T02:09:27.000Z",
+          "updatedAt": "2026-07-28T02:09:27.000Z",
+          "uid": "35240-f29fc278-eaa3-486f-a21b-214ced15fd1e"
+        }
+      ],
+      "id": "7fd93e69-7e11-4d95-9ab2-a43fa68a92da",
+      "createdAt": "2026-07-28T02:09:27.000Z",
+      "updatedAt": "2026-07-28T02:09:27.000Z",
+      "uid": "35240-7fd93e69-7e11-4d95-9ab2-a43fa68a92da"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "info": {
+    "_postman_id": "59ed3b0d-f87b-415a-804e-6f1cdbe33ea4",
+    "name": "Mezmo Alerts Archiving Export API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:43.000Z",
+    "updatedAt": "2026-07-28T02:09:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-59ed3b0d-f87b-415a-804e-6f1cdbe33ea4"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "export",
+          "item": [
+            {
+              "name": "Export Logs V1",
+              "id": "7170721f-039b-43cf-a37d-1195fc77520c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/export?from=<long>&to=<long>&query=<string>&hosts=<string>&apps=<string>&levels=<string>&tags=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "export"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Start of the export window (unix epoch milliseconds).",
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "(Required) End of the export window (unix epoch milliseconds).",
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Free-text search expression.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated hostnames.",
+                      "key": "hosts",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated app names.",
+                      "key": "apps",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated log levels.",
+                      "key": "levels",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated tags.",
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Legacy export endpoint with plan-bounded result size."
+              },
+              "response": [
+                {
+                  "id": "8439bce6-7e6a-476c-a6c2-0641aba86ad3",
+                  "name": "Newline-delimited JSON of matching log lines.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/export?from=<long>&to=<long>&query=<string>&hosts=<string>&apps=<string>&levels=<string>&tags=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "export"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Start of the export window (unix epoch milliseconds).",
+                          "key": "from",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "(Required) End of the export window (unix epoch milliseconds).",
+                          "key": "to",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Free-text search expression.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated hostnames.",
+                          "key": "hosts",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated app names.",
+                          "key": "apps",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated log levels.",
+                          "key": "levels",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated tags.",
+                          "key": "tags",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:43.000Z",
+                  "updatedAt": "2026-07-28T02:09:43.000Z",
+                  "uid": "35240-8439bce6-7e6a-476c-a6c2-0641aba86ad3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:43.000Z",
+              "updatedAt": "2026-07-28T02:09:43.000Z",
+              "uid": "35240-7170721f-039b-43cf-a37d-1195fc77520c"
+            }
+          ],
+          "id": "66b996f9-6628-4597-b3e9-f52616a41ac9",
+          "createdAt": "2026-07-28T02:09:43.000Z",
+          "updatedAt": "2026-07-28T02:09:43.000Z",
+          "uid": "35240-66b996f9-6628-4597-b3e9-f52616a41ac9"
+        }
+      ],
+      "id": "3d37cc5d-ce3d-40f6-9066-cef2f5461298",
+      "createdAt": "2026-07-28T02:09:43.000Z",
+      "updatedAt": "2026-07-28T02:09:43.000Z",
+      "uid": "35240-3d37cc5d-ce3d-40f6-9066-cef2f5461298"
+    },
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "export",
+          "item": [
+            {
+              "name": "Export Logs V2",
+              "id": "e69faaae-473f-4d3f-b424-a56ce3c633a9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/export?from=<long>&to=<long>&query=<string>&hosts=<string>&apps=<string>&levels=<string>&tags=<string>&pagination_id=<string>&size=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "export"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Start of the export window (unix epoch milliseconds).",
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "(Required) End of the export window (unix epoch milliseconds).",
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Free-text search expression.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated hostnames.",
+                      "key": "hosts",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated app names.",
+                      "key": "apps",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated log levels.",
+                      "key": "levels",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated tags.",
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Opaque continuation cursor returned in the previous page.",
+                      "key": "pagination_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Paginated export of historical log data."
+              },
+              "response": [
+                {
+                  "id": "4f7dacc3-aa69-4e73-9237-3e2a0ae77cb0",
+                  "name": "Page of log lines plus next-page cursor.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/export?from=<long>&to=<long>&query=<string>&hosts=<string>&apps=<string>&levels=<string>&tags=<string>&pagination_id=<string>&size=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "export"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Start of the export window (unix epoch milliseconds).",
+                          "key": "from",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "(Required) End of the export window (unix epoch milliseconds).",
+                          "key": "to",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Free-text search expression.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated hostnames.",
+                          "key": "hosts",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated app names.",
+                          "key": "apps",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated log levels.",
+                          "key": "levels",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated tags.",
+                          "key": "tags",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque continuation cursor returned in the previous page.",
+                          "key": "pagination_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"lines\": [\n    {\n      \"_id\": \"<string>\",\n      \"_ts\": \"<long>\",\n      \"_line\": \"<string>\",\n      \"_host\": \"<string>\",\n      \"_app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"meta\": {\n        \"ex01a\": -82043095.02829035\n      }\n    },\n    {\n      \"_id\": \"<string>\",\n      \"_ts\": \"<long>\",\n      \"_line\": \"<string>\",\n      \"_host\": \"<string>\",\n      \"_app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"meta\": {\n        \"Lorem_fd1\": false,\n        \"fugiat_3b\": 62173007.91490978,\n        \"laboreeb\": \"sit\"\n      }\n    }\n  ],\n  \"pagination_id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:43.000Z",
+                  "updatedAt": "2026-07-28T02:09:43.000Z",
+                  "uid": "35240-4f7dacc3-aa69-4e73-9237-3e2a0ae77cb0"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:43.000Z",
+              "updatedAt": "2026-07-28T02:09:43.000Z",
+              "uid": "35240-e69faaae-473f-4d3f-b424-a56ce3c633a9"
+            }
+          ],
+          "id": "8069a402-4491-4d81-b6bd-f975810f15d1",
+          "createdAt": "2026-07-28T02:09:43.000Z",
+          "updatedAt": "2026-07-28T02:09:43.000Z",
+          "uid": "35240-8069a402-4491-4d81-b6bd-f975810f15d1"
+        }
+      ],
+      "id": "14c9764d-dc48-48c1-abbc-e8e6a752e367",
+      "createdAt": "2026-07-28T02:09:43.000Z",
+      "updatedAt": "2026-07-28T02:09:43.000Z",
+      "uid": "35240-14c9764d-dc48-48c1-abbc-e8e6a752e367"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

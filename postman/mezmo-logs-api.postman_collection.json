@@ -1,0 +1,430 @@
+{
+  "info": {
+    "_postman_id": "da874b8e-c03f-4dd1-b981-5b704533e64f",
+    "name": "Mezmo Alerts Archiving Logs API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:45.000Z",
+    "updatedAt": "2026-07-28T02:09:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-da874b8e-c03f-4dd1-b981-5b704533e64f"
+  },
+  "item": [
+    {
+      "name": "logs",
+      "item": [
+        {
+          "name": "ingest",
+          "item": [
+            {
+              "name": "Ingest Logs",
+              "id": "1d03f99c-621c-4980-8f75-a4bea4fe73dc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"magna6\": -25442585,\n        \"anim_34\": -87731395\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"utd\": -99950988.31182845,\n        \"cupidatat_6f\": \"labore\",\n        \"officiab\": 20029112.324304685\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/logs/ingest?hostname=<string>&mac=<string>&ip=<string>&now=<long>&tags=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "logs",
+                    "ingest"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Originating host name for the batch.",
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "MAC address of the originating host.",
+                      "key": "mac",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "IP address of the originating host.",
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Current unix epoch milliseconds on the sending host.",
+                      "key": "now",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Comma-separated tags to attach to every line in the batch.",
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Send a batch of log lines to Mezmo. Each line carries a timestamp, line\nbody, app, level, env, and free-form meta. Recommended batch size is\nunder 10 MB per request.\n"
+              },
+              "response": [
+                {
+                  "id": "ef668068-ac7f-43c0-aa82-87ecb990ce4a",
+                  "name": "Batch accepted.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"magna6\": -25442585,\n        \"anim_34\": -87731395\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"utd\": -99950988.31182845,\n        \"cupidatat_6f\": \"labore\",\n        \"officiab\": 20029112.324304685\n      }\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/logs/ingest?hostname=<string>&mac=<string>&ip=<string>&now=<long>&tags=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logs",
+                        "ingest"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Originating host name for the batch.",
+                          "key": "hostname",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "MAC address of the originating host.",
+                          "key": "mac",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "IP address of the originating host.",
+                          "key": "ip",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Current unix epoch milliseconds on the sending host.",
+                          "key": "now",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Comma-separated tags to attach to every line in the batch.",
+                          "key": "tags",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\",\n  \"batchID\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:45.000Z",
+                  "updatedAt": "2026-07-28T02:09:45.000Z",
+                  "uid": "35240-ef668068-ac7f-43c0-aa82-87ecb990ce4a"
+                },
+                {
+                  "id": "25a1b381-f897-480e-9b16-0aca6358a772",
+                  "name": "Authentication failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"magna6\": -25442585,\n        \"anim_34\": -87731395\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"utd\": -99950988.31182845,\n        \"cupidatat_6f\": \"labore\",\n        \"officiab\": 20029112.324304685\n      }\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/logs/ingest?hostname=<string>&mac=<string>&ip=<string>&now=<long>&tags=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logs",
+                        "ingest"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Originating host name for the batch.",
+                          "key": "hostname",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "MAC address of the originating host.",
+                          "key": "mac",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "IP address of the originating host.",
+                          "key": "ip",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Current unix epoch milliseconds on the sending host.",
+                          "key": "now",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Comma-separated tags to attach to every line in the batch.",
+                          "key": "tags",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:45.000Z",
+                  "updatedAt": "2026-07-28T02:09:45.000Z",
+                  "uid": "35240-25a1b381-f897-480e-9b16-0aca6358a772"
+                },
+                {
+                  "id": "1e4c7c39-9c71-4a59-bc01-e424daea6e51",
+                  "name": "Account suspended or over plan limit.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"magna6\": -25442585,\n        \"anim_34\": -87731395\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"utd\": -99950988.31182845,\n        \"cupidatat_6f\": \"labore\",\n        \"officiab\": 20029112.324304685\n      }\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/logs/ingest?hostname=<string>&mac=<string>&ip=<string>&now=<long>&tags=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logs",
+                        "ingest"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Originating host name for the batch.",
+                          "key": "hostname",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "MAC address of the originating host.",
+                          "key": "mac",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "IP address of the originating host.",
+                          "key": "ip",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Current unix epoch milliseconds on the sending host.",
+                          "key": "now",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Comma-separated tags to attach to every line in the batch.",
+                          "key": "tags",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:45.000Z",
+                  "updatedAt": "2026-07-28T02:09:45.000Z",
+                  "uid": "35240-1e4c7c39-9c71-4a59-bc01-e424daea6e51"
+                },
+                {
+                  "id": "ea670126-45a0-4e98-ba4d-e458956e8baa",
+                  "name": "Batch payload too large.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"lines\": [\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"magna6\": -25442585,\n        \"anim_34\": -87731395\n      }\n    },\n    {\n      \"line\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"app\": \"<string>\",\n      \"level\": \"<string>\",\n      \"env\": \"<string>\",\n      \"meta\": {\n        \"utd\": -99950988.31182845,\n        \"cupidatat_6f\": \"labore\",\n        \"officiab\": 20029112.324304685\n      }\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/logs/ingest?hostname=<string>&mac=<string>&ip=<string>&now=<long>&tags=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logs",
+                        "ingest"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Originating host name for the batch.",
+                          "key": "hostname",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "MAC address of the originating host.",
+                          "key": "mac",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "IP address of the originating host.",
+                          "key": "ip",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Current unix epoch milliseconds on the sending host.",
+                          "key": "now",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Comma-separated tags to attach to every line in the batch.",
+                          "key": "tags",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Request Entity Too Large",
+                  "code": 413,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:45.000Z",
+                  "updatedAt": "2026-07-28T02:09:45.000Z",
+                  "uid": "35240-ea670126-45a0-4e98-ba4d-e458956e8baa"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:45.000Z",
+              "updatedAt": "2026-07-28T02:09:45.000Z",
+              "uid": "35240-1d03f99c-621c-4980-8f75-a4bea4fe73dc"
+            }
+          ],
+          "id": "30093b1b-1779-4be2-9dde-b5712fee6036",
+          "createdAt": "2026-07-28T02:09:45.000Z",
+          "updatedAt": "2026-07-28T02:09:45.000Z",
+          "uid": "35240-30093b1b-1779-4be2-9dde-b5712fee6036"
+        }
+      ],
+      "id": "ceb4f71f-9a87-4f79-a1ba-608d06f1ee09",
+      "createdAt": "2026-07-28T02:09:45.000Z",
+      "updatedAt": "2026-07-28T02:09:45.000Z",
+      "uid": "35240-ceb4f71f-9a87-4f79-a1ba-608d06f1ee09"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

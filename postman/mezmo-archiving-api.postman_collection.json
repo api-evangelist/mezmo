@@ -1,0 +1,377 @@
+{
+  "info": {
+    "_postman_id": "a71bf26f-26fc-46f9-8b05-d09dff18a7fe",
+    "name": "Mezmo Alerts Archiving API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:28.000Z",
+    "updatedAt": "2026-07-28T02:09:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a71bf26f-26fc-46f9-8b05-d09dff18a7fe"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "config",
+          "item": [
+            {
+              "name": "archiving",
+              "item": [
+                {
+                  "name": "Get Archive Configuration",
+                  "id": "61ec6313-1ba3-4ade-b070-077770ad7322",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/config/archiving",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "config",
+                        "archiving"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "28334b41-db9d-47d9-a4ed-85d3453224f6",
+                      "name": "Current archiving configuration.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/archiving",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "archiving"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"integration\": \"s3\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:28.000Z",
+                      "updatedAt": "2026-07-28T02:09:28.000Z",
+                      "uid": "35240-28334b41-db9d-47d9-a4ed-85d3453224f6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:28.000Z",
+                  "updatedAt": "2026-07-28T02:09:28.000Z",
+                  "uid": "35240-61ec6313-1ba3-4ade-b070-077770ad7322"
+                },
+                {
+                  "name": "Create Archive Configuration",
+                  "id": "a5d5dce1-4ba0-4cfa-88b7-0bfacc559f76",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"integration\": \"s3\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/config/archiving",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "config",
+                        "archiving"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1d979cf9-02d5-44b8-9a76-619d4775bc6b",
+                      "name": "Configuration created.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"integration\": \"s3\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/archiving",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "archiving"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:28.000Z",
+                      "updatedAt": "2026-07-28T02:09:28.000Z",
+                      "uid": "35240-1d979cf9-02d5-44b8-9a76-619d4775bc6b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:28.000Z",
+                  "updatedAt": "2026-07-28T02:09:28.000Z",
+                  "uid": "35240-a5d5dce1-4ba0-4cfa-88b7-0bfacc559f76"
+                },
+                {
+                  "name": "Update Archive Configuration",
+                  "id": "b8429ec3-3ced-428d-8aec-5e58cd589692",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"integration\": \"s3\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/config/archiving",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "config",
+                        "archiving"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "be30830b-1501-4915-b6c3-0a5fcd0828b0",
+                      "name": "Configuration updated.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"integration\": \"s3\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/archiving",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "archiving"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:28.000Z",
+                      "updatedAt": "2026-07-28T02:09:28.000Z",
+                      "uid": "35240-be30830b-1501-4915-b6c3-0a5fcd0828b0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:28.000Z",
+                  "updatedAt": "2026-07-28T02:09:28.000Z",
+                  "uid": "35240-b8429ec3-3ced-428d-8aec-5e58cd589692"
+                },
+                {
+                  "name": "Delete Archive Configuration",
+                  "id": "25529a4f-6b15-4da8-84cf-0bd8bbf3722b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/config/archiving",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "config",
+                        "archiving"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3a3d3c5d-3286-461d-8f03-008ca9de95eb",
+                      "name": "Configuration deleted.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/archiving",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "archiving"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:28.000Z",
+                      "updatedAt": "2026-07-28T02:09:28.000Z",
+                      "uid": "35240-3a3d3c5d-3286-461d-8f03-008ca9de95eb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:28.000Z",
+                  "updatedAt": "2026-07-28T02:09:28.000Z",
+                  "uid": "35240-25529a4f-6b15-4da8-84cf-0bd8bbf3722b"
+                }
+              ],
+              "id": "4a5065bb-f82c-4632-8761-16d93684d775",
+              "createdAt": "2026-07-28T02:09:28.000Z",
+              "updatedAt": "2026-07-28T02:09:28.000Z",
+              "uid": "35240-4a5065bb-f82c-4632-8761-16d93684d775"
+            }
+          ],
+          "id": "79f75ccc-b783-4fd5-9ad0-510b728a9ef4",
+          "createdAt": "2026-07-28T02:09:28.000Z",
+          "updatedAt": "2026-07-28T02:09:28.000Z",
+          "uid": "35240-79f75ccc-b783-4fd5-9ad0-510b728a9ef4"
+        }
+      ],
+      "id": "c642d486-6c1a-4d1d-a5b5-0b713b0ab42a",
+      "createdAt": "2026-07-28T02:09:28.000Z",
+      "updatedAt": "2026-07-28T02:09:28.000Z",
+      "uid": "35240-c642d486-6c1a-4d1d-a5b5-0b713b0ab42a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

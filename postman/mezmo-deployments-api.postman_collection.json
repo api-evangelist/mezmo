@@ -1,0 +1,216 @@
+{
+  "info": {
+    "_postman_id": "6ec808fa-752b-4daa-a092-1ef323815590",
+    "name": "Mezmo Alerts Archiving Deployments API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:38.000Z",
+    "updatedAt": "2026-07-28T02:09:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ec808fa-752b-4daa-a092-1ef323815590"
+  },
+  "item": [
+    {
+      "name": "pipelines",
+      "item": [
+        {
+          "name": "{pipelineId}",
+          "item": [
+            {
+              "name": "publish",
+              "item": [
+                {
+                  "name": "Publish Pipeline",
+                  "id": "119a1c47-775a-471c-bbe2-95d2c8745c46",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/publish",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "publish"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7cc9f227-394e-4c29-866f-c0c5c20b5d8f",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c6c88947-9a23-4798-a7f7-f8cd17b72c4e",
+                      "name": "Pipeline published to the active deployment.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/publish",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "publish"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:38.000Z",
+                      "updatedAt": "2026-07-28T02:09:38.000Z",
+                      "uid": "35240-c6c88947-9a23-4798-a7f7-f8cd17b72c4e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:38.000Z",
+                  "updatedAt": "2026-07-28T02:09:38.000Z",
+                  "uid": "35240-119a1c47-775a-471c-bbe2-95d2c8745c46"
+                }
+              ],
+              "id": "93aef6c5-29f0-443f-9b47-8a065608ecc7",
+              "createdAt": "2026-07-28T02:09:38.000Z",
+              "updatedAt": "2026-07-28T02:09:38.000Z",
+              "uid": "35240-93aef6c5-29f0-443f-9b47-8a065608ecc7"
+            },
+            {
+              "name": "revert",
+              "item": [
+                {
+                  "name": "Revert Pipeline",
+                  "id": "32a77351-a0c2-44c5-9d2b-644673a5d3b6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/revert",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "revert"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1841b403-9ddc-4d80-9e63-58de920c11d9",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "abf44163-9ac5-4e36-8f9e-d269da0788d0",
+                      "name": "Pipeline reverted to the previously published version.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/revert",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "revert"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:38.000Z",
+                      "updatedAt": "2026-07-28T02:09:38.000Z",
+                      "uid": "35240-abf44163-9ac5-4e36-8f9e-d269da0788d0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:38.000Z",
+                  "updatedAt": "2026-07-28T02:09:38.000Z",
+                  "uid": "35240-32a77351-a0c2-44c5-9d2b-644673a5d3b6"
+                }
+              ],
+              "id": "3781a4f1-6044-4176-bfac-23350afaa1fc",
+              "createdAt": "2026-07-28T02:09:38.000Z",
+              "updatedAt": "2026-07-28T02:09:38.000Z",
+              "uid": "35240-3781a4f1-6044-4176-bfac-23350afaa1fc"
+            }
+          ],
+          "id": "25866697-b356-402c-b68f-6800574d6c14",
+          "createdAt": "2026-07-28T02:09:38.000Z",
+          "updatedAt": "2026-07-28T02:09:38.000Z",
+          "uid": "35240-25866697-b356-402c-b68f-6800574d6c14"
+        }
+      ],
+      "id": "1a7c5ee9-8861-4804-bf0a-ec8edc0bfe10",
+      "createdAt": "2026-07-28T02:09:38.000Z",
+      "updatedAt": "2026-07-28T02:09:38.000Z",
+      "uid": "35240-1a7c5ee9-8861-4804-bf0a-ec8edc0bfe10"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

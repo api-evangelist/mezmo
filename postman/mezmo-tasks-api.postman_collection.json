@@ -1,0 +1,280 @@
+{
+  "info": {
+    "_postman_id": "eb6ef465-a4c6-49a1-8c88-68be47bc5ceb",
+    "name": "Mezmo Alerts Archiving Tasks API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:52.000Z",
+    "updatedAt": "2026-07-28T02:09:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eb6ef465-a4c6-49a1-8c88-68be47bc5ceb"
+  },
+  "item": [
+    {
+      "name": "edge",
+      "item": [
+        {
+          "name": "clients",
+          "item": [
+            {
+              "name": "{clientId}",
+              "item": [
+                {
+                  "name": "tasks",
+                  "item": [
+                    {
+                      "name": "{taskId}",
+                      "item": [
+                        {
+                          "name": "result",
+                          "item": [
+                            {
+                              "name": "Submit Task Result",
+                              "id": "7f16d92c-b99c-4f9f-813c-6a59c2db92cd",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"pariatur_7d\": false,\n  \"ipsum_19\": 54217427.59667808,\n  \"do61\": -9944192.829266101,\n  \"nostrud_a7\": false\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/edge/clients/:clientId/tasks/:taskId/result",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "edge",
+                                    "clients",
+                                    ":clientId",
+                                    "tasks",
+                                    ":taskId",
+                                    "result"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d7ba61ff-4795-4bba-a738-bb5d89ccf228",
+                                      "key": "clientId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "950b48c8-9d6c-45e3-97ed-78eae415b770",
+                                      "key": "taskId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "36bf19b6-6914-43c8-95cc-3e5289fc121e",
+                                  "name": "Result accepted.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"pariatur_7d\": false,\n  \"ipsum_19\": 54217427.59667808,\n  \"do61\": -9944192.829266101,\n  \"nostrud_a7\": false\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/edge/clients/:clientId/tasks/:taskId/result",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "edge",
+                                        "clients",
+                                        ":clientId",
+                                        "tasks",
+                                        ":taskId",
+                                        "result"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "clientId"
+                                        },
+                                        {
+                                          "key": "taskId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T02:09:53.000Z",
+                                  "updatedAt": "2026-07-28T02:09:53.000Z",
+                                  "uid": "35240-36bf19b6-6914-43c8-95cc-3e5289fc121e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:09:53.000Z",
+                              "updatedAt": "2026-07-28T02:09:53.000Z",
+                              "uid": "35240-7f16d92c-b99c-4f9f-813c-6a59c2db92cd"
+                            }
+                          ],
+                          "id": "1fb8d9c3-81b8-40a7-9a42-222a585d1192",
+                          "createdAt": "2026-07-28T02:09:53.000Z",
+                          "updatedAt": "2026-07-28T02:09:53.000Z",
+                          "uid": "35240-1fb8d9c3-81b8-40a7-9a42-222a585d1192"
+                        }
+                      ],
+                      "id": "05b665ed-fd1e-45c0-8651-17844214054a",
+                      "createdAt": "2026-07-28T02:09:53.000Z",
+                      "updatedAt": "2026-07-28T02:09:53.000Z",
+                      "uid": "35240-05b665ed-fd1e-45c0-8651-17844214054a"
+                    },
+                    {
+                      "name": "List Pending Tasks",
+                      "id": "01cc508c-9b4f-4737-9dc9-a92fe94ebf66",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/edge/clients/:clientId/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edge",
+                            "clients",
+                            ":clientId",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "id": "dfca92a1-2758-47c6-9c96-e0119ccb4055",
+                              "key": "clientId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "20e65298-71d7-425f-aa1a-a85b8eaa4f52",
+                          "name": "Pending tasks for the edge client.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/edge/clients/:clientId/tasks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edge",
+                                "clients",
+                                ":clientId",
+                                "tasks"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "clientId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:53.000Z",
+                          "updatedAt": "2026-07-28T02:09:53.000Z",
+                          "uid": "35240-20e65298-71d7-425f-aa1a-a85b8eaa4f52"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:53.000Z",
+                      "updatedAt": "2026-07-28T02:09:53.000Z",
+                      "uid": "35240-01cc508c-9b4f-4737-9dc9-a92fe94ebf66"
+                    }
+                  ],
+                  "id": "d2dc5ef2-442c-49fe-b903-6b5bf5f32db3",
+                  "createdAt": "2026-07-28T02:09:53.000Z",
+                  "updatedAt": "2026-07-28T02:09:53.000Z",
+                  "uid": "35240-d2dc5ef2-442c-49fe-b903-6b5bf5f32db3"
+                }
+              ],
+              "id": "050a78c1-729f-4201-94f4-24668db70ad6",
+              "createdAt": "2026-07-28T02:09:53.000Z",
+              "updatedAt": "2026-07-28T02:09:53.000Z",
+              "uid": "35240-050a78c1-729f-4201-94f4-24668db70ad6"
+            }
+          ],
+          "id": "30f41c46-bb0a-4338-a80b-813483bada2a",
+          "createdAt": "2026-07-28T02:09:53.000Z",
+          "updatedAt": "2026-07-28T02:09:53.000Z",
+          "uid": "35240-30f41c46-bb0a-4338-a80b-813483bada2a"
+        }
+      ],
+      "id": "9b4c083a-b20f-4314-9122-a98508991178",
+      "createdAt": "2026-07-28T02:09:53.000Z",
+      "updatedAt": "2026-07-28T02:09:53.000Z",
+      "uid": "35240-9b4c083a-b20f-4314-9122-a98508991178"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "info": {
+    "_postman_id": "6d7c172a-1a23-437b-83ee-181045998f8e",
+    "name": "Mezmo Alerts Archiving EdgeClients API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:41.000Z",
+    "updatedAt": "2026-07-28T02:09:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6d7c172a-1a23-437b-83ee-181045998f8e"
+  },
+  "item": [
+    {
+      "name": "edge",
+      "item": [
+        {
+          "name": "clients",
+          "item": [
+            {
+              "name": "{clientId}",
+              "item": [
+                {
+                  "name": "Get Edge Client",
+                  "id": "7a3798c9-8917-45d1-a6a3-79c1af6e4237",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/edge/clients/:clientId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "edge",
+                        "clients",
+                        ":clientId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ffc77b16-6111-4c59-938f-3bf386674cec",
+                          "key": "clientId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "18dba1de-5121-46c3-b8f7-6ae9061ced81",
+                      "name": "Edge client details.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/edge/clients/:clientId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edge",
+                            "clients",
+                            ":clientId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clientId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:42.000Z",
+                      "updatedAt": "2026-07-28T02:09:42.000Z",
+                      "uid": "35240-18dba1de-5121-46c3-b8f7-6ae9061ced81"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:41.000Z",
+                  "updatedAt": "2026-07-28T02:09:41.000Z",
+                  "uid": "35240-7a3798c9-8917-45d1-a6a3-79c1af6e4237"
+                },
+                {
+                  "name": "Deregister Edge Client",
+                  "id": "1803377f-f17a-4924-a0ed-49079ac2887d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/edge/clients/:clientId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "edge",
+                        "clients",
+                        ":clientId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "df1b2bbc-8d0d-40ea-8645-fcd7ca921465",
+                          "key": "clientId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "52159ce1-77d8-4391-89ab-4148a136e71a",
+                      "name": "Client deregistered.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/edge/clients/:clientId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edge",
+                            "clients",
+                            ":clientId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clientId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:42.000Z",
+                      "updatedAt": "2026-07-28T02:09:42.000Z",
+                      "uid": "35240-52159ce1-77d8-4391-89ab-4148a136e71a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:41.000Z",
+                  "updatedAt": "2026-07-28T02:09:41.000Z",
+                  "uid": "35240-1803377f-f17a-4924-a0ed-49079ac2887d"
+                }
+              ],
+              "id": "42992b3e-6915-4c56-803b-3d57e2928cf9",
+              "createdAt": "2026-07-28T02:09:41.000Z",
+              "updatedAt": "2026-07-28T02:09:41.000Z",
+              "uid": "35240-42992b3e-6915-4c56-803b-3d57e2928cf9"
+            },
+            {
+              "name": "List Edge Clients",
+              "id": "fcdd0d70-f2de-4caf-9ea6-6f4a176cfb76",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/edge/clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "edge",
+                    "clients"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "7df6c882-381c-4675-804d-2a135cecb381",
+                  "name": "Registered edge clients.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/edge/clients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "edge",
+                        "clients"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:42.000Z",
+                  "updatedAt": "2026-07-28T02:09:42.000Z",
+                  "uid": "35240-7df6c882-381c-4675-804d-2a135cecb381"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:41.000Z",
+              "updatedAt": "2026-07-28T02:09:41.000Z",
+              "uid": "35240-fcdd0d70-f2de-4caf-9ea6-6f4a176cfb76"
+            },
+            {
+              "name": "Register Edge Client",
+              "id": "59500282-edbb-4342-9322-ec47d98358a8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"labels\": {\n    \"anim_d\": \"<string>\",\n    \"eiusmod_\": \"<string>\",\n    \"pariaturfa\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/edge/clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "edge",
+                    "clients"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d030b24d-20de-491e-9ba6-57efbfb07625",
+                  "name": "Client registered.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clientId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"labels\": {\n    \"anim_d\": \"<string>\",\n    \"eiusmod_\": \"<string>\",\n    \"pariaturfa\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/edge/clients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "edge",
+                        "clients"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:42.000Z",
+                  "updatedAt": "2026-07-28T02:09:42.000Z",
+                  "uid": "35240-d030b24d-20de-491e-9ba6-57efbfb07625"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:41.000Z",
+              "updatedAt": "2026-07-28T02:09:41.000Z",
+              "uid": "35240-59500282-edbb-4342-9322-ec47d98358a8"
+            }
+          ],
+          "id": "d011d1bc-d9bc-49b5-aac2-bd375be1e306",
+          "createdAt": "2026-07-28T02:09:41.000Z",
+          "updatedAt": "2026-07-28T02:09:41.000Z",
+          "uid": "35240-d011d1bc-d9bc-49b5-aac2-bd375be1e306"
+        }
+      ],
+      "id": "39ee99d2-ef8f-46ec-b517-4bc5687c4951",
+      "createdAt": "2026-07-28T02:09:41.000Z",
+      "updatedAt": "2026-07-28T02:09:41.000Z",
+      "uid": "35240-39ee99d2-ef8f-46ec-b517-4bc5687c4951"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

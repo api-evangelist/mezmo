@@ -1,0 +1,172 @@
+{
+  "info": {
+    "_postman_id": "b10b8e49-82e5-476f-8bb5-0e17df4d3394",
+    "name": "Mezmo Alerts Archiving Heartbeats API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:44.000Z",
+    "updatedAt": "2026-07-28T02:09:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b10b8e49-82e5-476f-8bb5-0e17df4d3394"
+  },
+  "item": [
+    {
+      "name": "edge",
+      "item": [
+        {
+          "name": "clients",
+          "item": [
+            {
+              "name": "{clientId}",
+              "item": [
+                {
+                  "name": "heartbeat",
+                  "item": [
+                    {
+                      "name": "Send Heartbeat",
+                      "id": "95b2d6c8-4b32-4b3c-a772-781605a29b99",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"timestamp\": \"<long>\",\n  \"status\": \"<string>\",\n  \"version\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/edge/clients/:clientId/heartbeat",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edge",
+                            "clients",
+                            ":clientId",
+                            "heartbeat"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3b6818a6-0459-45d2-a1c7-ed5c779000b8",
+                              "key": "clientId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "8613ad01-0e75-4e3e-8529-d5e3373c1c31",
+                          "name": "Heartbeat acknowledged; returns any pending tasks.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"timestamp\": \"<long>\",\n  \"status\": \"<string>\",\n  \"version\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/edge/clients/:clientId/heartbeat",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edge",
+                                "clients",
+                                ":clientId",
+                                "heartbeat"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "clientId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:44.000Z",
+                          "updatedAt": "2026-07-28T02:09:44.000Z",
+                          "uid": "35240-8613ad01-0e75-4e3e-8529-d5e3373c1c31"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:44.000Z",
+                      "updatedAt": "2026-07-28T02:09:44.000Z",
+                      "uid": "35240-95b2d6c8-4b32-4b3c-a772-781605a29b99"
+                    }
+                  ],
+                  "id": "21335f2d-a470-4cd7-a18c-20ded8f2d34f",
+                  "createdAt": "2026-07-28T02:09:44.000Z",
+                  "updatedAt": "2026-07-28T02:09:44.000Z",
+                  "uid": "35240-21335f2d-a470-4cd7-a18c-20ded8f2d34f"
+                }
+              ],
+              "id": "5820073b-3bf2-4bbd-9623-60475dfcb724",
+              "createdAt": "2026-07-28T02:09:44.000Z",
+              "updatedAt": "2026-07-28T02:09:44.000Z",
+              "uid": "35240-5820073b-3bf2-4bbd-9623-60475dfcb724"
+            }
+          ],
+          "id": "6e42efcd-0f9a-437b-a294-ffff96101126",
+          "createdAt": "2026-07-28T02:09:44.000Z",
+          "updatedAt": "2026-07-28T02:09:44.000Z",
+          "uid": "35240-6e42efcd-0f9a-437b-a294-ffff96101126"
+        }
+      ],
+      "id": "d5388e56-cbd8-4d6d-a48f-a88f47fdb393",
+      "createdAt": "2026-07-28T02:09:44.000Z",
+      "updatedAt": "2026-07-28T02:09:44.000Z",
+      "uid": "35240-d5388e56-cbd8-4d6d-a48f-a88f47fdb393"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

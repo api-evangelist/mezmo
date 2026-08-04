@@ -1,0 +1,532 @@
+{
+  "info": {
+    "_postman_id": "2c3aa38b-3317-41c3-9d7b-7f1c0dc0c1c6",
+    "name": "Mezmo Alerts Archiving Sources API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:50.000Z",
+    "updatedAt": "2026-07-28T02:09:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2c3aa38b-3317-41c3-9d7b-7f1c0dc0c1c6"
+  },
+  "item": [
+    {
+      "name": "pipelines",
+      "item": [
+        {
+          "name": "{pipelineId}",
+          "item": [
+            {
+              "name": "sources",
+              "item": [
+                {
+                  "name": "{nodeId}",
+                  "item": [
+                    {
+                      "name": "Get Source",
+                      "id": "4803505e-8c94-466d-980c-c755849292df",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/sources/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "sources",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5e6093a1-efcf-429b-b1cc-8f9320184450",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "223b5cb8-cb57-4aff-a47f-d071dc32ddc5",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "32fdb6a0-bd91-467b-a011-a226a7cac782",
+                          "name": "Source details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/sources/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "sources",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:50.000Z",
+                          "updatedAt": "2026-07-28T02:09:50.000Z",
+                          "uid": "35240-32fdb6a0-bd91-467b-a011-a226a7cac782"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:50.000Z",
+                      "updatedAt": "2026-07-28T02:09:50.000Z",
+                      "uid": "35240-4803505e-8c94-466d-980c-c755849292df"
+                    },
+                    {
+                      "name": "Update Source",
+                      "id": "94756992-8584-44ac-bb22-0d2178c3f0db",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"et_1\": \"dolor adipisicing mollit ips\",\n    \"ullamcob\": 75705131.29180053\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/sources/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "sources",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d0b7f3e0-9a2b-49e3-ad9b-a54a1db76380",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "a387b851-828b-42aa-bcf2-bd5c61e2a09d",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "890bc21b-b568-4755-814c-6d8de1ef10de",
+                          "name": "Source updated.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"et_1\": \"dolor adipisicing mollit ips\",\n    \"ullamcob\": 75705131.29180053\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/sources/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "sources",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:50.000Z",
+                          "updatedAt": "2026-07-28T02:09:50.000Z",
+                          "uid": "35240-890bc21b-b568-4755-814c-6d8de1ef10de"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:50.000Z",
+                      "updatedAt": "2026-07-28T02:09:50.000Z",
+                      "uid": "35240-94756992-8584-44ac-bb22-0d2178c3f0db"
+                    },
+                    {
+                      "name": "Delete Source",
+                      "id": "39bf0c14-8002-4420-8fb7-8fa0a7d539cf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/sources/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "sources",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f5cc95dc-82ea-4afd-830d-84fbf4606400",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "841d1911-88d4-42c2-a05f-eb184b62ccce",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1bfb9c12-d0b5-48ae-a5ca-c8eb35ca9588",
+                          "name": "Source deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/sources/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "sources",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:50.000Z",
+                          "updatedAt": "2026-07-28T02:09:50.000Z",
+                          "uid": "35240-1bfb9c12-d0b5-48ae-a5ca-c8eb35ca9588"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:50.000Z",
+                      "updatedAt": "2026-07-28T02:09:50.000Z",
+                      "uid": "35240-39bf0c14-8002-4420-8fb7-8fa0a7d539cf"
+                    }
+                  ],
+                  "id": "4540b1c6-687e-499c-a074-67eb7442bb3c",
+                  "createdAt": "2026-07-28T02:09:50.000Z",
+                  "updatedAt": "2026-07-28T02:09:50.000Z",
+                  "uid": "35240-4540b1c6-687e-499c-a074-67eb7442bb3c"
+                },
+                {
+                  "name": "List Sources",
+                  "id": "9e64ba7d-80ac-4fe1-8952-95fd09c8175e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/sources",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "sources"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2789ef01-0033-4cea-9260-0a6b934cc13b",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5bc8bcc3-bd2f-4f7a-99e5-8166aaa53b77",
+                      "name": "Sources for the pipeline.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/sources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "sources"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:50.000Z",
+                      "updatedAt": "2026-07-28T02:09:50.000Z",
+                      "uid": "35240-5bc8bcc3-bd2f-4f7a-99e5-8166aaa53b77"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:50.000Z",
+                  "updatedAt": "2026-07-28T02:09:50.000Z",
+                  "uid": "35240-9e64ba7d-80ac-4fe1-8952-95fd09c8175e"
+                },
+                {
+                  "name": "Create Source",
+                  "id": "28ca68b2-d693-454b-9493-60a145e0e9be",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"et_1\": \"dolor adipisicing mollit ips\",\n    \"ullamcob\": 75705131.29180053\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/sources",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "sources"
+                      ],
+                      "variable": [
+                        {
+                          "id": "88e38d33-4be6-4dd9-a373-e719f6a30fe9",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c8fcf045-52be-46fd-9e44-07d3254a9ddf",
+                      "name": "Source created.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"et_1\": \"dolor adipisicing mollit ips\",\n    \"ullamcob\": 75705131.29180053\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/sources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "sources"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:50.000Z",
+                      "updatedAt": "2026-07-28T02:09:50.000Z",
+                      "uid": "35240-c8fcf045-52be-46fd-9e44-07d3254a9ddf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:50.000Z",
+                  "updatedAt": "2026-07-28T02:09:50.000Z",
+                  "uid": "35240-28ca68b2-d693-454b-9493-60a145e0e9be"
+                }
+              ],
+              "id": "4abd17f4-0288-4e19-b277-38336e220df1",
+              "createdAt": "2026-07-28T02:09:50.000Z",
+              "updatedAt": "2026-07-28T02:09:50.000Z",
+              "uid": "35240-4abd17f4-0288-4e19-b277-38336e220df1"
+            }
+          ],
+          "id": "5b3e567a-2c6b-4b1a-8aba-79f10fb66d08",
+          "createdAt": "2026-07-28T02:09:50.000Z",
+          "updatedAt": "2026-07-28T02:09:50.000Z",
+          "uid": "35240-5b3e567a-2c6b-4b1a-8aba-79f10fb66d08"
+        }
+      ],
+      "id": "a7f7ea6d-9f5b-4830-b038-e40b208df485",
+      "createdAt": "2026-07-28T02:09:50.000Z",
+      "updatedAt": "2026-07-28T02:09:50.000Z",
+      "uid": "35240-a7f7ea6d-9f5b-4830-b038-e40b208df485"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

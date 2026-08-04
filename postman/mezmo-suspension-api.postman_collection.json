@@ -1,0 +1,365 @@
+{
+  "info": {
+    "_postman_id": "3e1d474c-9975-46d5-864c-f5a81dd0d96e",
+    "name": "Mezmo Alerts Archiving Suspension API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:51.000Z",
+    "updatedAt": "2026-07-28T02:09:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3e1d474c-9975-46d5-864c-f5a81dd0d96e"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "config",
+          "item": [
+            {
+              "name": "ingestion",
+              "item": [
+                {
+                  "name": "status",
+                  "item": [
+                    {
+                      "name": "Get Ingestion Status",
+                      "id": "54ad3c11-b221-470a-b7f7-7b30b0708d26",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/ingestion/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "ingestion",
+                            "status"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6e38d14d-2675-46ec-a94e-a9638a01bc85",
+                          "name": "Current ingestion status.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "status"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"suspending\",\n  \"modified\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:09:51.000Z",
+                          "updatedAt": "2026-07-28T02:09:51.000Z",
+                          "uid": "35240-6e38d14d-2675-46ec-a94e-a9638a01bc85"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:51.000Z",
+                      "updatedAt": "2026-07-28T02:09:51.000Z",
+                      "uid": "35240-54ad3c11-b221-470a-b7f7-7b30b0708d26"
+                    }
+                  ],
+                  "id": "cdc8307d-a961-404a-8397-66b112b5ea48",
+                  "createdAt": "2026-07-28T02:09:51.000Z",
+                  "updatedAt": "2026-07-28T02:09:51.000Z",
+                  "uid": "35240-cdc8307d-a961-404a-8397-66b112b5ea48"
+                },
+                {
+                  "name": "suspend",
+                  "item": [
+                    {
+                      "name": "confirm",
+                      "item": [
+                        {
+                          "name": "Confirm Ingestion Suspension",
+                          "id": "a8be5555-ff4e-4343-b21d-121ec3be46b2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/suspend/confirm",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "suspend",
+                                "confirm"
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "d0d5265f-f952-485e-92c1-4a33120ad17e",
+                              "name": "Suspension confirmed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/config/ingestion/suspend/confirm",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "config",
+                                    "ingestion",
+                                    "suspend",
+                                    "confirm"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:09:51.000Z",
+                              "updatedAt": "2026-07-28T02:09:51.000Z",
+                              "uid": "35240-d0d5265f-f952-485e-92c1-4a33120ad17e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:09:51.000Z",
+                          "updatedAt": "2026-07-28T02:09:51.000Z",
+                          "uid": "35240-a8be5555-ff4e-4343-b21d-121ec3be46b2"
+                        }
+                      ],
+                      "id": "92a8060c-7996-47d9-963c-0fab9338b6d7",
+                      "createdAt": "2026-07-28T02:09:51.000Z",
+                      "updatedAt": "2026-07-28T02:09:51.000Z",
+                      "uid": "35240-92a8060c-7996-47d9-963c-0fab9338b6d7"
+                    },
+                    {
+                      "name": "Initiate Ingestion Suspension",
+                      "id": "e0e0ddf4-98e1-4c83-879c-cea91833a079",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/ingestion/suspend",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "ingestion",
+                            "suspend"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "099ea505-afcb-496d-a3f3-96bca3e4e622",
+                          "name": "Suspension requested; confirmation required.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/suspend",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "suspend"
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:51.000Z",
+                          "updatedAt": "2026-07-28T02:09:51.000Z",
+                          "uid": "35240-099ea505-afcb-496d-a3f3-96bca3e4e622"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:51.000Z",
+                      "updatedAt": "2026-07-28T02:09:51.000Z",
+                      "uid": "35240-e0e0ddf4-98e1-4c83-879c-cea91833a079"
+                    }
+                  ],
+                  "id": "2ecadb2a-c32a-4719-9806-fd6cc4774a25",
+                  "createdAt": "2026-07-28T02:09:51.000Z",
+                  "updatedAt": "2026-07-28T02:09:51.000Z",
+                  "uid": "35240-2ecadb2a-c32a-4719-9806-fd6cc4774a25"
+                },
+                {
+                  "name": "resume",
+                  "item": [
+                    {
+                      "name": "Resume Ingestion",
+                      "id": "7c1debd5-e312-487e-8f7e-a0eb1e8381a2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/ingestion/resume",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "ingestion",
+                            "resume"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "8af4715d-f80e-454b-9887-5b53064ba49a",
+                          "name": "Ingestion resumed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/resume",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "resume"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:51.000Z",
+                          "updatedAt": "2026-07-28T02:09:51.000Z",
+                          "uid": "35240-8af4715d-f80e-454b-9887-5b53064ba49a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:51.000Z",
+                      "updatedAt": "2026-07-28T02:09:51.000Z",
+                      "uid": "35240-7c1debd5-e312-487e-8f7e-a0eb1e8381a2"
+                    }
+                  ],
+                  "id": "3debf39f-496f-44dd-ae64-fcc444d9a088",
+                  "createdAt": "2026-07-28T02:09:51.000Z",
+                  "updatedAt": "2026-07-28T02:09:51.000Z",
+                  "uid": "35240-3debf39f-496f-44dd-ae64-fcc444d9a088"
+                }
+              ],
+              "id": "ba8d4679-cd26-488d-9cb1-6b70e89d499c",
+              "createdAt": "2026-07-28T02:09:51.000Z",
+              "updatedAt": "2026-07-28T02:09:51.000Z",
+              "uid": "35240-ba8d4679-cd26-488d-9cb1-6b70e89d499c"
+            }
+          ],
+          "id": "3555c7e0-f6ce-4d13-9372-d0c4f58be777",
+          "createdAt": "2026-07-28T02:09:51.000Z",
+          "updatedAt": "2026-07-28T02:09:51.000Z",
+          "uid": "35240-3555c7e0-f6ce-4d13-9372-d0c4f58be777"
+        }
+      ],
+      "id": "72877057-1f02-4ead-81d9-ac371255db7a",
+      "createdAt": "2026-07-28T02:09:51.000Z",
+      "updatedAt": "2026-07-28T02:09:51.000Z",
+      "uid": "35240-72877057-1f02-4ead-81d9-ac371255db7a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

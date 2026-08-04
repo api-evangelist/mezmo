@@ -1,0 +1,151 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Log Export API
+  description: |
+    Query and export logs from the Mezmo log analysis platform. V2 supports
+    pagination and is recommended for unbounded exports. V1 is preserved for
+    backward compatibility and is plan-limited.
+  version: '2.0'
+  contact:
+    name: Mezmo
+    url: https://www.mezmo.com/
+servers:
+- url: https://api.mezmo.com
+  description: Production API
+tags:
+- name: Export
+  description: Historical log export
+security:
+- AccessToken: []
+paths:
+  /v1/export:
+    get:
+      tags:
+      - Export
+      summary: Export Logs V1
+      description: Legacy export endpoint with plan-bounded result size.
+      operationId: exportLogsV1
+      parameters:
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/To'
+      - $ref: '#/components/parameters/Query'
+      - $ref: '#/components/parameters/Hosts'
+      - $ref: '#/components/parameters/Apps'
+      - $ref: '#/components/parameters/Levels'
+      - $ref: '#/components/parameters/Tags'
+      responses:
+        '200':
+          description: Newline-delimited JSON of matching log lines.
+  /v2/export:
+    get:
+      tags:
+      - Export
+      summary: Export Logs V2
+      description: Paginated export of historical log data.
+      operationId: exportLogsV2
+      parameters:
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/To'
+      - $ref: '#/components/parameters/Query'
+      - $ref: '#/components/parameters/Hosts'
+      - $ref: '#/components/parameters/Apps'
+      - $ref: '#/components/parameters/Levels'
+      - $ref: '#/components/parameters/Tags'
+      - name: pagination_id
+        in: query
+        schema:
+          type: string
+        description: Opaque continuation cursor returned in the previous page.
+      - name: size
+        in: query
+        schema:
+          type: integer
+          maximum: 10000
+        description: Page size.
+      responses:
+        '200':
+          description: Page of log lines plus next-page cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportPage'
+components:
+  parameters:
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Start of the export window (unix epoch milliseconds).
+    To:
+      name: to
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: End of the export window (unix epoch milliseconds).
+    Query:
+      name: query
+      in: query
+      schema:
+        type: string
+      description: Free-text search expression.
+    Hosts:
+      name: hosts
+      in: query
+      schema:
+        type: string
+      description: Comma-separated hostnames.
+    Apps:
+      name: apps
+      in: query
+      schema:
+        type: string
+      description: Comma-separated app names.
+    Levels:
+      name: levels
+      in: query
+      schema:
+        type: string
+      description: Comma-separated log levels.
+    Tags:
+      name: tags
+      in: query
+      schema:
+        type: string
+      description: Comma-separated tags.
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer
+  schemas:
+    ExportPage:
+      type: object
+      properties:
+        lines:
+          type: array
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+              _ts:
+                type: integer
+                format: int64
+              _line:
+                type: string
+              _host:
+                type: string
+              _app:
+                type: string
+              level:
+                type: string
+              meta:
+                type: object
+                additionalProperties: true
+        pagination_id:
+          type: string
+          description: Cursor to fetch the next page. Empty when the export is complete.

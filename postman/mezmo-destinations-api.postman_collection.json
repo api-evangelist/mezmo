@@ -1,0 +1,532 @@
+{
+  "info": {
+    "_postman_id": "807cc93d-dacf-4854-b02c-67ea5538a073",
+    "name": "Mezmo Alerts Archiving Destinations API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:39.000Z",
+    "updatedAt": "2026-07-28T02:09:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-807cc93d-dacf-4854-b02c-67ea5538a073"
+  },
+  "item": [
+    {
+      "name": "pipelines",
+      "item": [
+        {
+          "name": "{pipelineId}",
+          "item": [
+            {
+              "name": "destinations",
+              "item": [
+                {
+                  "name": "{nodeId}",
+                  "item": [
+                    {
+                      "name": "Get Destination",
+                      "id": "0045fa0a-7205-480c-b2a6-4a6287856e1e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "destinations",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ca4d653c-5e8a-4328-bc5d-8c988a5137d3",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "4f475f04-83a2-48b9-8dfb-9203046b21fa",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d6850f25-2c30-42dc-9fe0-e6375d171066",
+                          "name": "Destination details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "destinations",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:39.000Z",
+                          "updatedAt": "2026-07-28T02:09:39.000Z",
+                          "uid": "35240-d6850f25-2c30-42dc-9fe0-e6375d171066"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:39.000Z",
+                      "updatedAt": "2026-07-28T02:09:39.000Z",
+                      "uid": "35240-0045fa0a-7205-480c-b2a6-4a6287856e1e"
+                    },
+                    {
+                      "name": "Update Destination",
+                      "id": "90b8232d-a61b-4433-85bd-b55aebcfda84",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"minim_7dd\": 31602619,\n    \"consequat_8\": -79907874.13735943,\n    \"eu327\": -51413444.846706115\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "destinations",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ad5135b2-9f9d-4d04-8baf-c3bafce53866",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "de5ec5a2-3d9d-4416-9e6a-249389618f3a",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "36679625-836b-4fea-9d76-7de2ec5d51ea",
+                          "name": "Destination updated.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"minim_7dd\": 31602619,\n    \"consequat_8\": -79907874.13735943,\n    \"eu327\": -51413444.846706115\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "destinations",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:39.000Z",
+                          "updatedAt": "2026-07-28T02:09:39.000Z",
+                          "uid": "35240-36679625-836b-4fea-9d76-7de2ec5d51ea"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:39.000Z",
+                      "updatedAt": "2026-07-28T02:09:39.000Z",
+                      "uid": "35240-90b8232d-a61b-4433-85bd-b55aebcfda84"
+                    },
+                    {
+                      "name": "Delete Destination",
+                      "id": "5bbddbcf-e375-41ec-9fdd-e71692cff6fc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "destinations",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "82eaf040-1aef-45de-8c89-8b5dd5ffe8d1",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "89fe6a90-594b-4581-b13e-27e6f9734ab0",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "188bc1ef-4717-469c-ae7f-0806f533e193",
+                          "name": "Destination deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "destinations",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:39.000Z",
+                          "updatedAt": "2026-07-28T02:09:39.000Z",
+                          "uid": "35240-188bc1ef-4717-469c-ae7f-0806f533e193"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:39.000Z",
+                      "updatedAt": "2026-07-28T02:09:39.000Z",
+                      "uid": "35240-5bbddbcf-e375-41ec-9fdd-e71692cff6fc"
+                    }
+                  ],
+                  "id": "3ee32273-be8e-451c-a3a6-be138296d951",
+                  "createdAt": "2026-07-28T02:09:39.000Z",
+                  "updatedAt": "2026-07-28T02:09:39.000Z",
+                  "uid": "35240-3ee32273-be8e-451c-a3a6-be138296d951"
+                },
+                {
+                  "name": "List Destinations",
+                  "id": "0ffa0482-47e9-4cf7-b753-9d7ee976aeda",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "destinations"
+                      ],
+                      "variable": [
+                        {
+                          "id": "dd6410af-22ad-4ed3-a24a-fb4e1fc4d27c",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "93eba282-43b4-409d-a61a-41d8328674ec",
+                      "name": "Destinations for the pipeline.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "destinations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:39.000Z",
+                      "updatedAt": "2026-07-28T02:09:39.000Z",
+                      "uid": "35240-93eba282-43b4-409d-a61a-41d8328674ec"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:39.000Z",
+                  "updatedAt": "2026-07-28T02:09:39.000Z",
+                  "uid": "35240-0ffa0482-47e9-4cf7-b753-9d7ee976aeda"
+                },
+                {
+                  "name": "Create Destination",
+                  "id": "0e39d710-29f4-4f14-8e1f-89506afa81b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"minim_7dd\": 31602619,\n    \"consequat_8\": -79907874.13735943,\n    \"eu327\": -51413444.846706115\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "destinations"
+                      ],
+                      "variable": [
+                        {
+                          "id": "be599d90-6014-4e70-8e7d-7c3d6ebf039e",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b4e2b604-5652-4544-b83e-405d01ae40b2",
+                      "name": "Destination created.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"minim_7dd\": 31602619,\n    \"consequat_8\": -79907874.13735943,\n    \"eu327\": -51413444.846706115\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "destinations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:39.000Z",
+                      "updatedAt": "2026-07-28T02:09:39.000Z",
+                      "uid": "35240-b4e2b604-5652-4544-b83e-405d01ae40b2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:39.000Z",
+                  "updatedAt": "2026-07-28T02:09:39.000Z",
+                  "uid": "35240-0e39d710-29f4-4f14-8e1f-89506afa81b7"
+                }
+              ],
+              "id": "2707cc90-53a0-420e-bbde-180a43ff525e",
+              "createdAt": "2026-07-28T02:09:39.000Z",
+              "updatedAt": "2026-07-28T02:09:39.000Z",
+              "uid": "35240-2707cc90-53a0-420e-bbde-180a43ff525e"
+            }
+          ],
+          "id": "2bd2c089-006e-490b-b9b5-4d9214d19af1",
+          "createdAt": "2026-07-28T02:09:39.000Z",
+          "updatedAt": "2026-07-28T02:09:39.000Z",
+          "uid": "35240-2bd2c089-006e-490b-b9b5-4d9214d19af1"
+        }
+      ],
+      "id": "4717e09d-afcb-4897-853e-b8aca024eb66",
+      "createdAt": "2026-07-28T02:09:39.000Z",
+      "updatedAt": "2026-07-28T02:09:39.000Z",
+      "uid": "35240-4717e09d-afcb-4897-853e-b8aca024eb66"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

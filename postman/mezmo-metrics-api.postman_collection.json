@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "29740262-de75-4e7d-bffe-19aeb2da2cad",
+    "name": "Mezmo Alerts Archiving Metrics API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:46.000Z",
+    "updatedAt": "2026-07-28T02:09:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-29740262-de75-4e7d-bffe-19aeb2da2cad"
+  },
+  "item": [
+    {
+      "name": "metrics",
+      "item": [
+        {
+          "name": "events",
+          "item": [
+            {
+              "name": "Get Event Metrics",
+              "id": "90c47f9f-8e28-4e07-a91f-3a6255fc68f6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/metrics/events?pipelineId=<string>&from=<long>&to=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "metrics",
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "key": "pipelineId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "27783560-6669-423a-b8d8-301153b2e69c",
+                  "name": "Event rate / volume metrics.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metrics/events?pipelineId=<string>&from=<long>&to=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metrics",
+                        "events"
+                      ],
+                      "query": [
+                        {
+                          "key": "pipelineId",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "from",
+                          "value": "<long>"
+                        },
+                        {
+                          "key": "to",
+                          "value": "<long>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:46.000Z",
+                  "updatedAt": "2026-07-28T02:09:46.000Z",
+                  "uid": "35240-27783560-6669-423a-b8d8-301153b2e69c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:46.000Z",
+              "updatedAt": "2026-07-28T02:09:46.000Z",
+              "uid": "35240-90c47f9f-8e28-4e07-a91f-3a6255fc68f6"
+            }
+          ],
+          "id": "631b5f14-4260-4a60-b571-de527bb3037d",
+          "createdAt": "2026-07-28T02:09:46.000Z",
+          "updatedAt": "2026-07-28T02:09:46.000Z",
+          "uid": "35240-631b5f14-4260-4a60-b571-de527bb3037d"
+        }
+      ],
+      "id": "0963d977-8084-4cca-bf3a-e4fd200b9c3c",
+      "createdAt": "2026-07-28T02:09:46.000Z",
+      "updatedAt": "2026-07-28T02:09:46.000Z",
+      "uid": "35240-0963d977-8084-4cca-bf3a-e4fd200b9c3c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

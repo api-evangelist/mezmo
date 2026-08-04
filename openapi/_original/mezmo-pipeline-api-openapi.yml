@@ -1,0 +1,412 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Pipeline API
+  description: |
+    Programmatic CRUD over Mezmo Telemetry Pipelines. Manage pipelines, sources,
+    processors, destinations, deployments, audit events, and account-wide
+    metrics. Backs the Mezmo CLI, Terraform provider, and MCP server.
+  version: 'v3'
+  contact:
+    name: Mezmo
+    url: https://www.mezmo.com/
+servers:
+- url: https://api.mezmo.com/v3
+  description: Production Pipeline API
+tags:
+- name: Pipelines
+- name: Sources
+- name: Processors
+- name: Destinations
+- name: Deployments
+- name: Metrics
+- name: AuditEvents
+security:
+- PipelineServiceKey: []
+paths:
+  /pipelines:
+    get:
+      tags:
+      - Pipelines
+      summary: List Pipelines
+      operationId: listPipelines
+      responses:
+        '200':
+          description: List of pipelines.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pipeline'
+    post:
+      tags:
+      - Pipelines
+      summary: Create Pipeline
+      operationId: createPipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineInput'
+      responses:
+        '201':
+          description: Pipeline created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+  /pipelines/{pipelineId}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Pipelines
+      summary: Get Pipeline
+      operationId: getPipeline
+      responses:
+        '200':
+          description: Pipeline details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    put:
+      tags:
+      - Pipelines
+      summary: Update Pipeline
+      operationId: updatePipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineInput'
+      responses:
+        '200':
+          description: Pipeline updated.
+    delete:
+      tags:
+      - Pipelines
+      summary: Delete Pipeline
+      operationId: deletePipeline
+      responses:
+        '204':
+          description: Pipeline deleted.
+  /pipelines/{pipelineId}/publish:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    post:
+      tags:
+      - Deployments
+      summary: Publish Pipeline
+      operationId: publishPipeline
+      responses:
+        '200':
+          description: Pipeline published to the active deployment.
+  /pipelines/{pipelineId}/revert:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    post:
+      tags:
+      - Deployments
+      summary: Revert Pipeline
+      operationId: revertPipeline
+      responses:
+        '200':
+          description: Pipeline reverted to the previously published version.
+  /pipelines/{pipelineId}/sources:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Sources
+      summary: List Sources
+      operationId: listSources
+      responses:
+        '200':
+          description: Sources for the pipeline.
+    post:
+      tags:
+      - Sources
+      summary: Create Source
+      operationId: createSource
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '201':
+          description: Source created.
+  /pipelines/{pipelineId}/sources/{nodeId}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    - $ref: '#/components/parameters/NodeId'
+    get:
+      tags:
+      - Sources
+      summary: Get Source
+      operationId: getSource
+      responses:
+        '200':
+          description: Source details.
+    put:
+      tags:
+      - Sources
+      summary: Update Source
+      operationId: updateSource
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '200':
+          description: Source updated.
+    delete:
+      tags:
+      - Sources
+      summary: Delete Source
+      operationId: deleteSource
+      responses:
+        '204':
+          description: Source deleted.
+  /pipelines/{pipelineId}/processors:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Processors
+      summary: List Processors
+      operationId: listProcessors
+      responses:
+        '200':
+          description: Processors for the pipeline.
+    post:
+      tags:
+      - Processors
+      summary: Create Processor
+      operationId: createProcessor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '201':
+          description: Processor created.
+  /pipelines/{pipelineId}/processors/{nodeId}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    - $ref: '#/components/parameters/NodeId'
+    get:
+      tags:
+      - Processors
+      summary: Get Processor
+      operationId: getProcessor
+      responses:
+        '200':
+          description: Processor details.
+    put:
+      tags:
+      - Processors
+      summary: Update Processor
+      operationId: updateProcessor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '200':
+          description: Processor updated.
+    delete:
+      tags:
+      - Processors
+      summary: Delete Processor
+      operationId: deleteProcessor
+      responses:
+        '204':
+          description: Processor deleted.
+  /pipelines/{pipelineId}/destinations:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Destinations
+      summary: List Destinations
+      operationId: listDestinations
+      responses:
+        '200':
+          description: Destinations for the pipeline.
+    post:
+      tags:
+      - Destinations
+      summary: Create Destination
+      operationId: createDestination
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '201':
+          description: Destination created.
+  /pipelines/{pipelineId}/destinations/{nodeId}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    - $ref: '#/components/parameters/NodeId'
+    get:
+      tags:
+      - Destinations
+      summary: Get Destination
+      operationId: getDestination
+      responses:
+        '200':
+          description: Destination details.
+    put:
+      tags:
+      - Destinations
+      summary: Update Destination
+      operationId: updateDestination
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineNodeInput'
+      responses:
+        '200':
+          description: Destination updated.
+    delete:
+      tags:
+      - Destinations
+      summary: Delete Destination
+      operationId: deleteDestination
+      responses:
+        '204':
+          description: Destination deleted.
+  /pipelines/{pipelineId}/audit:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - AuditEvents
+      summary: List Audit Events
+      operationId: listAuditEvents
+      responses:
+        '200':
+          description: Audit log for the pipeline.
+  /pipelines/{pipelineId}/health:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      tags:
+      - Pipelines
+      summary: Get Pipeline Health
+      operationId: getPipelineHealth
+      responses:
+        '200':
+          description: Health status of the pipeline.
+  /metrics/events:
+    get:
+      tags:
+      - Metrics
+      summary: Get Event Metrics
+      operationId: getEventMetrics
+      parameters:
+      - name: pipelineId
+        in: query
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Event rate / volume metrics.
+components:
+  parameters:
+    PipelineId:
+      name: pipelineId
+      in: path
+      required: true
+      schema:
+        type: string
+    NodeId:
+      name: nodeId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    PipelineServiceKey:
+      type: http
+      scheme: bearer
+      description: 'Authorization: Token {PIPELINE_SERVICE_KEY}'
+  schemas:
+    PipelineInput:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        sharedSources:
+          type: array
+          items:
+            type: string
+    Pipeline:
+      allOf:
+      - $ref: '#/components/schemas/PipelineInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          accountId:
+            type: string
+          createdAt:
+            type: string
+            format: date-time
+          updatedAt:
+            type: string
+            format: date-time
+          status:
+            type: string
+            enum:
+            - draft
+            - published
+            - errored
+    PipelineNodeInput:
+      type: object
+      required:
+      - title
+      - type
+      properties:
+        title:
+          type: string
+        type:
+          type: string
+          description: Component type (e.g. http_source, otel_source, s3_destination, datadog_logs_destination, vrl_processor).
+        config:
+          type: object
+          additionalProperties: true
+        inputs:
+          type: array
+          items:
+            type: string

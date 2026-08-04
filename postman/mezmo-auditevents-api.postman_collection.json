@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "8deeff8f-df93-4f31-8784-5e7289671e02",
+    "name": "Mezmo Alerts Archiving AuditEvents API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:35.000Z",
+    "updatedAt": "2026-07-28T02:09:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8deeff8f-df93-4f31-8784-5e7289671e02"
+  },
+  "item": [
+    {
+      "name": "pipelines",
+      "item": [
+        {
+          "name": "{pipelineId}",
+          "item": [
+            {
+              "name": "audit",
+              "item": [
+                {
+                  "name": "List Audit Events",
+                  "id": "92efb9ab-edba-4cac-8eeb-5d51269c23fb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/audit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "audit"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8278ab64-361c-4a00-a35c-b979f23c1513",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3619c4c1-4fff-4eec-9aaf-63cdbfc02509",
+                      "name": "Audit log for the pipeline.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/audit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "audit"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:36.000Z",
+                      "updatedAt": "2026-07-28T02:09:36.000Z",
+                      "uid": "35240-3619c4c1-4fff-4eec-9aaf-63cdbfc02509"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:36.000Z",
+                  "updatedAt": "2026-07-28T02:09:36.000Z",
+                  "uid": "35240-92efb9ab-edba-4cac-8eeb-5d51269c23fb"
+                }
+              ],
+              "id": "8c0f0bb1-ff72-4388-aa51-1333e3a3fd09",
+              "createdAt": "2026-07-28T02:09:36.000Z",
+              "updatedAt": "2026-07-28T02:09:36.000Z",
+              "uid": "35240-8c0f0bb1-ff72-4388-aa51-1333e3a3fd09"
+            }
+          ],
+          "id": "0331603b-92b8-451c-9bee-583b8bf2d232",
+          "createdAt": "2026-07-28T02:09:36.000Z",
+          "updatedAt": "2026-07-28T02:09:36.000Z",
+          "uid": "35240-0331603b-92b8-451c-9bee-583b8bf2d232"
+        }
+      ],
+      "id": "de7ad66d-8242-414b-9289-e2012e60886f",
+      "createdAt": "2026-07-28T02:09:36.000Z",
+      "updatedAt": "2026-07-28T02:09:36.000Z",
+      "uid": "35240-de7ad66d-8242-414b-9289-e2012e60886f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+{
+  "info": {
+    "_postman_id": "89a9b1d3-3afc-4e75-abf7-dd8e4533e7db",
+    "name": "Mezmo Alerts Archiving Processors API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:49.000Z",
+    "updatedAt": "2026-07-28T02:09:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-89a9b1d3-3afc-4e75-abf7-dd8e4533e7db"
+  },
+  "item": [
+    {
+      "name": "pipelines",
+      "item": [
+        {
+          "name": "{pipelineId}",
+          "item": [
+            {
+              "name": "processors",
+              "item": [
+                {
+                  "name": "{nodeId}",
+                  "item": [
+                    {
+                      "name": "Get Processor",
+                      "id": "de7d10ee-9c2e-4295-9eae-368f448dfac9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/processors/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "processors",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b554f76e-9976-43be-a672-a3fa91d18309",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "5eaf2cd5-ddc7-4663-b044-56ac40a92036",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2599593e-25c1-4281-9eaf-8eed2c705321",
+                          "name": "Processor details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/processors/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "processors",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:49.000Z",
+                          "updatedAt": "2026-07-28T02:09:49.000Z",
+                          "uid": "35240-2599593e-25c1-4281-9eaf-8eed2c705321"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:49.000Z",
+                      "updatedAt": "2026-07-28T02:09:49.000Z",
+                      "uid": "35240-de7d10ee-9c2e-4295-9eae-368f448dfac9"
+                    },
+                    {
+                      "name": "Update Processor",
+                      "id": "32ad2869-a2bf-4852-af30-5ce5169710b5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"aliquaa\": \"labore proident do ad\",\n    \"culpa286\": \"esse\",\n    \"dolor_f_5\": \"id ad\",\n    \"dolore2e\": \"in non nulla\"\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/processors/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "processors",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c10face0-8386-460a-a244-3480b3a68e65",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "affdf217-980d-4300-a289-f582d0e51e7a",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7d8595d8-9b0f-4055-898e-4cd11726cf67",
+                          "name": "Processor updated.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"aliquaa\": \"labore proident do ad\",\n    \"culpa286\": \"esse\",\n    \"dolor_f_5\": \"id ad\",\n    \"dolore2e\": \"in non nulla\"\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/processors/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "processors",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:49.000Z",
+                          "updatedAt": "2026-07-28T02:09:49.000Z",
+                          "uid": "35240-7d8595d8-9b0f-4055-898e-4cd11726cf67"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:49.000Z",
+                      "updatedAt": "2026-07-28T02:09:49.000Z",
+                      "uid": "35240-32ad2869-a2bf-4852-af30-5ce5169710b5"
+                    },
+                    {
+                      "name": "Delete Processor",
+                      "id": "cb0c3170-2aab-4402-a6c7-cde9a245ccc0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/processors/:nodeId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "processors",
+                            ":nodeId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "62034153-4030-4418-9b46-562b66278cf7",
+                              "key": "pipelineId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "e0694612-817d-405b-8b05-8ac1072c57ed",
+                              "key": "nodeId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4349a7a2-da59-4f32-9f77-eaa0fd3c1e97",
+                          "name": "Processor deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/pipelines/:pipelineId/processors/:nodeId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "pipelines",
+                                ":pipelineId",
+                                "processors",
+                                ":nodeId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pipelineId"
+                                },
+                                {
+                                  "key": "nodeId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:49.000Z",
+                          "updatedAt": "2026-07-28T02:09:49.000Z",
+                          "uid": "35240-4349a7a2-da59-4f32-9f77-eaa0fd3c1e97"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:49.000Z",
+                      "updatedAt": "2026-07-28T02:09:49.000Z",
+                      "uid": "35240-cb0c3170-2aab-4402-a6c7-cde9a245ccc0"
+                    }
+                  ],
+                  "id": "1d8684be-0e0e-4f65-aa16-4642a7c842d9",
+                  "createdAt": "2026-07-28T02:09:49.000Z",
+                  "updatedAt": "2026-07-28T02:09:49.000Z",
+                  "uid": "35240-1d8684be-0e0e-4f65-aa16-4642a7c842d9"
+                },
+                {
+                  "name": "List Processors",
+                  "id": "801468fc-fa8c-4bf1-9d31-ae127ece8db9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/processors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "processors"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c960bfc1-8da1-45ee-a822-df5926afd907",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c0f39d27-68bf-410d-9aee-6c550aac1546",
+                      "name": "Processors for the pipeline.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/processors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "processors"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:49.000Z",
+                      "updatedAt": "2026-07-28T02:09:49.000Z",
+                      "uid": "35240-c0f39d27-68bf-410d-9aee-6c550aac1546"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:49.000Z",
+                  "updatedAt": "2026-07-28T02:09:49.000Z",
+                  "uid": "35240-801468fc-fa8c-4bf1-9d31-ae127ece8db9"
+                },
+                {
+                  "name": "Create Processor",
+                  "id": "75b1adb5-31a3-47c7-adb9-eb325748ec7f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"aliquaa\": \"labore proident do ad\",\n    \"culpa286\": \"esse\",\n    \"dolor_f_5\": \"id ad\",\n    \"dolore2e\": \"in non nulla\"\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/pipelines/:pipelineId/processors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "pipelines",
+                        ":pipelineId",
+                        "processors"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b7947e84-43fe-49e4-aff0-3a9c39a55c84",
+                          "key": "pipelineId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "46c4a8fb-c335-4aac-9082-42d49b97bcd5",
+                      "name": "Processor created.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"aliquaa\": \"labore proident do ad\",\n    \"culpa286\": \"esse\",\n    \"dolor_f_5\": \"id ad\",\n    \"dolore2e\": \"in non nulla\"\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/pipelines/:pipelineId/processors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "pipelines",
+                            ":pipelineId",
+                            "processors"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pipelineId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:49.000Z",
+                      "updatedAt": "2026-07-28T02:09:49.000Z",
+                      "uid": "35240-46c4a8fb-c335-4aac-9082-42d49b97bcd5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:49.000Z",
+                  "updatedAt": "2026-07-28T02:09:49.000Z",
+                  "uid": "35240-75b1adb5-31a3-47c7-adb9-eb325748ec7f"
+                }
+              ],
+              "id": "7bda14b1-69e3-46f9-a35b-92ec7d5c0752",
+              "createdAt": "2026-07-28T02:09:49.000Z",
+              "updatedAt": "2026-07-28T02:09:49.000Z",
+              "uid": "35240-7bda14b1-69e3-46f9-a35b-92ec7d5c0752"
+            }
+          ],
+          "id": "989fcaed-b634-4320-955e-9c9b6f459092",
+          "createdAt": "2026-07-28T02:09:49.000Z",
+          "updatedAt": "2026-07-28T02:09:49.000Z",
+          "uid": "35240-989fcaed-b634-4320-955e-9c9b6f459092"
+        }
+      ],
+      "id": "66b8a935-7f2d-441a-a6c2-7e883a42d930",
+      "createdAt": "2026-07-28T02:09:49.000Z",
+      "updatedAt": "2026-07-28T02:09:49.000Z",
+      "uid": "35240-66b8a935-7f2d-441a-a6c2-7e883a42d930"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}

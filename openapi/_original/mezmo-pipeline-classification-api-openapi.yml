@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: Mezmo Pipeline Classification API
+  description: |
+    AI-assisted data classification, field profiling, parser inference, and
+    regex generation against pipeline samples. Used inside the Mezmo Pipelines
+    authoring workflow to accelerate parser and processor configuration.
+  version: 'v3'
+servers:
+- url: https://api.mezmo.com/v3
+tags:
+- name: Classification
+security:
+- PipelineServiceKey: []
+paths:
+  /classification/profile:
+    post:
+      tags:
+      - Classification
+      summary: Profile Sample Data
+      description: Analyze a sample of pipeline data and return inferred field types, cardinality, and clusters.
+      operationId: profileSample
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SampleRequest'
+      responses:
+        '200':
+          description: Field profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+  /classification/parse:
+    post:
+      tags:
+      - Classification
+      summary: Suggest Parser
+      description: AI-generate a parser configuration for the sample.
+      operationId: suggestParser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SampleRequest'
+      responses:
+        '200':
+          description: Suggested parser.
+  /classification/regex:
+    post:
+      tags:
+      - Classification
+      summary: Generate Regex
+      description: Generate a regex for the supplied sample tokens.
+      operationId: generateRegex
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SampleRequest'
+      responses:
+        '200':
+          description: Generated regex.
+components:
+  securitySchemes:
+    PipelineServiceKey:
+      type: http
+      scheme: bearer
+  schemas:
+    SampleRequest:
+      type: object
+      required:
+      - samples
+      properties:
+        samples:
+          type: array
+          items:
+            type: string
+        hint:
+          type: string
+    Profile:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              cardinality:
+                type: integer
+              examples:
+                type: array
+                items:
+                  type: string

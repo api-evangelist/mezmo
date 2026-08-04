@@ -1,0 +1,419 @@
+{
+  "info": {
+    "_postman_id": "db98e1ec-6dbf-4e56-b758-ea17b3886ee8",
+    "name": "Mezmo Alerts Archiving Exclusions API",
+    "description": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:42.000Z",
+    "updatedAt": "2026-07-28T02:09:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-db98e1ec-6dbf-4e56-b758-ea17b3886ee8"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "config",
+          "item": [
+            {
+              "name": "ingestion",
+              "item": [
+                {
+                  "name": "exclusions",
+                  "item": [
+                    {
+                      "name": "{ruleid}",
+                      "item": [
+                        {
+                          "name": "Update Exclusion Rule",
+                          "id": "0bd960c7-1f83-41a1-8d18-fa76fe2b6ba4",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/exclusions/:ruleid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "exclusions",
+                                ":ruleid"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0cc55bc6-0dba-44ed-bcb0-388afa8e3b5f",
+                                  "key": "ruleid",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "95f2f320-2993-4d83-95ff-c05d02d53354",
+                              "name": "Rule updated.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/config/ingestion/exclusions/:ruleid",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "config",
+                                    "ingestion",
+                                    "exclusions",
+                                    ":ruleid"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "ruleid"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:09:42.000Z",
+                              "updatedAt": "2026-07-28T02:09:42.000Z",
+                              "uid": "35240-95f2f320-2993-4d83-95ff-c05d02d53354"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:09:42.000Z",
+                          "updatedAt": "2026-07-28T02:09:42.000Z",
+                          "uid": "35240-0bd960c7-1f83-41a1-8d18-fa76fe2b6ba4"
+                        },
+                        {
+                          "name": "Delete Exclusion Rule",
+                          "id": "5ce9f69b-9663-4c11-ad72-950aa384c45c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/exclusions/:ruleid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "exclusions",
+                                ":ruleid"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1638f185-e59f-4f72-b467-2a810df9c88f",
+                                  "key": "ruleid",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "10083b75-d34a-4283-8932-7c85c3f9ea27",
+                              "name": "Rule deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/config/ingestion/exclusions/:ruleid",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "config",
+                                    "ingestion",
+                                    "exclusions",
+                                    ":ruleid"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "ruleid"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:09:42.000Z",
+                              "updatedAt": "2026-07-28T02:09:42.000Z",
+                              "uid": "35240-10083b75-d34a-4283-8932-7c85c3f9ea27"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:09:42.000Z",
+                          "updatedAt": "2026-07-28T02:09:42.000Z",
+                          "uid": "35240-5ce9f69b-9663-4c11-ad72-950aa384c45c"
+                        }
+                      ],
+                      "id": "aaae6763-96b1-482b-b0d2-5b729e666ed2",
+                      "createdAt": "2026-07-28T02:09:42.000Z",
+                      "updatedAt": "2026-07-28T02:09:42.000Z",
+                      "uid": "35240-aaae6763-96b1-482b-b0d2-5b729e666ed2"
+                    },
+                    {
+                      "name": "List Exclusion Rules",
+                      "id": "23b7c0e6-f4e7-4666-a56e-919039a29682",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/ingestion/exclusions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "ingestion",
+                            "exclusions"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9c83df3b-d60d-4e32-8e4d-99f45cdc4e6f",
+                          "name": "Exclusion rules.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/exclusions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "exclusions"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:42.000Z",
+                          "updatedAt": "2026-07-28T02:09:42.000Z",
+                          "uid": "35240-9c83df3b-d60d-4e32-8e4d-99f45cdc4e6f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:42.000Z",
+                      "updatedAt": "2026-07-28T02:09:42.000Z",
+                      "uid": "35240-23b7c0e6-f4e7-4666-a56e-919039a29682"
+                    },
+                    {
+                      "name": "Create Exclusion Rule",
+                      "id": "b64c19c5-3e52-4bb4-9123-d2da93da9c69",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/config/ingestion/exclusions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "config",
+                            "ingestion",
+                            "exclusions"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "bb53b8bb-9830-41ae-9248-dc1e15159893",
+                          "name": "Rule created.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/config/ingestion/exclusions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "config",
+                                "ingestion",
+                                "exclusions"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:09:42.000Z",
+                          "updatedAt": "2026-07-28T02:09:42.000Z",
+                          "uid": "35240-bb53b8bb-9830-41ae-9248-dc1e15159893"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:42.000Z",
+                      "updatedAt": "2026-07-28T02:09:42.000Z",
+                      "uid": "35240-b64c19c5-3e52-4bb4-9123-d2da93da9c69"
+                    }
+                  ],
+                  "id": "8bfd3571-4854-49ad-b8b5-838d575f70c9",
+                  "createdAt": "2026-07-28T02:09:42.000Z",
+                  "updatedAt": "2026-07-28T02:09:42.000Z",
+                  "uid": "35240-8bfd3571-4854-49ad-b8b5-838d575f70c9"
+                }
+              ],
+              "id": "abc34a93-4852-4669-9cd1-23013796e104",
+              "createdAt": "2026-07-28T02:09:42.000Z",
+              "updatedAt": "2026-07-28T02:09:42.000Z",
+              "uid": "35240-abc34a93-4852-4669-9cd1-23013796e104"
+            }
+          ],
+          "id": "4857faf8-6c63-4ee9-a178-5d41d05041ea",
+          "createdAt": "2026-07-28T02:09:42.000Z",
+          "updatedAt": "2026-07-28T02:09:42.000Z",
+          "uid": "35240-4857faf8-6c63-4ee9-a178-5d41d05041ea"
+        }
+      ],
+      "id": "a88aa425-f3b2-4943-a9dc-59d8785b47bb",
+      "createdAt": "2026-07-28T02:09:42.000Z",
+      "updatedAt": "2026-07-28T02:09:42.000Z",
+      "uid": "35240-a88aa425-f3b2-4943-a9dc-59d8785b47bb"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mezmo.com"
+    }
+  ]
+}
