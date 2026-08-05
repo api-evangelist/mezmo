@@ -52,7 +52,7 @@ concepts:
   - term: Service Key
     description: Deprecated legacy auth credential; superseded by access tokens.
   - term: Access Token
-    description: Bearer credential used in `Authorization: Token {ACCESS_TOKEN}` for the Mezmo APIs.
+    description: "Bearer credential used in `Authorization: Token {ACCESS_TOKEN}` for the Mezmo APIs."
   - term: Pipeline Service Key
     description: Bearer credential for the Pipeline API.
 mappings:
