@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Mezmo Archiving API",
+    "name": "Mezmo Alerts Archiving API",
     "version": "1.0"
   },
   "request": {

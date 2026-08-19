@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Alerts Archiving Suspension API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Suspension",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Ingestion Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/config/ingestion/status"
+          },
+          "docs": "Get Ingestion Status"
+        },
+        {
+          "info": {
+            "name": "Initiate Ingestion Suspension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/ingestion/suspend"
+          },
+          "docs": "Initiate Ingestion Suspension"
+        },
+        {
+          "info": {
+            "name": "Confirm Ingestion Suspension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/ingestion/suspend/confirm"
+          },
+          "docs": "Confirm Ingestion Suspension"
+        },
+        {
+          "info": {
+            "name": "Resume Ingestion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/v1/config/ingestion/resume"
+          },
+          "docs": "Resume Ingestion"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

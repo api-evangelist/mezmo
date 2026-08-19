@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Alerts Archiving Heartbeats API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Heartbeats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Heartbeat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/edge/clients/:clientId/heartbeat",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Heartbeat"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

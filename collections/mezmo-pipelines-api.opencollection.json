@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Mezmo Alerts Archiving Views API",
+    "name": "Mezmo Alerts Archiving Pipelines API",
     "version": "1.0"
   },
   "request": {
@@ -13,65 +13,65 @@
   "items": [
     {
       "info": {
-        "name": "Views",
+        "name": "Pipelines",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Views",
+            "name": "List Pipelines",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view"
+            "url": "https://api.mezmo.com/pipelines"
           },
-          "docs": "List Views"
+          "docs": "List Pipelines"
         },
         {
           "info": {
-            "name": "Create View",
+            "name": "Create Pipeline",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.mezmo.com/v1/config/view",
+            "url": "https://api.mezmo.com/pipelines",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Create View"
+          "docs": "Create Pipeline"
         },
         {
           "info": {
-            "name": "Get View",
+            "name": "Get Pipeline",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId",
             "params": [
               {
-                "name": "viewid",
+                "name": "pipelineId",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Get View"
+          "docs": "Get Pipeline"
         },
         {
           "info": {
-            "name": "Update View",
+            "name": "Update Pipeline",
             "type": "http"
           },
           "http": {
             "method": "PUT",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId",
             "params": [
               {
-                "name": "viewid",
+                "name": "pipelineId",
                 "value": "",
                 "type": "path"
               }
@@ -81,25 +81,43 @@
               "data": "{}"
             }
           },
-          "docs": "Update View"
+          "docs": "Update Pipeline"
         },
         {
           "info": {
-            "name": "Delete View",
+            "name": "Delete Pipeline",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId",
             "params": [
               {
-                "name": "viewid",
+                "name": "pipelineId",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Delete View"
+          "docs": "Delete Pipeline"
+        },
+        {
+          "info": {
+            "name": "Get Pipeline Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId/health",
+            "params": [
+              {
+                "name": "pipelineId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Pipeline Health"
         }
       ]
     }

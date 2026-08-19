@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Alerts Archiving Logs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Logs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/logs/ingest",
+            "params": [
+              {
+                "name": "hostname",
+                "value": "",
+                "type": "query",
+                "description": "Originating host name for the batch."
+              },
+              {
+                "name": "mac",
+                "value": "",
+                "type": "query",
+                "description": "MAC address of the originating host."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "IP address of the originating host."
+              },
+              {
+                "name": "now",
+                "value": "",
+                "type": "query",
+                "description": "Current unix epoch milliseconds on the sending host."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated tags to attach to every line in the batch."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a batch of log lines to Mezmo. Each line carries a timestamp, line\nbody, app, level, env, and free-form meta. Recommended batch size is\nunder 10 MB per request.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

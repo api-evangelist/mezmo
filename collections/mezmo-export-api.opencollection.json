@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Alerts Archiving Export API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Export Logs V1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v1/export",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start of the export window (unix epoch milliseconds)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End of the export window (unix epoch milliseconds)."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search expression."
+              },
+              {
+                "name": "hosts",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated hostnames."
+              },
+              {
+                "name": "apps",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated app names."
+              },
+              {
+                "name": "levels",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated log levels."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated tags."
+              }
+            ]
+          },
+          "docs": "Legacy export endpoint with plan-bounded result size."
+        },
+        {
+          "info": {
+            "name": "Export Logs V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/v2/export",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start of the export window (unix epoch milliseconds)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End of the export window (unix epoch milliseconds)."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search expression."
+              },
+              {
+                "name": "hosts",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated hostnames."
+              },
+              {
+                "name": "apps",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated app names."
+              },
+              {
+                "name": "levels",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated log levels."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated tags."
+              },
+              {
+                "name": "pagination_id",
+                "value": "",
+                "type": "query",
+                "description": "Opaque continuation cursor returned in the previous page."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              }
+            ]
+          },
+          "docs": "Paginated export of historical log data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

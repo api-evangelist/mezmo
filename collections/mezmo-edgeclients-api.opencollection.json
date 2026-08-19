@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Mezmo Alerts Archiving Views API",
+    "name": "Mezmo Alerts Archiving EdgeClients API",
     "version": "1.0"
   },
   "request": {
@@ -13,93 +13,71 @@
   "items": [
     {
       "info": {
-        "name": "Views",
+        "name": "EdgeClients",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Views",
+            "name": "List Edge Clients",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view"
+            "url": "https://api.mezmo.com/edge/clients"
           },
-          "docs": "List Views"
+          "docs": "List Edge Clients"
         },
         {
           "info": {
-            "name": "Create View",
+            "name": "Register Edge Client",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.mezmo.com/v1/config/view",
+            "url": "https://api.mezmo.com/edge/clients",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Create View"
+          "docs": "Register Edge Client"
         },
         {
           "info": {
-            "name": "Get View",
+            "name": "Get Edge Client",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/edge/clients/:clientId",
             "params": [
               {
-                "name": "viewid",
+                "name": "clientId",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Get View"
+          "docs": "Get Edge Client"
         },
         {
           "info": {
-            "name": "Update View",
-            "type": "http"
-          },
-          "http": {
-            "method": "PUT",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
-            "params": [
-              {
-                "name": "viewid",
-                "value": "",
-                "type": "path"
-              }
-            ],
-            "body": {
-              "type": "json",
-              "data": "{}"
-            }
-          },
-          "docs": "Update View"
-        },
-        {
-          "info": {
-            "name": "Delete View",
+            "name": "Deregister Edge Client",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/edge/clients/:clientId",
             "params": [
               {
-                "name": "viewid",
+                "name": "clientId",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Delete View"
+          "docs": "Deregister Edge Client"
         }
       ]
     }

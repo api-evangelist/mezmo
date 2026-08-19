@@ -1,24 +1,25 @@
 {
   "item": [
     {
-      "id": "73e81956-6451-46c0-a3ed-ce6fc2a10597",
-      "name": "Archiving",
+      "id": "8ee840ac-9471-497b-bdba-7581be97df2e",
+      "name": "Exclusions",
       "description": {
-        "content": "Cold storage configuration",
+        "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "94e2b650-45b0-456e-a1a0-bbdc554017d0",
-          "name": "Get Archive Configuration",
+          "id": "6e275663-fb87-4f0d-a8f5-898bef8fea33",
+          "name": "List Exclusion Rules",
           "request": {
-            "name": "Get Archive Configuration",
+            "name": "List Exclusion Rules",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "exclusions"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -26,25 +27,20 @@
               "query": [],
               "variable": []
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "721ea3bf-68fb-4a70-8a63-0941e3eadd05",
-              "name": "Current archiving configuration.",
+              "id": "78020968-a6ba-4ff6-b579-dc3e20b0a817",
+              "name": "Exclusion rules.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "exclusions"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -60,10 +56,6 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
                 "method": "GET",
@@ -74,12 +66,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"integration\": \"azblob\",\n  \"bucket\": \"string\",\n  \"endpoint\": \"string\",\n  \"region\": \"string\",\n  \"accesskey\": \"string\",\n  \"secretkey\": \"string\",\n  \"container\": \"string\",\n  \"apikey\": \"string\",\n  \"resourceinstanceid\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -88,16 +80,17 @@
           }
         },
         {
-          "id": "c7f950be-abdf-431b-831e-179f2e66b99d",
-          "name": "Create Archive Configuration",
+          "id": "2aec006b-5cb6-4b9d-9658-61df27a3fbd8",
+          "name": "Create Exclusion Rule",
           "request": {
-            "name": "Create Archive Configuration",
+            "name": "Create Exclusion Rule",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "exclusions"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -115,7 +108,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -125,14 +118,15 @@
           },
           "response": [
             {
-              "id": "0de219ee-0970-420c-a130-6884a34e0943",
-              "name": "Configuration created.",
+              "id": "f6c612bb-a517-487b-8c24-9ef2ad41564e",
+              "name": "Rule created.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "exclusions"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -153,7 +147,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -180,22 +174,32 @@
           }
         },
         {
-          "id": "4ee860da-349f-445f-a1fb-3ff5ae0c922b",
-          "name": "Update Archive Configuration",
+          "id": "fc66cb60-d522-44c3-a093-f7404a626d69",
+          "name": "Update Exclusion Rule",
           "request": {
-            "name": "Update Archive Configuration",
+            "name": "Update Exclusion Rule",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "exclusions",
+                ":ruleid"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleid",
+                  "description": "(Required) "
+                }
+              ]
             },
             "header": [
               {
@@ -203,11 +207,11 @@
                 "value": "application/json"
               }
             ],
-            "method": "PUT",
+            "method": "PATCH",
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -217,20 +221,30 @@
           },
           "response": [
             {
-              "id": "c3b7fb9f-d8cb-4446-8083-973646dfc77b",
-              "name": "Configuration updated.",
+              "id": "0748661f-7123-4d08-bae9-236b66a41ca2",
+              "name": "Rule updated.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "exclusions",
+                    ":ruleid"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleid",
+                      "description": "(Required) "
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -242,10 +256,10 @@
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "PUT",
+                "method": "PATCH",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"indexonly\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -272,42 +286,62 @@
           }
         },
         {
-          "id": "0eb89d8d-d880-4c44-b939-092c6e01154d",
-          "name": "Delete Archive Configuration",
+          "id": "da3b285c-7ec5-49fa-8ed1-a814d82a53fc",
+          "name": "Delete Exclusion Rule",
           "request": {
-            "name": "Delete Archive Configuration",
+            "name": "Delete Exclusion Rule",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "exclusions",
+                ":ruleid"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleid",
+                  "description": "(Required) "
+                }
+              ]
             },
             "method": "DELETE",
             "auth": null
           },
           "response": [
             {
-              "id": "c7096540-87d6-4904-af7f-231d33da2bda",
-              "name": "Configuration deleted.",
+              "id": "2e85639e-19c1-442f-aa34-53d63c26bbff",
+              "name": "Rule deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "exclusions",
+                    ":ruleid"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleid",
+                      "description": "(Required) "
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -362,8 +396,8 @@
     ]
   },
   "info": {
-    "_postman_id": "1d320804-60ed-4c18-bc83-2330d1541b0c",
-    "name": "Mezmo Alerts Archiving API",
+    "_postman_id": "7425dbc8-9efe-495b-8847-bc5871e56826",
+    "name": "Mezmo Alerts Archiving Exclusions API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",

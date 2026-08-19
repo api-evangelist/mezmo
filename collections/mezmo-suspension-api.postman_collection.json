@@ -1,24 +1,25 @@
 {
   "item": [
     {
-      "id": "73e81956-6451-46c0-a3ed-ce6fc2a10597",
-      "name": "Archiving",
+      "id": "558624f2-e5a0-4663-be41-149c2fa67c85",
+      "name": "Suspension",
       "description": {
-        "content": "Cold storage configuration",
+        "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "94e2b650-45b0-456e-a1a0-bbdc554017d0",
-          "name": "Get Archive Configuration",
+          "id": "170b4821-0ac8-42ce-a67e-4506ed585ec8",
+          "name": "Get Ingestion Status",
           "request": {
-            "name": "Get Archive Configuration",
+            "name": "Get Ingestion Status",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "status"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -37,14 +38,15 @@
           },
           "response": [
             {
-              "id": "721ea3bf-68fb-4a70-8a63-0941e3eadd05",
-              "name": "Current archiving configuration.",
+              "id": "3fbc96fb-b19b-47c0-afc8-86ed46872684",
+              "name": "Current ingestion status.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "status"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -77,7 +79,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"integration\": \"azblob\",\n  \"bucket\": \"string\",\n  \"endpoint\": \"string\",\n  \"region\": \"string\",\n  \"accesskey\": \"string\",\n  \"secretkey\": \"string\",\n  \"container\": \"string\",\n  \"apikey\": \"string\",\n  \"resourceinstanceid\": \"string\"\n}",
+              "body": "{\n  \"status\": \"active\",\n  \"modified\": 8245\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -88,16 +90,17 @@
           }
         },
         {
-          "id": "c7f950be-abdf-431b-831e-179f2e66b99d",
-          "name": "Create Archive Configuration",
+          "id": "11508abf-f369-435e-be81-4d510bf46521",
+          "name": "Initiate Ingestion Suspension",
           "request": {
-            "name": "Create Archive Configuration",
+            "name": "Initiate Ingestion Suspension",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "suspend"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -105,34 +108,20 @@
               "query": [],
               "variable": []
             },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
             "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
+            "auth": null
           },
           "response": [
             {
-              "id": "0de219ee-0970-420c-a130-6884a34e0943",
-              "name": "Configuration created.",
+              "id": "3ce527dc-b614-4e63-b138-5ae1e91d1053",
+              "name": "Suspension requested; confirmation required.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "suspend"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -151,18 +140,10 @@
                   }
                 ],
                 "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "body": {}
               },
-              "status": "Created",
-              "code": 201,
+              "status": "Accepted",
+              "code": 202,
               "header": [
                 {
                   "key": "Content-Type",
@@ -180,16 +161,18 @@
           }
         },
         {
-          "id": "4ee860da-349f-445f-a1fb-3ff5ae0c922b",
-          "name": "Update Archive Configuration",
+          "id": "ade43d4e-8f84-4046-aa07-0c981fa5a926",
+          "name": "Confirm Ingestion Suspension",
           "request": {
-            "name": "Update Archive Configuration",
+            "name": "Confirm Ingestion Suspension",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "suspend",
+                "confirm"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -197,34 +180,21 @@
               "query": [],
               "variable": []
             },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
+            "method": "POST",
+            "auth": null
           },
           "response": [
             {
-              "id": "c3b7fb9f-d8cb-4446-8083-973646dfc77b",
-              "name": "Configuration updated.",
+              "id": "b893db21-9884-4fb9-b5df-0e07eaf01cc5",
+              "name": "Suspension confirmed.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "suspend",
+                    "confirm"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -242,16 +212,8 @@
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "method": "POST",
+                "body": {}
               },
               "status": "OK",
               "code": 200,
@@ -272,16 +234,17 @@
           }
         },
         {
-          "id": "0eb89d8d-d880-4c44-b939-092c6e01154d",
-          "name": "Delete Archive Configuration",
+          "id": "52ab7bc0-bd2c-449a-aaf5-faa40db71df1",
+          "name": "Resume Ingestion",
           "request": {
-            "name": "Delete Archive Configuration",
+            "name": "Resume Ingestion",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "archiving"
+                "ingestion",
+                "resume"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -289,19 +252,20 @@
               "query": [],
               "variable": []
             },
-            "method": "DELETE",
+            "method": "POST",
             "auth": null
           },
           "response": [
             {
-              "id": "c7096540-87d6-4904-af7f-231d33da2bda",
-              "name": "Configuration deleted.",
+              "id": "a5c27a1d-0170-4bdf-a8b0-625c7c5c01f7",
+              "name": "Ingestion resumed.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "archiving"
+                    "ingestion",
+                    "resume"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -319,11 +283,11 @@
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "DELETE",
+                "method": "POST",
                 "body": {}
               },
-              "status": "No Content",
-              "code": 204,
+              "status": "OK",
+              "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
@@ -362,8 +326,8 @@
     ]
   },
   "info": {
-    "_postman_id": "1d320804-60ed-4c18-bc83-2330d1541b0c",
-    "name": "Mezmo Alerts Archiving API",
+    "_postman_id": "f11e2e09-149d-49d4-acc9-f7ac5f198b83",
+    "name": "Mezmo Alerts Archiving Suspension API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",

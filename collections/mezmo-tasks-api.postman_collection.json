@@ -1,91 +1,65 @@
 {
   "item": [
     {
-      "id": "19415257-f76c-47f3-a2b6-9d630c225253",
-      "name": "Usage",
+      "id": "f862e2f7-6e61-4e6d-8bd3-91ddcc5d2480",
+      "name": "Tasks",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "b338be0d-68c2-4bae-a726-865140e97fa7",
-          "name": "Get Usage By Type",
+          "id": "318637da-5533-45a6-9833-aee2efa94d8b",
+          "name": "List Pending Tasks",
           "request": {
-            "name": "Get Usage By Type",
+            "name": "List Pending Tasks",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "usage",
-                ":type"
+                "edge",
+                "clients",
+                ":clientId",
+                "tasks"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "from",
-                  "value": "<long>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "to",
-                  "value": "<long>",
-                  "description": "(Required) "
-                }
-              ],
+              "query": [],
               "variable": [
                 {
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "type",
+                  "key": "clientId",
                   "description": "(Required) "
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "f6586bc9-3a80-4b00-aca1-8ded27edac73",
-              "name": "Usage rollup by resource.",
+              "id": "42149cf6-0c5d-4987-a4f5-bed39a799e0d",
+              "name": "Pending tasks for the edge client.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "usage",
-                    ":type"
+                    "edge",
+                    "clients",
+                    ":clientId",
+                    "tasks"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "from",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "to",
-                      "value": "<long>"
-                    }
-                  ],
+                  "query": [],
                   "variable": [
                     {
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "type",
+                      "key": "clientId",
                       "description": "(Required) "
                     }
                   ]
@@ -98,10 +72,6 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
                 "method": "GET",
@@ -112,12 +82,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "[\n  {\n    \"name\": \"string\",\n    \"bytes\": 9395,\n    \"lines\": 6018,\n    \"from\": 3152,\n    \"to\": 3070\n  },\n  {\n    \"name\": \"string\",\n    \"bytes\": 7073,\n    \"lines\": 797,\n    \"from\": 4121,\n    \"to\": 5877\n  }\n]",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -126,71 +96,93 @@
           }
         },
         {
-          "id": "8f136138-26b6-416a-8e04-4040dd647020",
-          "name": "Get Detailed Usage",
+          "id": "3766786d-a2a6-4d4d-9ae8-1d707eebb7b5",
+          "name": "Submit Task Result",
           "request": {
-            "name": "Get Detailed Usage",
+            "name": "Submit Task Result",
             "description": {},
             "url": {
               "path": [
-                "v2",
-                "usage"
+                "edge",
+                "clients",
+                ":clientId",
+                "tasks",
+                ":taskId",
+                "result"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
+              "query": [],
+              "variable": [
                 {
                   "disabled": false,
-                  "key": "from",
-                  "value": "<long>",
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
                   "description": "(Required) "
                 },
                 {
                   "disabled": false,
-                  "key": "to",
-                  "value": "<long>",
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskId",
                   "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "groupby",
-                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "method": "GET",
-            "auth": null
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 6381.283749715638,\n  \"key_1\": 3389.3444247984407\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "e6411190-0d12-4ed7-b689-d392e326f2c0",
-              "name": "Detailed usage rollup with byte and line counts.",
+              "id": "350c2f06-d234-4a1a-8cfd-fd5837132947",
+              "name": "Result accepted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v2",
-                    "usage"
+                    "edge",
+                    "clients",
+                    ":clientId",
+                    "tasks",
+                    ":taskId",
+                    "result"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
+                  "query": [],
+                  "variable": [
                     {
-                      "key": "from",
-                      "value": "<long>"
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) "
                     },
                     {
-                      "key": "to",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "groupby",
-                      "value": "<string>"
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskId",
+                      "description": "(Required) "
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
                 "header": [
                   {
@@ -202,8 +194,16 @@
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\",\n  \"key_1\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
               "status": "OK",
               "code": 200,
@@ -245,8 +245,8 @@
     ]
   },
   "info": {
-    "_postman_id": "68fbb257-59e1-48bd-b46f-1a3c0c4814f1",
-    "name": "Mezmo Alerts Archiving Usage API",
+    "_postman_id": "1096a8eb-8d65-4f19-ba58-9d3bbabc35b8",
+    "name": "Mezmo Alerts Archiving Tasks API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",

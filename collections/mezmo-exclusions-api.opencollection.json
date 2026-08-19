@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Mezmo Alerts Archiving Views API",
+    "name": "Mezmo Alerts Archiving Exclusions API",
     "version": "1.0"
   },
   "request": {
@@ -13,65 +13,47 @@
   "items": [
     {
       "info": {
-        "name": "Views",
+        "name": "Exclusions",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Views",
+            "name": "List Exclusion Rules",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view"
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions"
           },
-          "docs": "List Views"
+          "docs": "List Exclusion Rules"
         },
         {
           "info": {
-            "name": "Create View",
+            "name": "Create Exclusion Rule",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.mezmo.com/v1/config/view",
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Create View"
+          "docs": "Create Exclusion Rule"
         },
         {
           "info": {
-            "name": "Get View",
+            "name": "Update Exclusion Rule",
             "type": "http"
           },
           "http": {
-            "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "method": "PATCH",
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions/:ruleid",
             "params": [
               {
-                "name": "viewid",
-                "value": "",
-                "type": "path"
-              }
-            ]
-          },
-          "docs": "Get View"
-        },
-        {
-          "info": {
-            "name": "Update View",
-            "type": "http"
-          },
-          "http": {
-            "method": "PUT",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
-            "params": [
-              {
-                "name": "viewid",
+                "name": "ruleid",
                 "value": "",
                 "type": "path"
               }
@@ -81,25 +63,25 @@
               "data": "{}"
             }
           },
-          "docs": "Update View"
+          "docs": "Update Exclusion Rule"
         },
         {
           "info": {
-            "name": "Delete View",
+            "name": "Delete Exclusion Rule",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/v1/config/ingestion/exclusions/:ruleid",
             "params": [
               {
-                "name": "viewid",
+                "name": "ruleid",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Delete View"
+          "docs": "Delete Exclusion Rule"
         }
       ]
     }

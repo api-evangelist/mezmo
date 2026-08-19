@@ -1,204 +1,24 @@
 {
   "item": [
     {
-      "id": "e37d9693-1f5a-4f40-9447-d148d7bb4c9e",
-      "name": "Views",
+      "id": "e7445680-96b1-4eef-8589-26bbeed7be01",
+      "name": "Sources",
       "description": {
-        "content": "Saved view management",
+        "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "8cc67c63-7365-4009-9ad6-2d2a14a2d467",
-          "name": "List Views",
+          "id": "ff4e964a-e4bb-4767-9340-b7039991b697",
+          "name": "List Sources",
           "request": {
-            "name": "List Views",
+            "name": "List Sources",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "config",
-                "view"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c18166de-a988-49a5-a86b-c3afc0136ad9",
-              "name": "List of views.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v1",
-                    "config",
-                    "view"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"query\": \"string\",\n    \"hosts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"apps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"levels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewid\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"query\": \"string\",\n    \"hosts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"apps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"levels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewid\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fa19e613-d637-42f6-af8c-5085af404b6d",
-          "name": "Create View",
-          "request": {
-            "name": "Create View",
-            "description": {},
-            "url": {
-              "path": [
-                "v1",
-                "config",
-                "view"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "9fee6c4f-4d57-45d2-84c5-aced9a38c4c0",
-              "name": "View created.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v1",
-                    "config",
-                    "view"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"viewid\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7f373c80-9e9e-4acb-be32-2c223b9aa727",
-          "name": "Get View",
-          "request": {
-            "name": "Get View",
-            "description": {},
-            "url": {
-              "path": [
-                "v1",
-                "config",
-                "view",
-                ":viewid"
+                "pipelines",
+                ":pipelineId",
+                "sources"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -209,31 +29,24 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "viewid",
+                  "key": "pipelineId",
                   "description": "(Required) "
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "6ce1d8cb-1671-42e9-92b4-72048e3ed893",
-              "name": "View details.",
+              "id": "766df051-2e54-48df-865d-f2b62e6e68a8",
+              "name": "Sources for the pipeline.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "config",
-                    "view",
-                    ":viewid"
+                    "pipelines",
+                    ":pipelineId",
+                    "sources"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -244,7 +57,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "viewid",
+                      "key": "pipelineId",
                       "description": "(Required) "
                     }
                   ]
@@ -257,10 +70,6 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
                 "method": "GET",
@@ -271,12 +80,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"viewid\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -285,17 +94,16 @@
           }
         },
         {
-          "id": "cdb2c7cb-54fe-4f68-a529-e9c13d32792e",
-          "name": "Update View",
+          "id": "151f86f7-f347-48df-b135-918e92092554",
+          "name": "Create Source",
           "request": {
-            "name": "Update View",
+            "name": "Create Source",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "config",
-                "view",
-                ":viewid"
+                "pipelines",
+                ":pipelineId",
+                "sources"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -306,7 +114,224 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "viewid",
+                  "key": "pipelineId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"key_0\": 346.87546000221613,\n    \"key_1\": 7780.046681695214\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc356eea-8e88-4a42-9f78-63814fb72119",
+              "name": "Source created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    ":pipelineId",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"key_0\": 8262\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d4f5ff6-99d2-4f99-b20c-b69acb700f64",
+          "name": "Get Source",
+          "request": {
+            "name": "Get Source",
+            "description": {},
+            "url": {
+              "path": [
+                "pipelines",
+                ":pipelineId",
+                "sources",
+                ":nodeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pipelineId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "nodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54b19d97-1bd9-4b1e-9ad4-a9fe0720d507",
+              "name": "Source details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    ":pipelineId",
+                    "sources",
+                    ":nodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "nodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b04dc305-069c-4f1e-bebe-5625aa8c6cf8",
+          "name": "Update Source",
+          "request": {
+            "name": "Update Source",
+            "description": {},
+            "url": {
+              "path": [
+                "pipelines",
+                ":pipelineId",
+                "sources",
+                ":nodeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pipelineId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "nodeId",
                   "description": "(Required) "
                 }
               ]
@@ -321,7 +346,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"key_0\": 5457.501099095401\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -331,15 +356,15 @@
           },
           "response": [
             {
-              "id": "b0823e86-0cd5-4452-bf78-84c430dda08c",
-              "name": "View updated.",
+              "id": "36d1231b-19da-41a5-8e5d-9969c0e819d7",
+              "name": "Source updated.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "config",
-                    "view",
-                    ":viewid"
+                    "pipelines",
+                    ":pipelineId",
+                    "sources",
+                    ":nodeId"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -350,7 +375,14 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "viewid",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "nodeId",
                       "description": "(Required) "
                     }
                   ]
@@ -368,7 +400,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": {\n    \"key_0\": 8262\n  },\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -395,17 +427,17 @@
           }
         },
         {
-          "id": "53e20677-0504-4bf1-ab87-0fa48a97b4a6",
-          "name": "Delete View",
+          "id": "511b6a56-78ca-4f4e-b56d-1f336f02a133",
+          "name": "Delete Source",
           "request": {
-            "name": "Delete View",
+            "name": "Delete Source",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "config",
-                "view",
-                ":viewid"
+                "pipelines",
+                ":pipelineId",
+                "sources",
+                ":nodeId"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -416,7 +448,14 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "viewid",
+                  "key": "pipelineId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "nodeId",
                   "description": "(Required) "
                 }
               ]
@@ -426,15 +465,15 @@
           },
           "response": [
             {
-              "id": "98a83bbd-83fd-428e-809a-a982d2fe4ddf",
-              "name": "View deleted.",
+              "id": "710d8e1b-4d8a-4ec7-ae24-db00b81e8c77",
+              "name": "Source deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "config",
-                    "view",
-                    ":viewid"
+                    "pipelines",
+                    ":pipelineId",
+                    "sources",
+                    ":nodeId"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -445,7 +484,14 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "viewid",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "nodeId",
                       "description": "(Required) "
                     }
                   ]
@@ -503,8 +549,8 @@
     ]
   },
   "info": {
-    "_postman_id": "82cd3136-cf84-4def-8fe7-d5b588211088",
-    "name": "Mezmo Alerts Archiving Views API",
+    "_postman_id": "9e12debd-8e11-4347-9bbd-990681a36a36",
+    "name": "Mezmo Alerts Archiving Sources API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",

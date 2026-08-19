@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Mezmo Alerts Archiving Views API",
+    "name": "Mezmo Alerts Archiving PresetAlerts API",
     "version": "1.0"
   },
   "request": {
@@ -13,65 +13,65 @@
   "items": [
     {
       "info": {
-        "name": "Views",
+        "name": "PresetAlerts",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Views",
+            "name": "List Preset Alerts",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view"
+            "url": "https://api.mezmo.com/v1/config/presetalert"
           },
-          "docs": "List Views"
+          "docs": "List Preset Alerts"
         },
         {
           "info": {
-            "name": "Create View",
+            "name": "Create Preset Alert",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.mezmo.com/v1/config/view",
+            "url": "https://api.mezmo.com/v1/config/presetalert",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Create View"
+          "docs": "Create Preset Alert"
         },
         {
           "info": {
-            "name": "Get View",
+            "name": "Get Preset Alert",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/v1/config/presetalert/:presetid",
             "params": [
               {
-                "name": "viewid",
+                "name": "presetid",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Get View"
+          "docs": "Get Preset Alert"
         },
         {
           "info": {
-            "name": "Update View",
+            "name": "Update Preset Alert",
             "type": "http"
           },
           "http": {
             "method": "PUT",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/v1/config/presetalert/:presetid",
             "params": [
               {
-                "name": "viewid",
+                "name": "presetid",
                 "value": "",
                 "type": "path"
               }
@@ -81,25 +81,25 @@
               "data": "{}"
             }
           },
-          "docs": "Update View"
+          "docs": "Update Preset Alert"
         },
         {
           "info": {
-            "name": "Delete View",
+            "name": "Delete Preset Alert",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.mezmo.com/v1/config/view/:viewid",
+            "url": "https://api.mezmo.com/v1/config/presetalert/:presetid",
             "params": [
               {
-                "name": "viewid",
+                "name": "presetid",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Delete View"
+          "docs": "Delete Preset Alert"
         }
       ]
     }

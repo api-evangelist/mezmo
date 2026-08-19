@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mezmo Alerts Archiving Processors API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Processors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Processors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId/processors",
+            "params": [
+              {
+                "name": "pipelineId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Processors"
+        },
+        {
+          "info": {
+            "name": "Create Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId/processors",
+            "params": [
+              {
+                "name": "pipelineId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Processor"
+        },
+        {
+          "info": {
+            "name": "Get Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId/processors/:nodeId",
+            "params": [
+              {
+                "name": "pipelineId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Processor"
+        },
+        {
+          "info": {
+            "name": "Update Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId/processors/:nodeId",
+            "params": [
+              {
+                "name": "pipelineId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Processor"
+        },
+        {
+          "info": {
+            "name": "Delete Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mezmo.com/pipelines/:pipelineId/processors/:nodeId",
+            "params": [
+              {
+                "name": "pipelineId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Processor"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

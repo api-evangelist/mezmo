@@ -1,24 +1,23 @@
 {
   "item": [
     {
-      "id": "73e81956-6451-46c0-a3ed-ce6fc2a10597",
-      "name": "Archiving",
+      "id": "6e44a262-deec-47d2-9090-e0c4643e0b4a",
+      "name": "EdgeClients",
       "description": {
-        "content": "Cold storage configuration",
+        "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "94e2b650-45b0-456e-a1a0-bbdc554017d0",
-          "name": "Get Archive Configuration",
+          "id": "1256701b-2ddd-41ce-8373-cd77a01895cb",
+          "name": "List Edge Clients",
           "request": {
-            "name": "Get Archive Configuration",
+            "name": "List Edge Clients",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "config",
-                "archiving"
+                "edge",
+                "clients"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -26,25 +25,18 @@
               "query": [],
               "variable": []
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "721ea3bf-68fb-4a70-8a63-0941e3eadd05",
-              "name": "Current archiving configuration.",
+              "id": "a19895a8-be8f-4767-bdc9-67db8cb375fd",
+              "name": "Registered edge clients.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "config",
-                    "archiving"
+                    "edge",
+                    "clients"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -60,10 +52,6 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
                 "method": "GET",
@@ -74,12 +62,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"integration\": \"azblob\",\n  \"bucket\": \"string\",\n  \"endpoint\": \"string\",\n  \"region\": \"string\",\n  \"accesskey\": \"string\",\n  \"secretkey\": \"string\",\n  \"container\": \"string\",\n  \"apikey\": \"string\",\n  \"resourceinstanceid\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -88,16 +76,15 @@
           }
         },
         {
-          "id": "c7f950be-abdf-431b-831e-179f2e66b99d",
-          "name": "Create Archive Configuration",
+          "id": "cd38d296-46d9-4d43-a894-40f14d51ee76",
+          "name": "Register Edge Client",
           "request": {
-            "name": "Create Archive Configuration",
+            "name": "Register Edge Client",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "config",
-                "archiving"
+                "edge",
+                "clients"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -115,7 +102,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+              "raw": "{\n  \"clientId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -125,14 +112,13 @@
           },
           "response": [
             {
-              "id": "0de219ee-0970-420c-a130-6884a34e0943",
-              "name": "Configuration created.",
+              "id": "994be3d7-721a-493d-8d0f-d4b271b29bad",
+              "name": "Client registered.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "config",
-                    "archiving"
+                    "edge",
+                    "clients"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -153,7 +139,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
+                  "raw": "{\n  \"clientId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -180,57 +166,58 @@
           }
         },
         {
-          "id": "4ee860da-349f-445f-a1fb-3ff5ae0c922b",
-          "name": "Update Archive Configuration",
+          "id": "cba37134-47e6-4872-a622-0cca3d510573",
+          "name": "Get Edge Client",
           "request": {
-            "name": "Update Archive Configuration",
+            "name": "Get Edge Client",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "config",
-                "archiving"
+                "edge",
+                "clients",
+                ":clientId"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
+                  "description": "(Required) "
                 }
-              }
-            }
+              ]
+            },
+            "method": "GET",
+            "auth": null
           },
           "response": [
             {
-              "id": "c3b7fb9f-d8cb-4446-8083-973646dfc77b",
-              "name": "Configuration updated.",
+              "id": "6620d642-3506-409c-aadf-b2174b932128",
+              "name": "Edge client details.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "config",
-                    "archiving"
+                    "edge",
+                    "clients",
+                    ":clientId"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) "
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -242,16 +229,8 @@
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"integration\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accesskey\": \"<string>\",\n  \"secretkey\": \"<string>\",\n  \"container\": \"<string>\",\n  \"apikey\": \"<string>\",\n  \"resourceinstanceid\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "method": "GET",
+                "body": {}
               },
               "status": "OK",
               "code": 200,
@@ -272,42 +251,58 @@
           }
         },
         {
-          "id": "0eb89d8d-d880-4c44-b939-092c6e01154d",
-          "name": "Delete Archive Configuration",
+          "id": "9b55ba2e-8ed5-4df1-a95a-c4862fe64310",
+          "name": "Deregister Edge Client",
           "request": {
-            "name": "Delete Archive Configuration",
+            "name": "Deregister Edge Client",
             "description": {},
             "url": {
               "path": [
-                "v1",
-                "config",
-                "archiving"
+                "edge",
+                "clients",
+                ":clientId"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
+                  "description": "(Required) "
+                }
+              ]
             },
             "method": "DELETE",
             "auth": null
           },
           "response": [
             {
-              "id": "c7096540-87d6-4904-af7f-231d33da2bda",
-              "name": "Configuration deleted.",
+              "id": "972a4c2b-8dea-48c6-8837-3ed78183692a",
+              "name": "Client deregistered.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "v1",
-                    "config",
-                    "archiving"
+                    "edge",
+                    "clients",
+                    ":clientId"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) "
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -362,8 +357,8 @@
     ]
   },
   "info": {
-    "_postman_id": "1d320804-60ed-4c18-bc83-2330d1541b0c",
-    "name": "Mezmo Alerts Archiving API",
+    "_postman_id": "9b29d9c7-5a78-4b61-b237-974653577598",
+    "name": "Mezmo Alerts Archiving EdgeClients API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",

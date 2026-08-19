@@ -1,24 +1,24 @@
 {
   "item": [
     {
-      "id": "e37d9693-1f5a-4f40-9447-d148d7bb4c9e",
-      "name": "Views",
+      "id": "c4665ca2-4057-454a-abde-5a2bc280d7e6",
+      "name": "PresetAlerts",
       "description": {
-        "content": "Saved view management",
+        "content": "Preset alert configuration",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "8cc67c63-7365-4009-9ad6-2d2a14a2d467",
-          "name": "List Views",
+          "id": "196a266c-2309-487b-97cb-5ed6a0ece396",
+          "name": "List Preset Alerts",
           "request": {
-            "name": "List Views",
+            "name": "List Preset Alerts",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "view"
+                "presetalert"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -37,14 +37,14 @@
           },
           "response": [
             {
-              "id": "c18166de-a988-49a5-a86b-c3afc0136ad9",
-              "name": "List of views.",
+              "id": "1a1be5fe-a70d-4871-9c0f-26329329335d",
+              "name": "List of preset alerts.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "view"
+                    "presetalert"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -77,7 +77,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"query\": \"string\",\n    \"hosts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"apps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"levels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewid\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"query\": \"string\",\n    \"hosts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"apps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"levels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewid\": \"string\"\n  }\n]",
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"channels\": [\n      {\n        \"integration\": \"webhook\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": false,\n        \"operator\": \"string\",\n        \"terminal\": false\n      },\n      {\n        \"integration\": \"pagerduty\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": true,\n        \"operator\": \"string\",\n        \"terminal\": true\n      }\n    ],\n    \"triggerinterval\": \"string\",\n    \"triggerlimit\": 3486,\n    \"triggermatchingall\": false,\n    \"operator\": \"absence\",\n    \"presetid\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"channels\": [\n      {\n        \"integration\": \"slack\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": false,\n        \"operator\": \"string\",\n        \"terminal\": false\n      },\n      {\n        \"integration\": \"opsgenie\",\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ],\n        \"url\": \"string\",\n        \"key\": \"string\",\n        \"immediate\": false,\n        \"operator\": \"string\",\n        \"terminal\": false\n      }\n    ],\n    \"triggerinterval\": \"string\",\n    \"triggerlimit\": 3206,\n    \"triggermatchingall\": true,\n    \"operator\": \"absence\",\n    \"presetid\": \"string\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -88,16 +88,16 @@
           }
         },
         {
-          "id": "fa19e613-d637-42f6-af8c-5085af404b6d",
-          "name": "Create View",
+          "id": "933be059-3bac-4b56-b4c8-7bfa606253ef",
+          "name": "Create Preset Alert",
           "request": {
-            "name": "Create View",
+            "name": "Create Preset Alert",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "view"
+                "presetalert"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -109,17 +109,13 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
               }
             ],
             "method": "POST",
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -129,14 +125,14 @@
           },
           "response": [
             {
-              "id": "9fee6c4f-4d57-45d2-84c5-aced9a38c4c0",
-              "name": "View created.",
+              "id": "1a036dfb-6561-4265-b1f6-39fe02f5ea71",
+              "name": "Alert created.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "view"
+                    "presetalert"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -152,16 +148,12 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -174,12 +166,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"viewid\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -188,17 +180,17 @@
           }
         },
         {
-          "id": "7f373c80-9e9e-4acb-be32-2c223b9aa727",
-          "name": "Get View",
+          "id": "fd0a8238-fac3-4ab1-9b55-309620e13753",
+          "name": "Get Preset Alert",
           "request": {
-            "name": "Get View",
+            "name": "Get Preset Alert",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "view",
-                ":viewid"
+                "presetalert",
+                ":presetid"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -209,31 +201,25 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "viewid",
+                  "key": "presetid",
                   "description": "(Required) "
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "6ce1d8cb-1671-42e9-92b4-72048e3ed893",
-              "name": "View details.",
+              "id": "7b302a61-2aaf-4d70-9121-6d13c13d99f4",
+              "name": "Alert details.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "view",
-                    ":viewid"
+                    "presetalert",
+                    ":presetid"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -244,7 +230,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "viewid",
+                      "key": "presetid",
                       "description": "(Required) "
                     }
                   ]
@@ -257,10 +243,6 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
                 "method": "GET",
@@ -271,12 +253,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"viewid\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -285,17 +267,17 @@
           }
         },
         {
-          "id": "cdb2c7cb-54fe-4f68-a529-e9c13d32792e",
-          "name": "Update View",
+          "id": "381c9133-0162-42b4-890a-604d8dad61dd",
+          "name": "Update Preset Alert",
           "request": {
-            "name": "Update View",
+            "name": "Update Preset Alert",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "view",
-                ":viewid"
+                "presetalert",
+                ":presetid"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -306,7 +288,7 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "viewid",
+                  "key": "presetid",
                   "description": "(Required) "
                 }
               ]
@@ -321,7 +303,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -331,15 +313,15 @@
           },
           "response": [
             {
-              "id": "b0823e86-0cd5-4452-bf78-84c430dda08c",
-              "name": "View updated.",
+              "id": "155250df-ffd3-4b0f-8f59-a35770e44734",
+              "name": "Alert updated.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "view",
-                    ":viewid"
+                    "presetalert",
+                    ":presetid"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -350,7 +332,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "viewid",
+                      "key": "presetid",
                       "description": "(Required) "
                     }
                   ]
@@ -368,7 +350,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"query\": \"<string>\",\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"apps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"levels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"channels\": [\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    },\n    {\n      \"integration\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"key\": \"<string>\",\n      \"immediate\": \"<boolean>\",\n      \"operator\": \"<string>\",\n      \"terminal\": \"<boolean>\"\n    }\n  ],\n  \"triggerinterval\": \"<string>\",\n  \"triggerlimit\": \"<integer>\",\n  \"triggermatchingall\": \"<boolean>\",\n  \"operator\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -395,17 +377,17 @@
           }
         },
         {
-          "id": "53e20677-0504-4bf1-ab87-0fa48a97b4a6",
-          "name": "Delete View",
+          "id": "b6ba616d-4e68-4f3c-9826-08c69b03c534",
+          "name": "Delete Preset Alert",
           "request": {
-            "name": "Delete View",
+            "name": "Delete Preset Alert",
             "description": {},
             "url": {
               "path": [
                 "v1",
                 "config",
-                "view",
-                ":viewid"
+                "presetalert",
+                ":presetid"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -416,7 +398,7 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "viewid",
+                  "key": "presetid",
                   "description": "(Required) "
                 }
               ]
@@ -426,15 +408,15 @@
           },
           "response": [
             {
-              "id": "98a83bbd-83fd-428e-809a-a982d2fe4ddf",
-              "name": "View deleted.",
+              "id": "f40feefb-e93a-413e-aec4-4134de223030",
+              "name": "Alert deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v1",
                     "config",
-                    "view",
-                    ":viewid"
+                    "presetalert",
+                    ":presetid"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -445,7 +427,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "viewid",
+                      "key": "presetid",
                       "description": "(Required) "
                     }
                   ]
@@ -503,8 +485,8 @@
     ]
   },
   "info": {
-    "_postman_id": "82cd3136-cf84-4def-8fe7-d5b588211088",
-    "name": "Mezmo Alerts Archiving Views API",
+    "_postman_id": "51043b94-5ba0-47c8-b219-acb3cd0dba15",
+    "name": "Mezmo Alerts Archiving PresetAlerts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence\ntriggers, frequency, count thresholds, and notification channels (PagerDuty,\nSlack, webhook, email) that views attach to.\n",
