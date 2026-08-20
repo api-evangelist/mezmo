@@ -53,6 +53,11 @@ apis:
 - aid: mezmo:mezmo-agent
   name: Mezmo Agent (logdna-agent-v2)
   tags:
+  - Agents
+  - SDK
+  - Open-Source
+  - Logs
+  tags_raw:
   - Agent
   - SDK
   - Open Source
@@ -69,6 +74,12 @@ apis:
 - aid: mezmo:mezmo-aura
   name: AURA Agent Framework
   tags:
+  - Artificial Intelligence
+  - Agents
+  - Open-Source
+  - MCP
+  - SRE
+  tags_raw:
   - AI
   - Agents
   - Open Source
@@ -90,6 +101,8 @@ apis:
   description: The AuditEvents API from Mezmo — 1 operation(s) for auditevents.
   humanURL: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
   tags:
+  - Audit Events
+  tags_raw:
   - AuditEvents
   properties:
   - type: OpenAPI
@@ -136,6 +149,8 @@ apis:
   description: The Deployments API from Mezmo — 2 operation(s) for deployments.
   humanURL: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
   tags:
+  - Deployment
+  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
@@ -435,6 +450,8 @@ apis:
   description: The Tasks API from Mezmo — 2 operation(s) for tasks.
   humanURL: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
@@ -455,6 +472,16 @@ apis:
     url: https://docs.mezmo.com/pipeline-api/reference/edge
 name: Mezmo
 tags:
+  - Observability
+  - Logs
+  - Telemetry
+  - Telemetry Pipeline
+  - Log Management
+  - Artificial Intelligence
+  - SRE
+  - OpenTelemetry
+  - DevOps
+tags_raw:
   - Observability
   - Logs
   - Telemetry
