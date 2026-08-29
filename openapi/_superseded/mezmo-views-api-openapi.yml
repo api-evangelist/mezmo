@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Mezmo Alerts Archiving Views API
   description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
@@ -96,13 +96,6 @@ components:
       schema:
         type: string
   schemas:
-    View:
-      allOf:
-      - $ref: '#/components/schemas/ViewInput'
-      - type: object
-        properties:
-          viewid:
-            type: string
     ViewInput:
       type: object
       required:
@@ -129,6 +122,13 @@ components:
         tags:
           type: array
           items:
+            type: string
+    View:
+      allOf:
+      - $ref: '#/components/schemas/ViewInput'
+      - type: object
+        properties:
+          viewid:
             type: string
   securitySchemes:
     AccessToken:

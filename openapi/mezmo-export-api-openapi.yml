@@ -1,16 +1,20 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mezmo Alerts Archiving Export API
-  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+  title: Mezmo Log Export API
+  description: 'Query and export logs from the Mezmo log analysis platform. V2 supports
 
-    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+    pagination and is recommended for unbounded exports. V1 is preserved for
 
-    Slack, webhook, email) that views attach to.
+    backward compatibility and is plan-limited.
 
     '
-  version: '1.0'
+  version: '2.0'
+  contact:
+    name: Mezmo
+    url: https://www.mezmo.com/
 servers:
 - url: https://api.mezmo.com
+  description: Production API
 security:
 - AccessToken: []
 tags:
@@ -70,12 +74,26 @@ paths:
                 $ref: '#/components/schemas/ExportPage'
 components:
   parameters:
-    Apps:
-      name: apps
+    Levels:
+      name: levels
       in: query
       schema:
         type: string
-      description: Comma-separated app names.
+      description: Comma-separated log levels.
+    Hosts:
+      name: hosts
+      in: query
+      schema:
+        type: string
+      description: Comma-separated hostnames.
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Start of the export window (unix epoch milliseconds).
     Query:
       name: query
       in: query
@@ -96,26 +114,12 @@ components:
       schema:
         type: string
       description: Comma-separated tags.
-    From:
-      name: from
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int64
-      description: Start of the export window (unix epoch milliseconds).
-    Levels:
-      name: levels
+    Apps:
+      name: apps
       in: query
       schema:
         type: string
-      description: Comma-separated log levels.
-    Hosts:
-      name: hosts
-      in: query
-      schema:
-        type: string
-      description: Comma-separated hostnames.
+      description: Comma-separated app names.
   schemas:
     ExportPage:
       type: object

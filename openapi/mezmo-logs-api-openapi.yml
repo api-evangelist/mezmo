@@ -1,18 +1,26 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mezmo Alerts Archiving Logs API
-  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+  title: Mezmo Log Ingestion Logs API
+  description: 'Ingest log lines into the Mezmo log analysis platform (formerly LogDNA).
 
-    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+    Lines are sent in batched JSON to logs.mezmo.com/logs/ingest with metadata
 
-    Slack, webhook, email) that views attach to.
+    including hostname, app, env, mac, ip, level, and arbitrary structured meta.
 
     '
   version: '1.0'
+  contact:
+    name: Mezmo
+    url: https://www.mezmo.com/
+  license:
+    name: Proprietary
+    url: https://www.mezmo.com/legal/master-services-agreement
 servers:
-- url: https://api.mezmo.com
+- url: https://logs.mezmo.com
+  description: Production ingestion endpoint
 security:
 - AccessToken: []
+- ServiceKey: []
 tags:
 - name: Logs
   description: Log line ingestion
@@ -83,15 +91,6 @@ paths:
           description: Batch payload too large.
 components:
   schemas:
-    IngestBatch:
-      type: object
-      required:
-      - lines
-      properties:
-        lines:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogLine'
     LogLine:
       type: object
       required:
@@ -117,6 +116,15 @@ components:
           type: object
           description: Free-form structured metadata.
           additionalProperties: true
+    IngestBatch:
+      type: object
+      required:
+      - lines
+      properties:
+        lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogLine'
     IngestAck:
       type: object
       properties:
@@ -128,3 +136,9 @@ components:
     AccessToken:
       type: http
       scheme: bearer
+      description: 'Authorization: Token {ACCESS_TOKEN}'
+    ServiceKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Deprecated service key in Authorization header.

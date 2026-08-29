@@ -1,11 +1,11 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mezmo Alerts Archiving Exclusions API
-  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+  title: Mezmo Ingestion Control Exclusions API
+  description: 'Manage exclusion rules that drop log lines before they hit storage, and
 
-    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+    suspend/resume ingestion for an account. Suspension uses a two-step
 
-    Slack, webhook, email) that views attach to.
+    confirmation to protect against accidental cutoff.
 
     '
   version: '1.0'

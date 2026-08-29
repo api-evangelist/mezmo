@@ -1,18 +1,18 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mezmo Alerts Archiving EdgeClients API
-  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+  title: Mezmo Edge Edge Clients API
+  description: 'Edge / local deployment surface for Mezmo Pipelines. Self-hosted pipeline
 
-    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+    instances poll the control plane for configuration, send heartbeats, accept
 
-    Slack, webhook, email) that views attach to.
+    tasks, and report results.
 
     '
-  version: '1.0'
+  version: v3
 servers:
-- url: https://api.mezmo.com
+- url: https://api.mezmo.com/v3
 security:
-- AccessToken: []
+- PipelineServiceKey: []
 tags:
 - name: EdgeClients
 paths:
@@ -78,6 +78,6 @@ components:
           additionalProperties:
             type: string
   securitySchemes:
-    AccessToken:
+    PipelineServiceKey:
       type: http
       scheme: bearer

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mezmo Alerts Archiving PresetAlerts API
+  title: Mezmo Alerts Preset Alerts API
   description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
 
     triggers, frequency, count thresholds, and notification channels (PagerDuty,
@@ -85,34 +85,6 @@ paths:
           description: Alert deleted.
 components:
   schemas:
-    AlertChannel:
-      type: object
-      required:
-      - integration
-      properties:
-        integration:
-          type: string
-          enum:
-          - email
-          - slack
-          - pagerduty
-          - webhook
-          - opsgenie
-          - victorops
-        emails:
-          type: array
-          items:
-            type: string
-        url:
-          type: string
-        key:
-          type: string
-        immediate:
-          type: boolean
-        operator:
-          type: string
-        terminal:
-          type: boolean
     PresetAlert:
       allOf:
       - $ref: '#/components/schemas/PresetAlertInput'
@@ -144,6 +116,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AlertChannel'
+    AlertChannel:
+      type: object
+      required:
+      - integration
+      properties:
+        integration:
+          type: string
+          enum:
+          - email
+          - slack
+          - pagerduty
+          - webhook
+          - opsgenie
+          - victorops
+        emails:
+          type: array
+          items:
+            type: string
+        url:
+          type: string
+        key:
+          type: string
+        immediate:
+          type: boolean
+        operator:
+          type: string
+        terminal:
+          type: boolean
   securitySchemes:
     AccessToken:
       type: http

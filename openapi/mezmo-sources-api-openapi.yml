@@ -1,18 +1,22 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mezmo Alerts Archiving Sources API
-  description: 'Manage Mezmo preset alerts. Preset alerts encapsulate presence or absence
+  title: Mezmo Pipeline Sources API
+  description: 'Programmatic CRUD over Mezmo Telemetry Pipelines. Manage pipelines, sources,
 
-    triggers, frequency, count thresholds, and notification channels (PagerDuty,
+    processors, destinations, deployments, audit events, and account-wide
 
-    Slack, webhook, email) that views attach to.
+    metrics. Backs the Mezmo CLI, Terraform provider, and MCP server.
 
     '
-  version: '1.0'
+  version: v3
+  contact:
+    name: Mezmo
+    url: https://www.mezmo.com/
 servers:
-- url: https://api.mezmo.com
+- url: https://api.mezmo.com/v3
+  description: Production Pipeline API
 security:
-- AccessToken: []
+- PipelineServiceKey: []
 tags:
 - name: Sources
 paths:
@@ -76,19 +80,6 @@ paths:
         '204':
           description: Source deleted.
 components:
-  parameters:
-    NodeId:
-      name: nodeId
-      in: path
-      required: true
-      schema:
-        type: string
-    PipelineId:
-      name: pipelineId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     PipelineNodeInput:
       type: object
@@ -108,7 +99,21 @@ components:
           type: array
           items:
             type: string
+  parameters:
+    PipelineId:
+      name: pipelineId
+      in: path
+      required: true
+      schema:
+        type: string
+    NodeId:
+      name: nodeId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
-    AccessToken:
+    PipelineServiceKey:
       type: http
       scheme: bearer
+      description: 'Authorization: Token {PIPELINE_SERVICE_KEY}'
