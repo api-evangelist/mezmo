@@ -1,55 +1,6 @@
 aid: mezmo
 url: https://raw.githubusercontent.com/api-evangelist/mezmo/refs/heads/main/apis.yml
 apis:
-- aid: mezmo:mezmo-views-api
-  name: Mezmo Views API
-  tags:
-  - Logs
-  - Views
-  - Saved Searches
-  - Observability
-  humanURL: https://docs.mezmo.com/log-analysis-api/reference/views
-  properties:
-  - url: https://docs.mezmo.com/log-analysis-api/reference/views
-    type: Documentation
-  - url: openapi/mezmo-views-api-openapi.yml
-    type: OpenAPI
-  description: >-
-    Manage Mezmo log Views via /v1/config/view. Views are saved query definitions over hosts, apps, levels,
-    tags, and free-text filters and are the unit alerts attach to.
-- aid: mezmo:mezmo-archiving-api
-  name: Mezmo Archiving API
-  tags:
-  - Archiving
-  - Logs
-  - Storage
-  - Compliance
-  humanURL: https://docs.mezmo.com/log-analysis-api/reference/archiving
-  properties:
-  - url: https://docs.mezmo.com/log-analysis-api/reference/archiving
-    type: Documentation
-  - url: openapi/mezmo-archiving-api-openapi.yml
-    type: OpenAPI
-  description: >-
-    Configure cold-storage archiving via /v1/config/archiving. Supports S3, GCS, Azure Blob, IBM COS,
-    and DigitalOcean Spaces destinations for long-term retention beyond plan limits.
-- aid: mezmo:mezmo-usage-api
-  name: Mezmo Usage API
-  tags:
-  - Usage
-  - Billing
-  - Reporting
-  - FinOps
-  humanURL: https://docs.mezmo.com/log-analysis-api/reference/usage
-  properties:
-  - url: https://docs.mezmo.com/log-analysis-api/reference/usage
-    type: Documentation
-  - url: openapi/mezmo-usage-api-openapi.yml
-    type: OpenAPI
-  description: >-
-    Query log usage by app, host, or tag via /v1/usage/{type} and detailed byte-based consumption via
-    /v2/usage. Used for chargeback, anomaly detection, and capacity planning against ingestion contract
-    volumes.
 - aid: mezmo:mezmo-agent
   name: Mezmo Agent (logdna-agent-v2)
   tags:
@@ -492,6 +443,19 @@ tags_raw:
   - OpenTelemetry
   - DevOps
 kind: company
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
