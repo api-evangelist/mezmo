@@ -52,7 +52,7 @@ apis:
   description: The AuditEvents API from Mezmo — 1 operation(s) for auditevents.
   humanURL: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
   tags:
-  - AuditEvents
+  - Audit Events
   tags_raw:
   - AuditEvents
   properties:
