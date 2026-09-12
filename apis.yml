@@ -473,6 +473,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mezmo.png
 access: 3rd-Party
 common:
+  - type: Website
+    url: https://www.mezmo.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/mezmo/overview
   - type: AgenticAccess
