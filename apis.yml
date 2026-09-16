@@ -19,9 +19,8 @@ apis:
     type: SourceCode
   - url: https://docs.mezmo.com/docs/mezmo-agent
     type: Documentation
-  description: >-
-    Open-source Rust log collection agent (logdna-agent-v2). Tails files, journald, and Kubernetes pod
-    logs and ships to Mezmo's ingestion endpoint. MIT-licensed.
+  description: Open-source Rust log collection agent (logdna-agent-v2). Tails files, journald, and Kubernetes
+    pod logs and ships to Mezmo's ingestion endpoint. MIT-licensed.
 - aid: mezmo:mezmo-aura
   name: AURA Agent Framework
   tags:
@@ -42,11 +41,10 @@ apis:
     type: SourceCode
   - url: https://www.mezmo.com/
     type: Documentation
-  description: >-
-    Mezmo's open-source agentic orchestration framework. Apache 2.0 Rust framework for composing AI agents
-    from declarative TOML config, with MCP tool integration, RAG pipelines (Qdrant, Bedrock KB), and an
-    OpenAI-compatible web API. LLM-agnostic (OpenAI, Anthropic, Bedrock, Gemini, Ollama). Backs Mezmo's
-    AI SRE and root-cause-analysis workflows.
+  description: Mezmo's open-source agentic orchestration framework. Apache 2.0 Rust framework for composing
+    AI agents from declarative TOML config, with MCP tool integration, RAG pipelines (Qdrant, Bedrock
+    KB), and an OpenAI-compatible web API. LLM-agnostic (OpenAI, Anthropic, Bedrock, Gemini, Ollama).
+    Backs Mezmo's AI SRE and root-cause-analysis workflows.
 - aid: mezmo:mezmo-auditevents-api
   name: Mezmo AuditEvents API
   description: The AuditEvents API from Mezmo — 1 operation(s) for auditevents.
@@ -423,25 +421,25 @@ apis:
     url: https://docs.mezmo.com/pipeline-api/reference/edge
 name: Mezmo
 tags:
-  - Observability
-  - Logs
-  - Telemetry
-  - Telemetry Pipeline
-  - Log Management
-  - Artificial Intelligence
-  - SRE
-  - OpenTelemetry
-  - DevOps
+- Observability
+- Logs
+- Telemetry
+- Telemetry Pipeline
+- Log Management
+- Artificial Intelligence
+- SRE
+- OpenTelemetry
+- DevOps
 tags_raw:
-  - Observability
-  - Logs
-  - Telemetry
-  - Telemetry Pipeline
-  - Log Management
-  - AI
-  - SRE
-  - OpenTelemetry
-  - DevOps
+- Observability
+- Logs
+- Telemetry
+- Telemetry Pipeline
+- Log Management
+- AI
+- SRE
+- OpenTelemetry
+- DevOps
 kind: company
 deliveryModel:
   model: unknown
@@ -473,101 +471,104 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mezmo.png
 access: 3rd-Party
 common:
-  - type: Website
-    url: https://www.mezmo.com/
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/mezmo/overview
-  - type: AgenticAccess
-    url: agentic-access/mezmo-agentic-access.yml
-  - type: TrustCenter
-    url: security/mezmo-trust-center.yml
-  - type: DomainSecurity
-    url: security/mezmo-domain-security.yml
-  - type: Authentication
-    url: authentication/mezmo-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/mezmo
-  - url: https://www.mezmo.com/
-    name: Mezmo
-    type: Portal
-  - url: https://docs.mezmo.com/
-    name: Mezmo Docs
-    type: Documentation
-  - url: https://docs.mezmo.com/log-analysis-api
-    name: Log Analysis API Reference
-    type: Documentation
-  - url: https://docs.mezmo.com/pipeline-api
-    name: Pipeline API Reference
-    type: Documentation
-  - url: https://status.mezmo.com/
-    name: Mezmo Status
-    type: StatusPage
-  - url: https://www.mezmo.com/changelog
-    name: Mezmo Changelog
-    type: ChangeLog
-  - url: https://www.mezmo.com/blog
-    name: Mezmo Blog
-    type: Blog
-  - url: https://github.com/mezmo
-    name: Mezmo GitHub
-    type: SourceCode
-  - url: https://github.com/logdna
-    name: LogDNA GitHub (legacy)
-    type: SourceCode
-  - url: https://github.com/mezmo/cli
-    name: Mezmo CLI
-    type: CLI
-  - url: https://registry.terraform.io/providers/mezmo/mezmo/latest
-    name: Terraform Provider for Mezmo
-    type: SDKs
-  - url: https://github.com/logdna/terraform-provider-logdna
-    name: Terraform Provider for LogDNA (legacy)
-    type: SDKs
-  - url: https://github.com/logdna/logdna-agent-v2
-    name: Mezmo Agent (logdna-agent-v2)
-    type: SDKs
-  - url: https://github.com/logdna/nodejs
-    name: LogDNA Node.js SDK
-    type: SDKs
-  - url: https://github.com/logdna/python
-    name: LogDNA Python SDK
-    type: SDKs
-  - url: https://github.com/logdna/logdna-rust
-    name: LogDNA Rust SDK
-    type: SDKs
-  - url: https://github.com/mezmo/mezmo-mcp
-    name: Mezmo MCP Server
-    type: MCPServer
-  - url: https://github.com/mezmo/aura
-    name: AURA — Agentic Framework
-    type: SourceCode
-  - url: https://github.com/mezmo/helm-charts
-    name: Mezmo Helm Charts
-    type: SDKs
-  - url: https://www.mezmo.com/pricing
-    name: Mezmo Pricing
-    type: Pricing
-  - url: plans/mezmo-plans-pricing.yml
-    name: Plans (API Commons)
-    type: Plans
-  - url: rate-limits/mezmo-rate-limits.yml
-    name: Rate Limits (API Commons)
-    type: RateLimits
-  - url: finops/mezmo-finops.yml
-    name: FinOps Surface
-    type: FinOps
-  - url: vocabulary/mezmo-vocabulary.yml
-    name: Mezmo Vocabulary
-    type: Vocabulary
-  - url: rules/mezmo-rules.yml
-    name: Mezmo Spectral Ruleset
-    type: SpectralRuleset
-  - url: json-ld/mezmo-context.jsonld
-    name: Mezmo JSON-LD Context
-    type: JSONLD
+- type: Website
+  url: https://www.mezmo.com/
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/mezmo/overview
+- type: AgenticAccess
+  url: agentic-access/mezmo-agentic-access.yml
+- type: TrustCenter
+  url: security/mezmo-trust-center.yml
+- type: DomainSecurity
+  url: security/mezmo-domain-security.yml
+- type: Authentication
+  url: authentication/mezmo-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/mezmo
+- url: https://www.mezmo.com/
+  name: Mezmo
+  type: Portal
+- url: https://docs.mezmo.com/
+  name: Mezmo Docs
+  type: Documentation
+- url: https://docs.mezmo.com/log-analysis-api
+  name: Log Analysis API Reference
+  type: Documentation
+- url: https://docs.mezmo.com/pipeline-api
+  name: Pipeline API Reference
+  type: Documentation
+- url: https://status.mezmo.com/
+  name: Mezmo Status
+  type: StatusPage
+- url: https://www.mezmo.com/changelog
+  name: Mezmo Changelog
+  type: ChangeLog
+- url: https://www.mezmo.com/blog
+  name: Mezmo Blog
+  type: Blog
+- url: https://github.com/mezmo
+  name: Mezmo GitHub
+  type: SourceCode
+- url: https://github.com/logdna
+  name: LogDNA GitHub (legacy)
+  type: SourceCode
+- url: https://github.com/mezmo/cli
+  name: Mezmo CLI
+  type: CLI
+- url: https://registry.terraform.io/providers/mezmo/mezmo/latest
+  name: Terraform Provider for Mezmo
+  type: SDKs
+- url: https://github.com/logdna/terraform-provider-logdna
+  name: Terraform Provider for LogDNA (legacy)
+  type: SDKs
+- url: https://github.com/logdna/logdna-agent-v2
+  name: Mezmo Agent (logdna-agent-v2)
+  type: SDKs
+- url: https://github.com/logdna/nodejs
+  name: LogDNA Node.js SDK
+  type: SDKs
+- url: https://github.com/logdna/python
+  name: LogDNA Python SDK
+  type: SDKs
+- url: https://github.com/logdna/logdna-rust
+  name: LogDNA Rust SDK
+  type: SDKs
+- url: https://github.com/mezmo/mezmo-mcp
+  name: Mezmo MCP Server
+  type: MCPServer
+- url: https://github.com/mezmo/aura
+  name: AURA — Agentic Framework
+  type: SourceCode
+- url: https://github.com/mezmo/helm-charts
+  name: Mezmo Helm Charts
+  type: SDKs
+- url: https://www.mezmo.com/pricing
+  name: Mezmo Pricing
+  type: Pricing
+- url: plans/mezmo-plans-pricing.yml
+  name: Plans (API Commons)
+  type: Plans
+- url: rate-limits/mezmo-rate-limits.yml
+  name: Rate Limits (API Commons)
+  type: RateLimits
+- url: finops/mezmo-finops.yml
+  name: FinOps Surface
+  type: FinOps
+- url: vocabulary/mezmo-vocabulary.yml
+  name: Mezmo Vocabulary
+  type: Vocabulary
+- url: rules/mezmo-rules.yml
+  name: Mezmo Spectral Ruleset
+  type: SpectralRuleset
+- url: json-ld/mezmo-context.jsonld
+  name: Mezmo JSON-LD Context
+  type: JSONLD
 maintainers:
-  - FN: API Evangelist
-    email: info@apievangelist.com
+- FN: API Evangelist
+  email: info@apievangelist.com
 created: '2026-05-25'
-modified: '2026-05-25'
+modified: '2026-09-15'
 specificationVersion: '0.23'
+description: Mezmo is an observability platform for logs and telemetry pipelines. Its API covers log ingestion
+  and export, telemetry pipelines and destinations, alerts, audit events, classification, deployments
+  and OpenTelemetry-based collection.
