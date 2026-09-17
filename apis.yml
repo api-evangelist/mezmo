@@ -19,8 +19,9 @@ apis:
     type: SourceCode
   - url: https://docs.mezmo.com/docs/mezmo-agent
     type: Documentation
-  description: Open-source Rust log collection agent (logdna-agent-v2). Tails files, journald, and Kubernetes
-    pod logs and ships to Mezmo's ingestion endpoint. MIT-licensed.
+  description: >-
+    Open-source Rust log collection agent (logdna-agent-v2). Tails files, journald, and Kubernetes pod
+    logs and ships to Mezmo's ingestion endpoint. MIT-licensed.
 - aid: mezmo:mezmo-aura
   name: AURA Agent Framework
   tags:
@@ -41,35 +42,11 @@ apis:
     type: SourceCode
   - url: https://www.mezmo.com/
     type: Documentation
-  description: Mezmo's open-source agentic orchestration framework. Apache 2.0 Rust framework for composing
-    AI agents from declarative TOML config, with MCP tool integration, RAG pipelines (Qdrant, Bedrock
-    KB), and an OpenAI-compatible web API. LLM-agnostic (OpenAI, Anthropic, Bedrock, Gemini, Ollama).
-    Backs Mezmo's AI SRE and root-cause-analysis workflows.
-- aid: mezmo:mezmo-auditevents-api
-  name: Mezmo AuditEvents API
-  description: The AuditEvents API from Mezmo — 1 operation(s) for auditevents.
-  humanURL: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
-  tags:
-  - Audit Events
-  tags_raw:
-  - AuditEvents
-  properties:
-  - type: OpenAPI
-    url: openapi/mezmo-auditevents-api-openapi.yml
-  - type: Documentation
-    url: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
-  - type: Documentation
-    url: https://docs.mezmo.com/log-analysis-api/reference/export
-  - type: Documentation
-    url: https://docs.mezmo.com/log-analysis-api/reference/alerts
-  - type: Documentation
-    url: https://docs.mezmo.com/log-analysis-api/reference/exclusions
-  - type: Documentation
-    url: https://docs.mezmo.com/pipeline-api
-  - type: Documentation
-    url: https://docs.mezmo.com/pipeline-api/reference/classification
-  - type: Documentation
-    url: https://docs.mezmo.com/pipeline-api/reference/edge
+  description: >-
+    Mezmo's open-source agentic orchestration framework. Apache 2.0 Rust framework for composing AI agents
+    from declarative TOML config, with MCP tool integration, RAG pipelines (Qdrant, Bedrock KB), and an
+    OpenAI-compatible web API. LLM-agnostic (OpenAI, Anthropic, Bedrock, Gemini, Ollama). Backs Mezmo's
+    AI SRE and root-cause-analysis workflows.
 - aid: mezmo:mezmo-classification-api
   name: Mezmo Classification API
   description: The Classification API from Mezmo — 3 operation(s) for classification.
@@ -405,6 +382,29 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/mezmo-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
+  - type: Documentation
+    url: https://docs.mezmo.com/log-analysis-api/reference/export
+  - type: Documentation
+    url: https://docs.mezmo.com/log-analysis-api/reference/alerts
+  - type: Documentation
+    url: https://docs.mezmo.com/log-analysis-api/reference/exclusions
+  - type: Documentation
+    url: https://docs.mezmo.com/pipeline-api
+  - type: Documentation
+    url: https://docs.mezmo.com/pipeline-api/reference/classification
+  - type: Documentation
+    url: https://docs.mezmo.com/pipeline-api/reference/edge
+- aid: mezmo:mezmo-audit-events-api
+  name: Mezmo Audit Events API
+  description: The Audit Events API from Mezmo — 1 operation(s) for audit events.
+  humanURL: https://github.com/logdna/logdna-agent-v2
+  tags:
+  - Audit Events
+  properties:
+  - type: OpenAPI
+    url: openapi/mezmo-audit-events-api-openapi.yml
   - type: Documentation
     url: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
   - type: Documentation
