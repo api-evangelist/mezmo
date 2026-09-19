@@ -100,6 +100,8 @@ apis:
   description: The Destinations API from Mezmo — 2 operation(s) for destinations.
   humanURL: https://docs.mezmo.com/log-analysis-api/reference/log-ingestion-api
   tags:
+  - Destination
+  tags_raw:
   - Destinations
   properties:
   - type: OpenAPI
