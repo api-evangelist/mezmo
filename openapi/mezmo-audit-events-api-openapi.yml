@@ -5,9 +5,7 @@ info:
 
     processors, destinations, deployments, audit events, and account-wide
 
-    metrics. Backs the Mezmo CLI, Terraform provider, and MCP server.
-
-    '
+    metrics. Backs the Mezmo CLI, Terraform provider, and MCP server.'
   version: v3
   contact:
     name: Mezmo
@@ -18,14 +16,14 @@ servers:
 security:
 - PipelineServiceKey: []
 tags:
-- name: AuditEvents
+- name: Audit Events
 paths:
   /pipelines/{pipelineId}/audit:
     parameters:
     - $ref: '#/components/parameters/PipelineId'
     get:
       tags:
-      - AuditEvents
+      - Audit Events
       summary: List Audit Events
       operationId: listAuditEvents
       responses:

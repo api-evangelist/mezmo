@@ -5,9 +5,7 @@ info:
 
     processors, destinations, deployments, audit events, and account-wide
 
-    metrics. Backs the Mezmo CLI, Terraform provider, and MCP server.
-
-    '
+    metrics. Backs the Mezmo CLI, Terraform provider, and MCP server.'
   version: v3
   contact:
     name: Mezmo

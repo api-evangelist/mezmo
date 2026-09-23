@@ -5,9 +5,7 @@ info:
 
     suspend/resume ingestion for an account. Suspension uses a two-step
 
-    confirmation to protect against accidental cutoff.
-
-    '
+    confirmation to protect against accidental cutoff.'
   version: '1.0'
 servers:
 - url: https://api.mezmo.com

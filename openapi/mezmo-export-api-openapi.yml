@@ -5,9 +5,7 @@ info:
 
     pagination and is recommended for unbounded exports. V1 is preserved for
 
-    backward compatibility and is plan-limited.
-
-    '
+    backward compatibility and is plan-limited.'
   version: '2.0'
   contact:
     name: Mezmo
@@ -80,6 +78,32 @@ components:
       schema:
         type: string
       description: Comma-separated log levels.
+    Query:
+      name: query
+      in: query
+      schema:
+        type: string
+      description: Free-text search expression.
+    Apps:
+      name: apps
+      in: query
+      schema:
+        type: string
+      description: Comma-separated app names.
+    Tags:
+      name: tags
+      in: query
+      schema:
+        type: string
+      description: Comma-separated tags.
+    To:
+      name: to
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: End of the export window (unix epoch milliseconds).
     Hosts:
       name: hosts
       in: query
@@ -94,32 +118,6 @@ components:
         type: integer
         format: int64
       description: Start of the export window (unix epoch milliseconds).
-    Query:
-      name: query
-      in: query
-      schema:
-        type: string
-      description: Free-text search expression.
-    To:
-      name: to
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int64
-      description: End of the export window (unix epoch milliseconds).
-    Tags:
-      name: tags
-      in: query
-      schema:
-        type: string
-      description: Comma-separated tags.
-    Apps:
-      name: apps
-      in: query
-      schema:
-        type: string
-      description: Comma-separated app names.
   schemas:
     ExportPage:
       type: object

@@ -5,9 +5,7 @@ info:
 
     regex generation against pipeline samples. Used inside the Mezmo Pipelines
 
-    authoring workflow to accelerate parser and processor configuration.
-
-    '
+    authoring workflow to accelerate parser and processor configuration.'
   version: v3
 servers:
 - url: https://api.mezmo.com/v3

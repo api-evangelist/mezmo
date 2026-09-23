@@ -5,9 +5,7 @@ info:
 
     instances poll the control plane for configuration, send heartbeats, accept
 
-    tasks, and report results.
-
-    '
+    tasks, and report results.'
   version: v3
 servers:
 - url: https://api.mezmo.com/v3

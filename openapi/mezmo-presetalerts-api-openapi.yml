@@ -5,9 +5,7 @@ info:
 
     triggers, frequency, count thresholds, and notification channels (PagerDuty,
 
-    Slack, webhook, email) that views attach to.
-
-    '
+    Slack, webhook, email) that views attach to.'
   version: '1.0'
 servers:
 - url: https://api.mezmo.com
@@ -85,37 +83,6 @@ paths:
           description: Alert deleted.
 components:
   schemas:
-    PresetAlert:
-      allOf:
-      - $ref: '#/components/schemas/PresetAlertInput'
-      - type: object
-        properties:
-          presetid:
-            type: string
-    PresetAlertInput:
-      type: object
-      required:
-      - name
-      - channels
-      properties:
-        name:
-          type: string
-        triggerinterval:
-          type: string
-          description: Window over which to evaluate the trigger.
-        triggerlimit:
-          type: integer
-        triggermatchingall:
-          type: boolean
-        operator:
-          type: string
-          enum:
-          - presence
-          - absence
-        channels:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertChannel'
     AlertChannel:
       type: object
       required:
@@ -144,6 +111,37 @@ components:
           type: string
         terminal:
           type: boolean
+    PresetAlertInput:
+      type: object
+      required:
+      - name
+      - channels
+      properties:
+        name:
+          type: string
+        triggerinterval:
+          type: string
+          description: Window over which to evaluate the trigger.
+        triggerlimit:
+          type: integer
+        triggermatchingall:
+          type: boolean
+        operator:
+          type: string
+          enum:
+          - presence
+          - absence
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertChannel'
+    PresetAlert:
+      allOf:
+      - $ref: '#/components/schemas/PresetAlertInput'
+      - type: object
+        properties:
+          presetid:
+            type: string
   securitySchemes:
     AccessToken:
       type: http

@@ -27,7 +27,9 @@
     "mezmo-sources-api-openapi.yml",
     "mezmo-classification-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -38,11 +40,12 @@
     "mezmo-log-export-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "mezmo-log-ingestion-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "mezmo-pipeline-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "mezmo-pipeline-classification-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0"
+    "mezmo-pipeline-classification-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "superseded outputs removed: mezmo-audit-events-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 18 total)"
   ],
   "skipped": [
-    "mezmo-archiving-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "mezmo-auditevents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mezmo-audit-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mezmo-classification-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mezmo-deployments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mezmo-destinations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -57,8 +60,6 @@
     "mezmo-processors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mezmo-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mezmo-suspension-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "mezmo-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "mezmo-usage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "mezmo-views-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "mezmo-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

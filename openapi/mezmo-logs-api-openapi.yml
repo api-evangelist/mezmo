@@ -5,9 +5,7 @@ info:
 
     Lines are sent in batched JSON to logs.mezmo.com/logs/ingest with metadata
 
-    including hostname, app, env, mac, ip, level, and arbitrary structured meta.
-
-    '
+    including hostname, app, env, mac, ip, level, and arbitrary structured meta.'
   version: '1.0'
   contact:
     name: Mezmo
@@ -34,9 +32,7 @@ paths:
 
         body, app, level, env, and free-form meta. Recommended batch size is
 
-        under 10 MB per request.
-
-        '
+        under 10 MB per request.'
       operationId: ingestLogs
       parameters:
       - name: hostname
@@ -91,6 +87,22 @@ paths:
           description: Batch payload too large.
 components:
   schemas:
+    IngestAck:
+      type: object
+      properties:
+        status:
+          type: string
+        batchID:
+          type: string
+    IngestBatch:
+      type: object
+      required:
+      - lines
+      properties:
+        lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogLine'
     LogLine:
       type: object
       required:
@@ -116,22 +128,6 @@ components:
           type: object
           description: Free-form structured metadata.
           additionalProperties: true
-    IngestBatch:
-      type: object
-      required:
-      - lines
-      properties:
-        lines:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogLine'
-    IngestAck:
-      type: object
-      properties:
-        status:
-          type: string
-        batchID:
-          type: string
   securitySchemes:
     AccessToken:
       type: http
