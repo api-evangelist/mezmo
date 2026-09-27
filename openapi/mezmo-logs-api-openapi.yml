@@ -87,22 +87,6 @@ paths:
           description: Batch payload too large.
 components:
   schemas:
-    IngestAck:
-      type: object
-      properties:
-        status:
-          type: string
-        batchID:
-          type: string
-    IngestBatch:
-      type: object
-      required:
-      - lines
-      properties:
-        lines:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogLine'
     LogLine:
       type: object
       required:
@@ -128,6 +112,22 @@ components:
           type: object
           description: Free-form structured metadata.
           additionalProperties: true
+    IngestAck:
+      type: object
+      properties:
+        status:
+          type: string
+        batchID:
+          type: string
+    IngestBatch:
+      type: object
+      required:
+      - lines
+      properties:
+        lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogLine'
   securitySchemes:
     AccessToken:
       type: http

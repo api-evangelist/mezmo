@@ -78,6 +78,19 @@ paths:
         '204':
           description: Processor deleted.
 components:
+  parameters:
+    NodeId:
+      name: nodeId
+      in: path
+      required: true
+      schema:
+        type: string
+    PipelineId:
+      name: pipelineId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     PipelineNodeInput:
       type: object
@@ -97,19 +110,6 @@ components:
           type: array
           items:
             type: string
-  parameters:
-    PipelineId:
-      name: pipelineId
-      in: path
-      required: true
-      schema:
-        type: string
-    NodeId:
-      name: nodeId
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     PipelineServiceKey:
       type: http

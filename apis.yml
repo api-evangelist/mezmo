@@ -6,13 +6,14 @@ apis:
   tags:
   - Agents
   - SDK
-  - Open-Source
+  - Open Source
   - Logs
   tags_raw:
   - Agent
   - SDK
   - Open Source
   - Logs
+  - Open-Source
   humanURL: https://github.com/logdna/logdna-agent-v2
   properties:
   - url: https://github.com/logdna/logdna-agent-v2
@@ -27,7 +28,7 @@ apis:
   tags:
   - Artificial Intelligence
   - Agents
-  - Open-Source
+  - Open Source
   - MCP
   - SRE
   tags_raw:
@@ -36,6 +37,7 @@ apis:
   - Open Source
   - MCP
   - SRE
+  - Open-Source
   humanURL: https://github.com/mezmo/aura
   properties:
   - url: https://github.com/mezmo/aura
@@ -444,17 +446,21 @@ tags_raw:
 - DevOps
 kind: company
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - logdna/logdna-agent-v2
+    - mezmo/aura
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
