@@ -101,6 +101,19 @@ paths:
           description: Health status of the pipeline.
 components:
   schemas:
+    PipelineInput:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        sharedSources:
+          type: array
+          items:
+            type: string
     Pipeline:
       allOf:
       - $ref: '#/components/schemas/PipelineInput'
@@ -122,19 +135,6 @@ components:
             - draft
             - published
             - errored
-    PipelineInput:
-      type: object
-      required:
-      - title
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        sharedSources:
-          type: array
-          items:
-            type: string
   parameters:
     PipelineId:
       name: pipelineId

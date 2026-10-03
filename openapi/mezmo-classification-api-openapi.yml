@@ -68,17 +68,6 @@ paths:
           description: Generated regex.
 components:
   schemas:
-    SampleRequest:
-      type: object
-      required:
-      - samples
-      properties:
-        samples:
-          type: array
-          items:
-            type: string
-        hint:
-          type: string
     Profile:
       type: object
       properties:
@@ -97,6 +86,17 @@ components:
                 type: array
                 items:
                   type: string
+    SampleRequest:
+      type: object
+      required:
+      - samples
+      properties:
+        samples:
+          type: array
+          items:
+            type: string
+        hint:
+          type: string
   securitySchemes:
     PipelineServiceKey:
       type: http
