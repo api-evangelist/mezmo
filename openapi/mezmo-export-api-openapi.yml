@@ -72,12 +72,6 @@ paths:
                 $ref: '#/components/schemas/ExportPage'
 components:
   parameters:
-    Tags:
-      name: tags
-      in: query
-      schema:
-        type: string
-      description: Comma-separated tags.
     From:
       name: from
       in: query
@@ -86,30 +80,30 @@ components:
         type: integer
         format: int64
       description: Start of the export window (unix epoch milliseconds).
+    Tags:
+      name: tags
+      in: query
+      schema:
+        type: string
+      description: Comma-separated tags.
     Hosts:
       name: hosts
       in: query
       schema:
         type: string
       description: Comma-separated hostnames.
-    Apps:
-      name: apps
-      in: query
-      schema:
-        type: string
-      description: Comma-separated app names.
-    Levels:
-      name: levels
-      in: query
-      schema:
-        type: string
-      description: Comma-separated log levels.
     Query:
       name: query
       in: query
       schema:
         type: string
       description: Free-text search expression.
+    Apps:
+      name: apps
+      in: query
+      schema:
+        type: string
+      description: Comma-separated app names.
     To:
       name: to
       in: query
@@ -118,6 +112,12 @@ components:
         type: integer
         format: int64
       description: End of the export window (unix epoch milliseconds).
+    Levels:
+      name: levels
+      in: query
+      schema:
+        type: string
+      description: Comma-separated log levels.
   schemas:
     ExportPage:
       type: object

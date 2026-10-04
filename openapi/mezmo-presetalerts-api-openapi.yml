@@ -83,30 +83,6 @@ paths:
           description: Alert deleted.
 components:
   schemas:
-    PresetAlertInput:
-      type: object
-      required:
-      - name
-      - channels
-      properties:
-        name:
-          type: string
-        triggerinterval:
-          type: string
-          description: Window over which to evaluate the trigger.
-        triggerlimit:
-          type: integer
-        triggermatchingall:
-          type: boolean
-        operator:
-          type: string
-          enum:
-          - presence
-          - absence
-        channels:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertChannel'
     AlertChannel:
       type: object
       required:
@@ -142,6 +118,30 @@ components:
         properties:
           presetid:
             type: string
+    PresetAlertInput:
+      type: object
+      required:
+      - name
+      - channels
+      properties:
+        name:
+          type: string
+        triggerinterval:
+          type: string
+          description: Window over which to evaluate the trigger.
+        triggerlimit:
+          type: integer
+        triggermatchingall:
+          type: boolean
+        operator:
+          type: string
+          enum:
+          - presence
+          - absence
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertChannel'
   securitySchemes:
     AccessToken:
       type: http
