@@ -79,14 +79,14 @@ paths:
           description: Source deleted.
 components:
   parameters:
-    NodeId:
-      name: nodeId
+    PipelineId:
+      name: pipelineId
       in: path
       required: true
       schema:
         type: string
-    PipelineId:
-      name: pipelineId
+    NodeId:
+      name: nodeId
       in: path
       required: true
       schema:

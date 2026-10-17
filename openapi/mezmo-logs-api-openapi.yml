@@ -87,13 +87,6 @@ paths:
           description: Batch payload too large.
 components:
   schemas:
-    IngestAck:
-      type: object
-      properties:
-        status:
-          type: string
-        batchID:
-          type: string
     LogLine:
       type: object
       required:
@@ -128,6 +121,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LogLine'
+    IngestAck:
+      type: object
+      properties:
+        status:
+          type: string
+        batchID:
+          type: string
   securitySchemes:
     AccessToken:
       type: http
