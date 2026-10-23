@@ -163,6 +163,23 @@ edges:
   category: infrastructure-as-code provider registry listing
   badges:
   - Verified publisher (GitHub domain-verified organization)
+- partner_name: Chef Software (chef-supermarket)
+  partner: chef-software
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: chef-supermarket
+  evidence: https://supermarket.chef.io/cookbooks/logdna
+  mirror_of: chef-software/integrations/chef-software-integration-edges.yml
+  apps:
+  - logdna
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Chef cookbook)
 generated: '2026-10-15'
 method: searched
 source:
@@ -183,3 +200,4 @@ checked:
 - opentofu/integrations/opentofu-integration-edges.yml
 - pulumi/integrations/pulumi-integration-edges.yml
 - terraform/integrations/terraform-integration-edges.yml
+- chef-software/integrations/chef-software-integration-edges.yml
